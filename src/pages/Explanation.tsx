@@ -13,11 +13,11 @@ export default function Explanation() {
       ></img>
       <div className="sm:min-h-[459px] gap-[19px] md:gap-[35px] px-[30px] sm:px-[113px] py-[33px] sm:py-[62px] flex flex-col items-center relative">
         <div className="sm:min-h-[126px] w-full flex flex-col md:flex-row justify-around">
-          {/** Less than small*/}
+          {/** Less than md*/}
           <div className="md:hidden flex justify-center">
             <img src={arrow} className="rotate-270 w-[19px] h-[40px]"></img>
           </div>
-          {/** Small and bigger sizes*/}
+          {/** md and bigger sizes*/}
           <img
             src={arrow}
             className="rotate-180 w-[36px] h-[76px] hidden md:inline"
@@ -29,7 +29,7 @@ export default function Explanation() {
             Automate complex workflows and <br />
             make better decisions
           </p>
-          {/** Small and bigger sizes*/}
+          {/** md and bigger sizes*/}
           <img
             src={arrow}
             className=" w-[36px] h-[76px] hidden md:inline"

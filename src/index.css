@@ -1,6 +1,7 @@
-@import url("./satoshi.css");
+@import url("/fonts/satoshi/satoshi.css");
+@import url("/fonts/nohemi/nohemi.css");
 @import "tailwindcss";
 
 :root {
-  background-color: #1e1e1e;
+  background-color: #000000;
 }

@@ -5,9 +5,12 @@ export default function HeroMessage() {
     <div className="relative z-10 min-h-[617px] gap-[10px] sm:px-[70px] py-[100px] relative w-full flex items-end">
       <div className="min-h-[221px] max-w-[calc(100%-159px)] ">
         <p
-          className="min-h-[128px] w-full text-[48px] sm:text-[64px] leading-[100%] text-[#FFFFFF]" // TODO: SHOULD BE NAOMI
+          className="min-h-[128px] w-full text-[48px] sm:text-[64px] leading-[100%] text-[#FFFFFF]"
+          style={{ fontFamily: "Nohemi-Thin" }}
         >
-          THE AI <br /> <b>ENTERPRISE</b> PLATFORM
+          THE <b style={{ fontFamily: "Nohemi-Regular" }}>AI</b>
+          <br />
+          <b style={{ fontFamily: "Nohemi-Regular" }}>ENTERPRISE</b> PLATFORM
         </p>
         <div className="h-[48px]"></div>
         <div className="h-[45px] w-[407px] gap-[20px] flex flex-col sm:flex-row sm:items-center">
