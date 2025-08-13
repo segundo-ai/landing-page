@@ -7,6 +7,7 @@ import { platformsWeAreExperts } from "./data/platformsWeAreExperts";
 import Squares from "./pages/Squares";
 import AboutUs from "./pages/AboutUs";
 import Process from "./pages/Process";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       >
         <FAQ />
       </div>
+      <Footer></Footer>
     </main>
   );
 }
