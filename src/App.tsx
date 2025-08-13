@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import { platformsWeAreExperts } from "./data/platformsWeAreExperts";
 import Squares from "./pages/Squares";
 import AboutUs from "./pages/AboutUs";
+import Process from "./pages/Process";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <AnimatedIconList iconList={platformsWeAreExperts}></AnimatedIconList>
       <Explanation></Explanation>
       <Squares></Squares>
+      <Process></Process>
       <AboutUs></AboutUs>
       <div
         className="p-[50px] "
