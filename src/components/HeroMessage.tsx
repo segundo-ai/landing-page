@@ -6,7 +6,7 @@ export default function HeroMessage() {
       <div className="min-h-[221px] max-w-[calc(100%-159px)] ">
         <p
           className="min-h-[128px] w-full text-[48px] sm:text-[64px] leading-[100%] text-[#FFFFFF]"
-          style={{ fontFamily: "Nohemi-Thin" }}
+          style={{ fontFamily: "Nohemi-ExtraLight" }}
         >
           THE <b style={{ fontFamily: "Nohemi-Regular" }}>AI</b>
           <br />

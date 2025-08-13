@@ -5,6 +5,7 @@ import Intro from "./pages/Intro";
 import Navbar from "./components/Navbar";
 import { platformsWeAreExperts } from "./data/platformsWeAreExperts";
 import Squares from "./pages/Squares";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AnimatedIconList iconList={platformsWeAreExperts}></AnimatedIconList>
       <Explanation></Explanation>
       <Squares></Squares>
+      <AboutUs></AboutUs>
       <div
         className="p-[50px] "
         style={{

@@ -62,13 +62,16 @@ const agents: AgentType[] = [
 
 export default function Squares() {
   return (
-    <section className="md:min-h-[724px] p-[10px] md:p-[50px]">
+    <section id="agents" className="md:min-h-[724px] p-[10px] md:p-[50px]">
       {/** On less than lg screens */}
       <div className="md:hidden flex flex-col gap-[15px]">
         <div className="grid grid-cols-2 grid-rows-2 pb-[10px] gap-[5px]">
           {agents.slice(0, 4).map((agent) => {
             return (
-              <div className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]">
+              <div
+                key={crypto.randomUUID()}
+                className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]"
+              >
                 <img src={agent.icon} className="size-[25px]"></img>
                 <div className="grid grid-rows-2 gap-[11px]">
                   <p
@@ -101,7 +104,10 @@ export default function Squares() {
         <div className="grid grid-cols-2 grid-rows-2 pb-[10px] gap-[5px]">
           {agents.slice(5).map((agent) => {
             return (
-              <div className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]">
+              <div
+                key={crypto.randomUUID()}
+                className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]"
+              >
                 <img src={agent.icon} className="size-[25px]"></img>
                 <div className="grid grid-rows-2 gap-[11px]">
                   <p
@@ -123,13 +129,13 @@ export default function Squares() {
         </div>
       </div>
       {/** On lg and bigger screens. There is a consideration on md vs lg screens on organizations and icon size. Otherwise it wouldn't fit*/}
-      <div className="hidden md:grid grid-cols-3 grid-rows-5 gap-[10px]">
+      <div className="hidden md:grid grid-cols-3 grid-rows-3 gap-[10px]">
         {agents.map((agent, index) => {
           if (index !== 4) {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="bg-[#131317] min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row"
+                className="rounded-[8px] bg-[#131317] min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row"
               >
                 <img
                   src={agent.icon}
@@ -155,7 +161,7 @@ export default function Squares() {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center"
+                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center"
               >
                 <img
                   src={agent.icon}
