@@ -10,7 +10,3 @@
 .animateScroll {
   animation: scroll 40s linear infinite;
 }
-
-.animateScroll:hover {
-  animation-play-state: paused;
-}

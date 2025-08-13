@@ -2,10 +2,10 @@ import arrow from "../assets/arrow.png";
 
 export default function HeroMessage() {
   return (
-    <div className="relative z-10 min-h-[617px] gap-[10px] sm:px-[70px] py-[100px] relative w-full flex items-end">
-      <div className="min-h-[221px] max-w-[calc(100%-159px)] ">
+    <div className="relative z-10 md:min-h-[617px] gap-[10px] md:px-[70px] py-[100px] w-full flex items-end">
+      <div className="min-h-[221px] max-w-[calc(100%-159px)]">
         <p
-          className="min-h-[128px] w-full text-[48px] sm:text-[64px] leading-[100%] text-[#FFFFFF]"
+          className="min-h-[128px] w-full text-[48px] md:text-[64px] leading-[100%] text-[#FFFFFF]"
           style={{ fontFamily: "Nohemi-ExtraLight" }}
         >
           THE <b style={{ fontFamily: "Nohemi-Regular" }}>AI</b>
@@ -13,7 +13,7 @@ export default function HeroMessage() {
           <b style={{ fontFamily: "Nohemi-Regular" }}>ENTERPRISE</b> PLATFORM
         </p>
         <div className="h-[48px]"></div>
-        <div className="h-[45px] w-[407px] gap-[20px] flex flex-col sm:flex-row sm:items-center">
+        <div className="h-[45px] md:w-[407px] gap-[20px] flex flex-col md:flex-row md:items-center">
           <p
             className="text-white w-[245px] text-[14px]"
             style={{ fontFamily: "Satoshi-Medium" }}
