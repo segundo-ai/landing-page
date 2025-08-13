@@ -1,8 +1,12 @@
+import arrow from "../assets/arrow.png";
+
 export default function HeroMessage() {
   return (
-    <div className="min-h-[617px] gap-[10px] sm:px-[70px] py-[100px] relative flex items-end">
-      <div className="min-h-[221px] w-[941px] max-w-[calc(100%-159px)] ">
-        <p className="min-h-[128px] w-full text-[48px] sm:text-[64px] leading-[100%] text-[#FFFFFF]">
+    <div className="relative z-10 min-h-[617px] gap-[10px] sm:px-[70px] py-[100px] relative w-full flex items-end">
+      <div className="min-h-[221px] max-w-[calc(100%-159px)] ">
+        <p
+          className="min-h-[128px] w-full text-[48px] sm:text-[64px] leading-[100%] text-[#FFFFFF]" // TODO: SHOULD BE NAOMI
+        >
           THE AI <br /> <b>ENTERPRISE</b> PLATFORM
         </p>
         <div className="h-[48px]"></div>
@@ -21,7 +25,10 @@ export default function HeroMessage() {
           </button>
         </div>
       </div>
-      <img className="hidden md:inline bg-white h-[335px] w-[159px] absolute right-0 top-1/2 -translate-y-1/2"></img>
+      <img
+        src={arrow}
+        className="hidden md:inline h-[335px] w-[159px] absolute right-0 top-1/2 -translate-y-1/2"
+      ></img>
     </div>
   );
 }
