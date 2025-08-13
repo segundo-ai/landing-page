@@ -67,7 +67,7 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-      <div className="md:h-[722px] flex flex-col md:flex-row gap-[15px] md:gap-[30px]">
+      <div className=" flex flex-col md:flex-row gap-[15px] md:gap-[30px]">
         {founders.map((founder) => {
           return (
             <div
