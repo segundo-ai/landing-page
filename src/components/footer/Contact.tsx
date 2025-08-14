@@ -36,7 +36,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="md:min-h-[422px] px-[30px] md:px-[104px] flex flex-col gap-[56px] md:gap-[104px] pt-[30px] md:pt-[100px] md:pb-[10px] md:grid md:grid-cols-2 items-center">
+    <div
+      id="contact"
+      className="md:min-h-[422px] px-[30px] md:px-[104px] flex flex-col gap-[56px] md:gap-[104px] pt-[30px] md:pt-[100px] md:pb-[10px] md:grid md:grid-cols-2 items-center"
+    >
       <div className="w-full md:w-auto flex flex-row justify-center">
         <div className="md:min-h-[312px] w-full md:w-[70%] flex flex-col gap-[27px] md:gap-[51px]">
           <p

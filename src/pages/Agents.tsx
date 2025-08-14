@@ -176,7 +176,7 @@ export default function Agents() {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center "
+                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
               >
                 <img
                   src={agent.icon}
