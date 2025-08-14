@@ -16,26 +16,17 @@ const navItems: NavItem[] = [
   { name: "Contact", path: "#contact" },
 ];
 
+function smoothScroll(e: React.MouseEvent, scrollTo: string) {
+  e.preventDefault();
+  const el = document.querySelector(scrollTo);
+  el?.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  useLayoutEffect(() => {
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = anchor.getAttribute("href");
-        if (targetId) {
-          const targetEl = document.querySelector(targetId);
-          if (targetEl) {
-            targetEl.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-      });
-    });
-  }, []);
 
   return (
     <div
@@ -49,6 +40,7 @@ export default function Navbar() {
         <a
           className="h-[16px] md:h-[32px] gap-[10px] flex flex-row items-center"
           href="#top"
+          onClick={(e) => smoothScroll(e, "#top")}
         >
           <img
             src={logo32}
@@ -66,7 +58,9 @@ export default function Navbar() {
           {navItems.map((item) => {
             return (
               <li key={crypto.randomUUID()}>
-                <a href={item.path}>{item.name}</a>
+                <a href={item.path} onClick={(e) => smoothScroll(e, item.path)}>
+                  {item.name}
+                </a>
               </li>
             );
           })}
@@ -88,9 +82,13 @@ export default function Navbar() {
           {navItems.map((item) => (
             <a
               key={crypto.randomUUID()}
-              href={item.path}
+              href={"javascript:void(0)"}
+              data-scroll={item.path}
               className="text-[#FBFBFB] text-center w-full text-base rounded-md"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                setIsMenuOpen(false);
+                smoothScroll(e, item.path);
+              }}
             >
               {item.name}
             </a>
