@@ -1,4 +1,5 @@
 import arrow from "../assets/arrow.png";
+import { smoothScroll } from "./Navbar";
 
 export default function HeroMessage() {
   return (
@@ -23,6 +24,7 @@ export default function HeroMessage() {
           <a
             href="#contact"
             className="w-[142px] text-[#0C0C10] p-[16px] bg-[#AEB9F2] rounded-[4px] h-full text-[14px] leading-[93%] text-center"
+            onClick={(e) => smoothScroll(e, "#contact")}
             style={{ fontFamily: "Satoshi-Medium" }}
           >
             BOOK A DEMO

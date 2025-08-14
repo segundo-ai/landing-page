@@ -11,7 +11,7 @@ export default function OrganizationInfo() {
   ];
 
   return (
-    <div className="animate-all duration-300 relative flex flex-col justify-end h-[218px] md:h-[408px] overflow-hidden pb-[50px]">
+    <div className="animate-all duration-300 relative flex flex-col justify-end h-[260px] md:h-[408px] overflow-hidden pb-[70px] md:pb-[50px]">
       <div className="absolute z-5 inset-0 bg-gradient-to-b from-[rgba(0,0,0,1)] from-0% to-[rgba(0,0,0,0)] to-50%"></div>
       <img
         src={bgCenterIlluminated}

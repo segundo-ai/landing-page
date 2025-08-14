@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import menuMaterial from "../assets/menu_material.svg";
 import logo32 from "../assets/logo_32_32.png";
 
@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
   { name: "Contact", path: "#contact" },
 ];
 
-function smoothScroll(e: React.MouseEvent, scrollTo: string) {
+export function smoothScroll(e: React.MouseEvent, scrollTo: string) {
   e.preventDefault();
   const el = document.querySelector(scrollTo);
   el?.scrollIntoView({ behavior: "smooth" });

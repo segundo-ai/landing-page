@@ -61,7 +61,7 @@ export default function Platform() {
             <div
               key={index}
               onClick={() => setOpenTab(index)}
-              className={`flex flex-row gap-[11px] lg:gap-[20px] ${
+              className={` flex flex-row gap-[11px] lg:gap-[20px] ${
                 openTab === index
                   ? "text-[#FBFBFB] lg:min-h-[250px] xl:min-h-[200px]"
                   : "text-[#ABABAB]"
@@ -75,7 +75,7 @@ export default function Platform() {
                   {index + 1}
                 </p>
               </div>
-              <div className="lg:gap-[10px] lg:flex lg:flex-col lg:justify-center h-fit lg:h-auto">
+              <div className="w-full lg:w-auto lg:gap-[10px] lg:flex lg:flex-col lg:justify-center h-fit lg:h-auto">
                 <p
                   className={`${
                     openTab === index
@@ -91,16 +91,27 @@ export default function Platform() {
                 </p>
                 <p
                   className={` ${
-                    openTab === index ? "block" : "hidden"
-                  } text-[10px] md:text-[18px] leading-[160%]`}
-                  style={{ fontFamily: "Satoshi-Light" }}
+                    openTab === index ? "max-h-96" : "max-h-0 overflow-hidden"
+                  }  text-[10px] md:text-[18px] leading-[160%]`}
+                  style={{
+                    fontFamily: "Satoshi-Light",
+                    transition: openTab === index ? "max-height 1s ease" : "",
+                  }}
                 >
                   {tab.description}
                 </p>
                 <img
                   className={`${
-                    openTab === index ? "block" : "hidden"
-                  } lg:hidden size-full rounded-[4px] my-[13px] lg:my-0 ml-[-13px] lg:ml-0`}
+                    openTab === index
+                      ? "max-h-96 my-[13px] "
+                      : "max-h-0 overflow-hidden"
+                  } lg:hidden size-full rounded-[4px] ml-[-13px]`}
+                  style={{
+                    transition:
+                      openTab === index
+                        ? "max-height 0.3s ease-in-out"
+                        : "0.3s ease-in-out",
+                  }}
                   src={tab.tabUrl}
                 ></img>
               </div>
