@@ -1,9 +1,16 @@
 import { useState } from "react";
 
+type State = "loading" | "success" | "error";
+const stateTextColor: Map<State, string> = new Map([
+  ["loading", "text-yellow-500"],
+  ["success", "text-green-500"],
+  ["error", "text-red-500"],
+]);
+
 export default function Contact() {
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
-  const [result, setResult] = useState<boolean | null>(null);
+  const [result, setResult] = useState<State | null>(null);
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormName(e.target.value);
   };
@@ -13,26 +20,32 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you would typically handle form submission, e.g., send data to an API
-    const response = await fetch("/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: formName,
-        email: formEmail,
-      }),
-    });
-    console.log(response);
-    if (!response || !response.ok) {
-      setResult(false);
+    try {
+      setResult("loading");
+      const response = await fetch(import.meta.env.VITE_CONTACT_REQUEST_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formName,
+          email: formEmail,
+        }),
+      });
+      if (!response || !response.ok) {
+        setResult("error");
+        return;
+      } else {
+        setResult("success");
+      }
+      // Reset form fields
+      setFormName("");
+      setFormEmail("");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setResult("error");
       return;
-    } else {
-      setResult(true);
     }
-    // Reset form fields
-    setFormName("");
-    setFormEmail("");
   };
 
   return (
@@ -117,10 +130,14 @@ export default function Contact() {
         </button>
         {result !== null && (
           <p
-            className={`${result ? "text-[#00FF00]" : "text-[#FF0000]"}
+            className={`${stateTextColor.get(result) || "text-red-500"}
            text-[7px] md:text-[14px] mt-2`}
           >
-            {result ? "Form submitted successfully!" : "Failed to submit form."}
+            {result === "loading"
+              ? "Submitting your form..."
+              : result === "success"
+              ? "Form submitted successfully!"
+              : "Failed to submit form."}
           </p>
         )}
       </form>
