@@ -147,7 +147,7 @@ export default function Agents() {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="rounded-[8px] bg-[#131317] min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
+                className="rounded-[8px] bg-[#131317] min-h-[190px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
               >
                 <div className="size-[56px] lg:size-[72px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[4px] aspect-1/1">
                   <img
@@ -176,7 +176,7 @@ export default function Agents() {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
+                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[190px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
               >
                 <img
                   src={agent.icon}

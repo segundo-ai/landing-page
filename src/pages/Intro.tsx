@@ -11,7 +11,7 @@ export default function Intro() {
         className="absolute top-0 left-0 min-w-full h-full object-cover z-0"
       >
         <source
-          src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/bereshit.webm"
+          src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.webm"
           type="video/mp4"
         />
         Your browser does not support the video tag.

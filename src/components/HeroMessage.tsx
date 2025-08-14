@@ -31,7 +31,7 @@ export default function HeroMessage() {
       </div>
       <img
         src={arrow}
-        className="hidden md:inline h-[335px] w-[159px] absolute right-0 top-1/2 -translate-y-1/2"
+        className="hidden md:block h-[335px] w-[159px] absolute right-0 top-1/2 -translate-y-1/2"
       ></img>
     </div>
   );
