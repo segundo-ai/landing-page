@@ -20,7 +20,7 @@ export default function AnimatedIconList({
         <div className={`flex ${styles.animateScroll}`}>
           {duplicatedIcons.map((icon, index) => (
             <div
-              key={index}
+              key={crypto.randomUUID()}
               className="flex-shrink-0 w-[215px] h-full flex items-center justify-center"
             >
               <div className="px-[20px] py-[15px] text-gray-500 font-medium text-lg whitespace-nowrap hover:text-gray-700 transition-colors duration-300">

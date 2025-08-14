@@ -60,7 +60,7 @@ const agents: AgentType[] = [
   },
 ];
 
-export default function Squares() {
+export default function Agents() {
   return (
     <section id="agents" className="md:min-h-[724px] p-[10px] md:p-[50px]">
       {/** On less than lg screens */}
@@ -135,7 +135,7 @@ export default function Squares() {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="rounded-[8px] bg-[#131317] min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row"
+                className="rounded-[8px] bg-[#131317] min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
               >
                 <img
                   src={agent.icon}
@@ -161,7 +161,7 @@ export default function Squares() {
             return (
               <div
                 key={crypto.randomUUID()}
-                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center"
+                className="rounded-[8px] bg-[#AEB9F2]/50 min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col items-center justify-center "
               >
                 <img
                   src={agent.icon}

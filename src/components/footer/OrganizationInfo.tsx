@@ -27,8 +27,8 @@ export default function OrganizationInfo() {
           className="gap-[8px] md:gap-[16px] text-[10px] md:text-[14px] leading-[24%] text-[#FFFFFF] flex flex-row"
           style={{ fontFamily: "Satoshi-Regular" }}
         >
-          {copyrightInfo.map((phrase) => {
-            return <p>{phrase}</p>;
+          {copyrightInfo.map((phrase, index) => {
+            return <p key={phrase + index}>{phrase}</p>;
           })}
         </div>
         <p

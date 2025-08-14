@@ -56,7 +56,7 @@ export default function Process() {
               return (
                 <div
                   key={crypto.randomUUID()}
-                  className="px-[11px] md:px-[20px] h-[97px] md:h-[454px] pt-[11px] md:pt-[20px] grid grid-cols-4 grid-rows-1 md:flex md:flex-col md:justify-between border-1 border-[#FBFBFB]/10 gap-[20px] md:gap-0"
+                  className="px-[11px] md:px-[20px] h-[97px] md:h-[454px] pt-[11px] md:pt-[20px] grid grid-cols-4 grid-rows-1 md:flex md:flex-col md:justify-between border-1 border-[#FBFBFB]/10 gap-[20px] md:gap-0 hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
                 >
                   <div className="col-start-2 row-start-1 col-span-3 md:min-w-auto flex md:flex-col xl:flex-row gap-[10px] md:gap-[20px]">
                     <img

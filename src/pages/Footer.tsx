@@ -1,6 +1,6 @@
-import OrganizationInfo from "../components/footer/organizationInfo";
+import OrganizationInfo from "../components/footer/OrganizationInfo";
 import pexels from "../assets/pexels.jpg";
-import SendMessage from "../components/footer/sendMessage";
+import Contact from "../components/footer/Contact";
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
           className="overflow-hidden h-[107px] md:h-[201px] w-full object-cover "
         ></img>
       </div>
-      <SendMessage></SendMessage>
+      <Contact></Contact>
       <OrganizationInfo></OrganizationInfo>
     </section>
   );

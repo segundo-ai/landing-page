@@ -34,7 +34,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative px-[15px] py-[27px] md:p-[50px] gap-[5px] md:gap-[10px] overflow-hidden"
+      className="relative px-[15px] py-[27px] md:p-[50px] gap-[5px] md:gap-[10px] overflow-hidden transition-all duration-300 ease-in-out"
     >
       {/** Only background aesthetics. */}
       <div className="absolute z-5 inset-0 bg-gradient-to-b from-[rgba(0,0,0,0)] from-0% to-[rgba(0,0,0,1)] to-100%"></div>
