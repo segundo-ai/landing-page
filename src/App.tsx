@@ -19,14 +19,7 @@ function App() {
       <Squares></Squares>
       <Process></Process>
       <AboutUs></AboutUs>
-      <div
-        className="p-[50px] "
-        style={{
-          backgroundPosition: "center 100%",
-        }}
-      >
-        <FAQ />
-      </div>
+      <FAQ />
       <Footer></Footer>
     </main>
   );

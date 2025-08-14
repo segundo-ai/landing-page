@@ -1,4 +1,5 @@
 import { useState } from "react";
+import bgCenterIlluminated from "../assets/bg-fading-to-center.jpg";
 
 export default function FAQ() {
   const [openItem, setOpenItem] = useState(0); // First item open by default
@@ -31,55 +32,60 @@ export default function FAQ() {
   };
 
   return (
-    <div className="bg-[#303040]/50 min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <h2
-          className="text-white text-center text-[59px]"
-          style={{ fontFamily: "Satoshi-Medium" }}
-        >
-          FAQS
-        </h2>
-
-        <div className="space-y-4">
-          {faqItems.map((item, index) => (
-            <div key={index} className="border-b border-gray-700">
-              <button
-                onClick={() => toggleItem(index)}
-                className="w-full text-left py-6 flex items-center justify-between text-white hover:text-gray-300 transition-colors duration-200"
-              >
-                <span className="text-lg font-light pr-4">{item.question}</span>
-                <div className="flex-shrink-0">
-                  <svg
-                    className={`w-5 h-5 transform transition-transform duration-200 ${
-                      openItem === index ? "rotate-45" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1}
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
+    <section
+      id="faq"
+      className="relative px-[15px] py-[27px] md:p-[50px] gap-[5px] md:gap-[10px] overflow-hidden"
+    >
+      {/** Only background aesthetics. */}
+      <div className="absolute z-5 inset-0 bg-gradient-to-b from-[rgba(0,0,0,0)] from-0% to-[rgba(0,0,0,1)] to-100%"></div>
+      <img
+        src={bgCenterIlluminated}
+        className="absolute inset-0 h-[250%] -translate-y-2/5 w-full z-0"
+      ></img>
+      {/** The content */}
+      <div className="relative z-10 bg-[#303040]/50 px-[27px] pt-[27px] pb-[53px] md:px-[50px] md:pt-[50px] md:pb-[100px] rounded-[4px] md:rounded-[8px]">
+        <div className="flex flex-col gap-[27px] md:gap-[50px]">
+          <h2
+            className="text-white text-center text-[32px] md:text-[59px] leading-[125%]"
+            style={{ fontFamily: "Satoshi-Medium" }}
+          >
+            FAQS
+          </h2>
+          <div className="flex flex-col gap-[11px] md:gap-[20px] md:px-[100px]">
+            {faqItems.map((item, index) => (
+              <>
+                <div className="w-full border-t-1 border-[#656565]"></div>
+                <div
+                  onClick={() => toggleItem(index)}
+                  key={crypto.randomUUID()}
+                  className="flex flex-row gap-[11px] md:gap-[20px]"
+                >
+                  <p className="h-fit text-[13px] md:text-[24px] text-[#777777]/50">
+                    +
+                  </p>
+                  <div className="gap-[3px] md:gap-[5px]">
+                    <p
+                      className="leading-[125%] text-[13px] md:text-[24px] text-[#FBFBFB]"
+                      style={{ fontFamily: "Satoshi-Light" }}
+                    >
+                      {item.question}
+                    </p>
+                    <p
+                      className={`leading-[160%] text-[10px] md:text-[18px] text-[#ABABAB] text-wrap ${
+                        openItem === index ? "block" : "hidden"
+                      }`}
+                      style={{ fontFamily: "Satoshi-Regular" }}
+                    >
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openItem === index ? "max-h-96 pb-6" : "max-h-0"
-                }`}
-              >
-                <div className="text-gray-300 text-base leading-relaxed pr-8">
-                  {item.answer}
-                </div>
-              </div>
-            </div>
-          ))}
+              </>
+            ))}
+            <div className="w-full border-t-1 border-[#656565]"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -72,7 +72,7 @@ export default function AboutUs() {
           return (
             <div
               key={crypto.randomUUID()}
-              className="group transition-all relative h-[279px] md:h-fit md:min-w-[15%] md:w-[33%] md:hover:w-[70%] md:hover:h-[722px] flex flex-col md:gap-[25px] justify-end md:hover:justify-end"
+              className="group duration-300 transition-all relative h-[279px] md:h-fit md:min-w-[15%] md:w-[33%] md:hover:w-[70%] md:hover:h-[722px] flex flex-col md:gap-[25px] justify-end md:hover:justify-end"
             >
               <img
                 src={founder.picture}
