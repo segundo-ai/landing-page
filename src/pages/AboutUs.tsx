@@ -72,14 +72,14 @@ export default function AboutUs() {
           return (
             <div
               key={crypto.randomUUID()}
-              className="group duration-300 transition-all relative h-[279px] md:h-fit md:min-w-[15%] md:w-[33%] md:hover:w-[70%] md:hover:h-[722px] flex flex-col md:gap-[25px] justify-end md:hover:justify-end"
+              className="group duration-300 transition-all relative h-[279px] md:h-fit md:min-w-[15%] md:w-[33%] md:hover:w-[70%] md:hover:h-[626px] flex flex-col md:gap-[25px] justify-end md:hover:justify-end"
             >
               <img
                 src={founder.picture}
-                className="absolute h-full md:relative rounded-[8px] md:rounded-[20px] object-cover md:group-hover:absolute z-0 min-w-full md:h-[402px] md:group-hover:h-[722px]"
+                className="absolute h-full md:relative rounded-[8px] md:rounded-[20px] object-cover md:group-hover:absolute z-0 min-w-full md:h-[402px] md:group-hover:h-[626px]"
               ></img>
               {/**This is the gradient applied to the bottom text when hovered the image. */}
-              <div className="absolute h-full md:h-0 top-0 left-0 md:group-hover:h-[722px] w-full z-1 bg-gradient-to-b from-[rgba(0,0,0,0)] from-5% to-[rgba(0,0,0,0.7)] to-100%"></div>
+              <div className="absolute h-full md:h-0 top-0 left-0 md:group-hover:h-[626px] w-full z-1 bg-gradient-to-b from-[rgba(0,0,0,0)] from-5% to-[rgba(0,0,0,0.7)] to-100%"></div>
               <div
                 className="transition-none relative z-10 flex flex-col gap-[15px] p-[20px] md:p-0 md:group-hover:p-[50px]"
                 style={{ fontFamily: "Satoshi-Medium" }}

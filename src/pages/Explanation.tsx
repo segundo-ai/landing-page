@@ -1,6 +1,5 @@
 import bgFadingToCenter from "../assets/bg-fading-to-center.jpg";
 import arrow from "../assets/arrow.png";
-import AnimatedIconList from "../components/animatedIconList/AnimatedIconList";
 import { platformsWeAreExperts } from "../data/platformsWeAreExperts";
 
 export default function Explanation() {
@@ -35,8 +34,17 @@ export default function Explanation() {
             className=" w-[36px] h-[76px] hidden md:inline"
           ></img>
         </div>
-        <div className="md:w-[578px] h-[77px]">
-          <AnimatedIconList iconList={platformsWeAreExperts}></AnimatedIconList>
+        <div className="flex flex-wrap md:flex-nowrap flex-row items-center justify-center md:gap-[15px] lg:gap-[30px]">
+          {platformsWeAreExperts.map((platform) => {
+            return (
+              <img
+                key={platform.alt}
+                src={platform.iconUrl}
+                alt={platform.alt}
+                className="basis-1/3 md:basis-auto w-[40px] md:w-[100px] lg:w-[125px] py-[8px] px-[5px] md:py-[15px] md:px-[10px]"
+              ></img>
+            );
+          })}
         </div>
         <p
           className="w-[260px] md:w-[543px] text-white text-center text-[13px] md:text-[24px] leading-[130%]"

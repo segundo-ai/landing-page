@@ -23,8 +23,14 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed mt-[20px] right-[13px] left-[13px] md:right-[50px] md:left-[50px] z-20 h-[44px] md:h-[72px] rounded-[40px] bg-[rgba(0,0,0,0.6)] py-[10px] px-[23px] md:px-[48px] flex justify-between">
-      <div className="md:h-[52px] md:p-[10px] flex items-center">
+    <div
+      className={`fixed mt-[20px] right-[13px] left-[13px] md:right-[50px] md:left-[50px] z-20 h-[44px] md:h-[72px] rounded-[40px] ${
+        isMenuOpen && window.innerWidth < 768
+          ? "bg-[rgba(0,0,0,0.9)]"
+          : "bg-[rgba(0,0,0,0.6)]"
+      } py-[10px] px-[23px] md:px-[48px] flex justify-between backdrop-blur-[30px]`}
+    >
+      <div className="md:h-[52px] md:p-[10px] flex items-center z-10">
         <a
           className="h-[16px] md:h-[32px] gap-[10px] flex flex-row items-center"
           href="#"
@@ -56,9 +62,9 @@ export default function Navbar() {
         <img src={menuMaterial}></img>
       </button>
       <div
-        className={`z-25  left-0 top-[60px] rounded-[20px] px-[22px] py-[5px] bg-[#000000]/50 w-full absolute md:hidden transition-all duration-300 ease-in-out ${
+        className={`z-25  left-0 top-[60px] rounded-[20px] px-[22px] py-[5px] bg-[#000000]/90 w-full absolute md:hidden transition-all duration-300 ease-in-out ${
           isMenuOpen ? "" : "hidden"
-        } `}
+        } backdrop-blur-[30px]`}
       >
         <nav
           className=" py-[5px] flex flex-col center gap-[32px] items-center z-10"
