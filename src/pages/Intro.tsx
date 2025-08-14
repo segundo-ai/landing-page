@@ -2,7 +2,10 @@ import HeroMessage from "../components/HeroMessage";
 
 export default function Intro() {
   return (
-    <section className="relative h-[729px] pt-[20px] pb-[10px] px-[50px] gap-[10px] flex items-end">
+    <section
+      id="top"
+      className="relative h-[729px] pt-[20px] pb-[10px] px-[50px] gap-[10px] flex items-end"
+    >
       <video
         autoPlay
         loop

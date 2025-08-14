@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import menuMaterial from "../assets/menu_material.svg";
 import logo32 from "../assets/logo_32_32.png";
 
@@ -22,6 +22,21 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useLayoutEffect(() => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = anchor.getAttribute("href");
+        if (targetId) {
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    });
+  }, []);
+
   return (
     <div
       className={`fixed mt-[20px] right-[13px] left-[13px] md:right-[50px] md:left-[50px] z-20 h-[44px] md:h-[72px] rounded-[40px] ${
@@ -33,7 +48,7 @@ export default function Navbar() {
       <div className="md:h-[52px] md:p-[10px] flex items-center z-10">
         <a
           className="h-[16px] md:h-[32px] gap-[10px] flex flex-row items-center"
-          href="#"
+          href="#top"
         >
           <img
             src={logo32}
