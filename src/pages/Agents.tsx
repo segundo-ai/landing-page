@@ -1,4 +1,12 @@
 import segundoLogo from "../assets/logo_32_32.png";
+import bugIcon from "../assets/agent_vectors/bug.svg";
+import crateIcon from "../assets/agent_vectors/crate.svg";
+import documentIcon from "../assets/agent_vectors/document.svg";
+import formIcon from "../assets/agent_vectors/form.svg";
+import internetIcon from "../assets/agent_vectors/internet.svg";
+import salesIcon from "../assets/agent_vectors/sales.svg";
+import textCursorIcon from "../assets/agent_vectors/text_cursor.svg";
+import warningIcon from "../assets/agent_vectors/warning.svg";
 
 type AgentType = {
   title: string;
@@ -9,26 +17,25 @@ type AgentType = {
 const agents: AgentType[] = [
   {
     title: "Form Filling Agent",
-    icon: "📝",
+    icon: formIcon,
     description: "automatically input data from your email inbox to your ERP",
   },
   {
     title: "Report Writing Agent",
-    icon: "📊",
+    icon: textCursorIcon,
     description:
       "draft a 10+ page executive summary, analyzing a credit application",
   },
   {
     title: "Fraud Flagging Agent",
-    icon: "🚩",
+    icon: warningIcon,
     description:
       "compare your customers' IDs to their data and flag discrepancies",
   },
   {
-    title: "Inventory Forecast Agent",
-    icon: "🌐",
-    description:
-      "analyze past orders and external trends to predict next 12 months sales",
+    title: "Contract Analyst Agent",
+    icon: documentIcon,
+    description: "review a 100+ page contract and leave the red-lining to AI",
   },
   {
     title:
@@ -37,26 +44,27 @@ const agents: AgentType[] = [
     description: "",
   },
   {
+    title: "Inventory Forecast Agent",
+    icon: crateIcon,
+    description:
+      "analyze past orders and external trends to predict next 12 months sales",
+  },
+  {
     title: "Sales Outbound Agent",
-    icon: "🌐",
+    icon: salesIcon,
     description: "identify high-quality leads and automate introduction calls",
   },
   {
     title: "Anomaly Detection Agent",
-    icon: "🌐",
+    icon: bugIcon,
     description:
       "monitor production data and spot quality issues or machine failure early on",
   },
   {
     title: "Internet Scrapper Agent",
-    icon: "🌐",
+    icon: internetIcon,
     description:
       "search for social media mentions and categorize them by urgency",
-  },
-  {
-    title: "Contract Analyst Agent",
-    icon: "🌐",
-    description: "review a 100+ page contract and leave the red-lining to AI",
   },
 ];
 
@@ -72,7 +80,9 @@ export default function Agents() {
                 key={crypto.randomUUID()}
                 className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]"
               >
-                <img src={agent.icon} className="size-[25px]"></img>
+                <div className="size-[25px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[1px] aspect-1/1">
+                  <img src={agent.icon} className="size-[11px]"></img>
+                </div>
                 <div className="grid grid-rows-2 gap-[11px]">
                   <p
                     className="text-[17px] leading-[100%] text-[#FBFBFB]"
@@ -108,7 +118,9 @@ export default function Agents() {
                 key={crypto.randomUUID()}
                 className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]"
               >
-                <img src={agent.icon} className="size-[25px]"></img>
+                <div className="size-[25px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[1px] aspect-1/1">
+                  <img src={agent.icon} className="size-[11px]"></img>
+                </div>{" "}
                 <div className="grid grid-rows-2 gap-[11px]">
                   <p
                     className="text-[17px] leading-[100%] text-[#FBFBFB]"
@@ -137,10 +149,13 @@ export default function Agents() {
                 key={crypto.randomUUID()}
                 className="rounded-[8px] bg-[#131317] min-h-[201px] py-[28px] px-[22px] gap-[20px] flex flex-col lg:flex-row hover:shadow-md hover:shadow-[#AEB9F2]/50 transition-all duration-300 ease-in-out"
               >
-                <img
-                  src={agent.icon}
-                  className="size-[56px] lg:size-[72px]"
-                ></img>
+                <div className="size-[56px] lg:size-[72px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[4px] aspect-1/1">
+                  <img
+                    src={agent.icon}
+                    className="size-[28px] lg:size-[32px]"
+                  ></img>
+                </div>
+
                 <div className="flex flex-col gap-[20px]">
                   <p
                     className="text-[32px] leading-[100%] text-[#FBFBFB]"
