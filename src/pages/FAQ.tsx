@@ -8,22 +8,41 @@ export default function FAQ() {
     {
       question: "What is Segundo?",
       answer:
-        "Segundo is an AI enterprise platform. We work with Fortune 500 companies, building AI backoffice automations and tools to improve decision-making. Our products are built on top of our intelligence platform and integrate with our customers' systems and data. To keep it short: we help companies get 10x ROI from AI adoption.",
+        "Segundo is an AI enterprise platform. We work with Fortune 500 companies, building AI backoffice automations and tools to improve decision-making. Our products are built on top of our intelligence platform and integrate with our customers’ systems and data. To keep it short: we help companies get 10x ROI from AI adoption.",
     },
     {
       question: "What features does the platform include?",
-      answer:
-        "Our platform includes advanced AI automation tools, intelligent decision-making systems, seamless integration capabilities, and comprehensive analytics dashboards designed specifically for enterprise environments.",
+      answer: `Our platform has multiple features, some of the main ones are: \n
+        1. Data platform: centralize data from fragmented systems of record, such as SAP, AWS, Dynamics, Hubspot, Oracle, Salesforce, etc.  \n
+        2. Agent builder: create agents for multiple business use cases, leveraging AI model providers, such as OpenAI, Anthropic, Google, etc. \n
+        3. Workflow builder: integrate AI agents within complex, multi-step processes that require coordination and access to external tools \n
+        4. Business intelligence: automate reports to analyze your company\’s data using AI, facilitating running queries on any of your systems of record  \n
+        5. Tool builder: use no-code tools to build internal tools for your teams (ops, finance, etc.) that connect with your AI agents and workflows.`,
     },
     {
       question: "Can Segundo help me build custom products?",
       answer:
-        "Yes, we specialize in building custom AI solutions tailored to your specific business needs. Our team works closely with clients to develop bespoke products that integrate seamlessly with existing workflows and systems.",
+        "Yes! We see ourselves as your strategic partner. We will identify the highest ROI opportunities to build AI agents in your company. Once we do so, our forward deployed engineering team will take care of messy data integrations and build the products that you want. ",
     },
     {
       question: "How does Segundo manage data security?",
       answer:
-        "Data security is our top priority. We implement enterprise-grade encryption, follow SOC 2 compliance standards, maintain strict access controls, and ensure all data processing meets industry-specific regulatory requirements.",
+        "Privacy and security are our #1 priority. We have strict data processing controls to avoid data training or retention, and we have strong protocols to track threats and vulnerabilities.",
+    },
+    {
+      question: "Do I have to be technical to use Segundo?",
+      answer:
+        "Not at all. Our platform makes it easy to use drag-and-drop elements to map business processes and build complex AI agents and workflows. ",
+    },
+    {
+      question: "How much does it cost?",
+      answer:
+        "We will do a free diagnostic to help you map out AI solutions that will have the highest ROI in your company. Once we do so, we will quote you a price to carry-out your data integrations and build use cases for your company. ",
+    },
+    {
+      question: "Can I use my own AI model providers",
+      answer:
+        "Yes. You can provide your own LLM API keys directly in our agent builder. ",
     },
   ];
 
@@ -70,14 +89,18 @@ export default function FAQ() {
                     >
                       {item.question}
                     </p>
-                    <p
+                    <div
                       className={`leading-[160%] text-[10px] md:text-[18px] text-[#ABABAB] text-wrap ${
                         openItem === index ? "block" : "hidden"
                       }`}
                       style={{ fontFamily: "Satoshi-Regular" }}
                     >
-                      {item.answer}
-                    </p>
+                      {item.answer.split("\n").map((line, i) => (
+                        <p key={i + line} className="">
+                          {line}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </>

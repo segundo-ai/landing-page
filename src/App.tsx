@@ -8,6 +8,7 @@ import AboutUs from "./pages/AboutUs";
 import Process from "./pages/Process";
 import Footer from "./pages/Footer";
 import { alliedCompanies } from "./data/alliedCompanies";
+import Platform from "./pages/Platform";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <AnimatedIconList iconList={alliedCompanies}></AnimatedIconList>
       <Explanation></Explanation>
       <Agents></Agents>
+      <Platform></Platform>
       <Process></Process>
       <AboutUs></AboutUs>
       <FAQ />

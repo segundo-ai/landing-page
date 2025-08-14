@@ -37,7 +37,7 @@ const processSteps: ProcessStep[] = [
 export default function Process() {
   return (
     <section id="process">
-      <div className="relative px-[17px] md:px-0">
+      <div className="relative px-[17px] py-[37px] md:py-0 md:px-0">
         <img
           src={bgWaves}
           className="absolute inset-0 z-0 size-full blur-[30px]"
