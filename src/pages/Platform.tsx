@@ -61,7 +61,9 @@ export default function Platform() {
             <div
               key={index}
               onClick={() => setOpenTab(index)}
-              onMouseEnter={() => setOpenTab(index)}
+              onMouseEnter={() => {
+                if (window.innerWidth >= 1024) setOpenTab(index);
+              }}
               className={` flex flex-row gap-[11px] lg:gap-[20px] ${
                 openTab === index
                   ? "text-[#FBFBFB] lg:min-h-[250px] xl:min-h-[200px]"
@@ -104,9 +106,9 @@ export default function Platform() {
                 <img
                   className={`${
                     openTab === index
-                      ? "max-h-96 my-[13px] "
+                      ? "max-h-200 my-[13px] "
                       : "max-h-0 overflow-hidden"
-                  } lg:hidden size-full rounded-[4px] ml-[-13px]`}
+                  } lg:hidden w-full rounded-[4px] ml-[-13px]`}
                   style={{
                     transition:
                       openTab === index
