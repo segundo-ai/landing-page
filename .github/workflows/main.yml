@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  DEPLOY_ENV: ${{ vars.VITE_CONTACT_REQUEST_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
