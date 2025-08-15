@@ -1,9 +1,9 @@
 import { useState } from "react";
-import mock1 from "../assets/mockups/1.jpg";
-import datajob from "../assets/mockups/1-datajob.jpg";
-import agent from "../assets/mockups/2-agent.jpg";
-import workflows from "../assets/mockups/3-workflows.jpg";
-import monitor from "../assets/mockups/4-monitor.jpg";
+import datajob from "../assets/mockups/1. Data job - 2.jpg";
+import agent from "../assets/mockups/2. Agent AI.jpg";
+import workflows from "../assets/mockups/3. Workflow.jpg";
+import monitor from "../assets/mockups/4. Agent observability-1.jpg";
+import bi from "../assets/mockups/Business intelligence.jpg";
 
 type Tab = {
   title: string;
@@ -40,7 +40,7 @@ const tabList: Array<Tab> = [
     title: "Boost Analytics",
     description:
       "Review agent logs to spot issues and fine-tune your workflows for the right results",
-    tabUrl: mock1,
+    tabUrl: bi,
   },
 ];
 
