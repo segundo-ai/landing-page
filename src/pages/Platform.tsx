@@ -61,6 +61,7 @@ export default function Platform() {
             <div
               key={index}
               onClick={() => setOpenTab(index)}
+              onMouseEnter={() => setOpenTab(index)}
               className={` flex flex-row gap-[11px] lg:gap-[20px] ${
                 openTab === index
                   ? "text-[#FBFBFB] lg:min-h-[250px] xl:min-h-[200px]"

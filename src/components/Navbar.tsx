@@ -46,7 +46,12 @@ export default function Navbar() {
             src={logo32}
             className="rounded-[5px] size-[16px] md:size-[32px]"
           ></img>
-          <h1 className="text-[16px] md:text-[20px] text-[#CDD4F9]">Segundo</h1>
+          <h1
+            className="text-[16px] md:text-[20px] text-[#CDD4F9]"
+            style={{ fontFamily: "Satoshi-Bold" }}
+          >
+            Segundo
+          </h1>
         </a>
       </div>
       {/** Navbar present when screen size greater or equal than sm*/}
