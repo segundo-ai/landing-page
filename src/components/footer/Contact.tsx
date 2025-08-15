@@ -22,7 +22,7 @@ export default function Contact() {
     // Here you would typically handle form submission, e.g., send data to an API
     try {
       setResult("loading");
-      const response = await fetch(import.meta.env.CONTACT_REQUEST_URL, {
+      const response = await fetch(import.meta.env.VITE_CONTACT_REQUEST_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
