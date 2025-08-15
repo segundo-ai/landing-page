@@ -4,6 +4,7 @@ import agent from "../assets/mockups/2. Agent AI.jpg";
 import workflows from "../assets/mockups/3. Workflow.jpg";
 import monitor from "../assets/mockups/4. Agent observability-1.jpg";
 import bi from "../assets/mockups/Business intelligence.jpg";
+import expandArrowIcon from "../assets/expand_arrow.svg";
 
 type Tab = {
   title: string;
@@ -79,19 +80,27 @@ export default function Platform() {
                 </p>
               </div>
               <div className="w-full lg:w-auto lg:gap-[10px] lg:flex lg:flex-col lg:justify-center h-fit lg:h-auto">
-                <p
-                  className={`${
-                    openTab === index
-                      ? "text-[19px] md:text-[36px]"
-                      : "text-[13px] md:text-[24px]"
-                  }  leading-[125%]`}
-                  style={{
-                    fontFamily:
-                      openTab === index ? "Satoshi-Medium" : "Satoshi-Light",
-                  }}
-                >
-                  {tab.title}
-                </p>
+                <div className="flex flex-row justify-between lg:inline">
+                  <p
+                    className={`${
+                      openTab === index
+                        ? "text-[19px] md:text-[36px]"
+                        : "text-[13px] md:text-[24px]"
+                    }  leading-[125%]`}
+                    style={{
+                      fontFamily:
+                        openTab === index ? "Satoshi-Medium" : "Satoshi-Light",
+                    }}
+                  >
+                    {tab.title}
+                  </p>
+                  <div className="lg:hidden flex flex-row justify-center items-center size-[24px]">
+                    <img
+                      src={expandArrowIcon}
+                      className="w-[13px] h-[7px]"
+                    ></img>
+                  </div>
+                </div>
                 <p
                   className={` ${
                     openTab === index ? "max-h-96" : "max-h-0 overflow-hidden"
