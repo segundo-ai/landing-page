@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 env:
-  DEPLOY_ENV: ${{ vars.VITE_CONTACT_REQUEST_URL }}
+  env_var: ${{ vars.VITE_CONTACT_REQUEST_URL }}
 
 jobs:
   build:
