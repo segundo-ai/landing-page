@@ -22,7 +22,7 @@ export default function Contact() {
     // Here you would typically handle form submission, e.g., send data to an API
     try {
       setResult("loading");
-      const response = await fetch("https://webhook.site/65aaf9eb-0372-4e21-bc9a-ec7bbf67e2d6", {
+      const response = await fetch("https://webhook.site/bd0308ce-c338-4acb-8b77-07595a2e1759", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
