@@ -63,9 +63,9 @@ export default function Process() {
                       src={arrow}
                       className="w-[13px] md:w-[25px] h-[28px] md:h-[53px] rotate-180 md:rotate-270 xl:rotate-180 md:ml-[15px] xl:ml-0"
                     ></img>
-                    <div className="gap-[6px] md:gap-[10px] md:flex md:flex-col text-wrap">
+                    <div className="flex flex-col gap-[5px] md:gap-[10px] md:flex md:flex-col text-wrap">
                       <p
-                        className="text-[13px] leading-[125%] md:text-[18px] lg:text-[24px] text-[#ABABAB]"
+                        className="text-[16px] leading-[125%] md:text-[18px] lg:text-[24px] text-[#ABABAB]"
                         style={{ fontFamily: "Satoshi-Light" }}
                       >
                         {step.title}

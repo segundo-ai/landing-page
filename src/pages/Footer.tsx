@@ -1,6 +1,6 @@
 import OrganizationInfo from "../components/footer/OrganizationInfo";
 import pexels from "../assets/pexels.jpg";
-import Contact from "../components/footer/Contact";
+import Contact from "./Contact";
 
 export default function Footer() {
   return (
