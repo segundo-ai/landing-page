@@ -1,4 +1,4 @@
-import segundoLogo from "../assets/logo_32_32.png";
+import segundoLogoDarkBg from "../assets/logo_32_32_darkbg.png";
 import bugIcon from "../assets/agent_vectors/bug.svg";
 import crateIcon from "../assets/agent_vectors/crate.svg";
 import documentIcon from "../assets/agent_vectors/document.svg";
@@ -40,7 +40,7 @@ const agents: AgentType[] = [
   {
     title:
       "Analyze data, build predictive models, and automate back-office processes",
-    icon: segundoLogo,
+    icon: segundoLogoDarkBg,
     description: "",
   },
   {
@@ -70,39 +70,11 @@ const agents: AgentType[] = [
 
 export default function Agents() {
   return (
-    <section id="agents" className="md:min-h-[724px] p-[10px] md:p-[50px]">
+    <section id="agents" className="md:min-h-[724px] p-[20px] md:p-[50px]">
       {/** On less than lg screens */}
       <div className="md:hidden flex flex-col gap-[15px]">
-        <div className="grid grid-cols-2 grid-rows-2 pb-[10px] gap-[5px]">
-          {agents.slice(0, 4).map((agent) => {
-            return (
-              <div
-                key={crypto.randomUUID()}
-                className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]"
-              >
-                <div className="size-[25px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[1px] aspect-1/1">
-                  <img src={agent.icon} className="size-[11px]"></img>
-                </div>
-                <div className="grid grid-rows-2 gap-[11px]">
-                  <p
-                    className="text-[17px] leading-[100%] text-[#FBFBFB]"
-                    style={{ fontFamily: "Satoshi-Light" }}
-                  >
-                    {agent.title}
-                  </p>
-                  <p
-                    className="text-[10px] leading-[120%] text-[#777777]"
-                    style={{ fontFamily: "Satoshi-Medium" }}
-                  >
-                    {agent.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
         <div className="flex flex-row justify-center items-center bg-[#AEB9F2]/50 px-[12px] py-[15px] gap-[11px] h-[98px] rounded-[4px]">
-          <img src={segundoLogo} className="size-[17px]"></img>
+          <img src={agents[4].icon} className="size-[17px]"></img>
           <p
             className="text-[13px] leading-[100%] text-[#FFFFFF] text-center"
             style={{ fontFamily: "Nohemi-Regular" }}
@@ -110,34 +82,36 @@ export default function Agents() {
             {agents[4].title}
           </p>
         </div>
-        {/** This one is the same at the one with slice 0,4. TODO: Could be abstracted. */}
-        <div className="grid grid-cols-2 grid-rows-2 pb-[10px] gap-[5px]">
-          {agents.slice(5).map((agent) => {
-            return (
-              <div
-                key={crypto.randomUUID()}
-                className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317]"
-              >
-                <div className="size-[25px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[1px] aspect-1/1">
-                  <img src={agent.icon} className="size-[11px]"></img>
-                </div>{" "}
-                <div className="grid grid-rows-2 gap-[11px]">
-                  <p
-                    className="text-[17px] leading-[100%] text-[#FBFBFB]"
-                    style={{ fontFamily: "Satoshi-Light" }}
-                  >
-                    {agent.title}
-                  </p>
-                  <p
-                    className="text-[10px] leading-[120%] text-[#777777]"
-                    style={{ fontFamily: "Satoshi-Medium" }}
-                  >
-                    {agent.description}
-                  </p>
+        <div className="flex overflow-x-auto pb-[10px] gap-[5px]">
+          {agents
+            .slice(0, 4)
+            .concat(agents.slice(5))
+            .map((agent) => {
+              return (
+                <div
+                  key={crypto.randomUUID()}
+                  className="flex flex-col rounded-[4px] px-[12px] py-[15px] gap-[11px] bg-[#131317] w-[200px] flex-shrink-0"
+                >
+                  <div className="size-[25px] bg-[#FFFFFF]/5 flex justify-center items-center rounded-[1px] aspect-1/1">
+                    <img src={agent.icon} className="size-[11px]"></img>
+                  </div>{" "}
+                  <div className="grid grid-rows-2 gap-[11px]">
+                    <p
+                      className="text-[17px] leading-[100%] text-[#FBFBFB]"
+                      style={{ fontFamily: "Satoshi-Light" }}
+                    >
+                      {agent.title}
+                    </p>
+                    <p
+                      className="text-[10px] leading-[120%] text-[#777777]"
+                      style={{ fontFamily: "Satoshi-Medium" }}
+                    >
+                      {agent.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
       {/** On lg and bigger screens. There is a consideration on md vs lg screens on organizations and icon size. Otherwise it wouldn't fit*/}
