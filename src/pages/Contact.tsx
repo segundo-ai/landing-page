@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPotentialCustomer } from "../data/firebase/createCustomer";
 
 type State = "loading" | "success" | "error";
 const stateTextColor: Map<State, string> = new Map([
@@ -22,20 +23,8 @@ export default function Contact() {
     // Here you would typically handle form submission, e.g., send data to an API
     try {
       setResult("loading");
-      const response = await fetch(
-        "https://webhook.site/65aaf9eb-0372-4e21-bc9a-ec7bbf67e2d6",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formName,
-            email: formEmail,
-          }),
-        }
-      );
-      if (!response || !response.ok) {
+      const response = await createPotentialCustomer(formName, formEmail);
+      if (!response) {
         setResult("error");
         return;
       } else {
