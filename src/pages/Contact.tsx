@@ -134,7 +134,7 @@ export default function Contact() {
         {result !== null && (
           <p
             className={`${stateTextColor.get(result) || "text-red-500"}
-           text-[7px] md:text-[14px] mt-2`}
+           text-[10px] md:text-[14px]`}
           >
             {result === "loading"
               ? "Submitting your form..."
