@@ -15,6 +15,23 @@
     "faq": "FAQ",
     "contact": "Contacto"
   },
+  "heroMessage": {
+    "title": {
+      "line1": "LA",
+      "ai": "PLATAFORMA",
+      "line2": "DE IA",
+      "line3": "EMPRESARIAL"
+    },
+    "subtitle": "DESPLIEGA AGENTES DE IA EN TODA TU ORGANIZACIÓN, IMPULSANDO 10X ROI",
+    "cta": "RESERVA UNA DEMO"
+  },
+  "intro": {
+    "videoFallback": "Tu navegador no soporta la etiqueta de video."
+  },
+  "explanation": {
+    "title": "Automatiza flujos de trabajo complejos y toma mejores decisiones",
+    "subtitle": "NOS CONECTAMOS A TUS SISTEMAS EXISTENTES PARA DARLE A LA IA EL CONTEXTO CORRECTO"
+  },
   "agents": {
     "formFilling": {
       "title": "Agente de Llenado de Formularios",
@@ -86,7 +103,7 @@
     }
   },
   "faq": {
-    "title": "PREGUNTAS FRECUENTES",
+    "title": "FAQs",
     "items": {
       "whatIsSegundo": {
         "question": "¿Qué es Segundo?",

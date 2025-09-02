@@ -15,6 +15,23 @@
     "faq": "FAQ",
     "contact": "Contact"
   },
+  "heroMessage": {
+    "title": {
+      "line1": "THE",
+      "ai": "AI",
+      "line2": "ENTERPRISE",
+      "line3": "PLATFORM"
+    },
+    "subtitle": "DEPLOY AI AGENTS ACROSS YOUR ORGANIZATION, DRIVING 10X ROI",
+    "cta": "BOOK A DEMO"
+  },
+  "intro": {
+    "videoFallback": "Your browser does not support the video tag."
+  },
+  "explanation": {
+    "title": "Automate complex workflows and make better decisions",
+    "subtitle": "WE CONNECT TO YOUR EXISTING SYSTEMS TO GIVE AI THE RIGHT CONTEXT"
+  },
   "agents": {
     "formFilling": {
       "title": "Form Filling Agent",
