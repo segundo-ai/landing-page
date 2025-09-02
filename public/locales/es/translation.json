@@ -85,6 +85,39 @@
       }
     }
   },
+  "faq": {
+    "title": "PREGUNTAS FRECUENTES",
+    "items": {
+      "whatIsSegundo": {
+        "question": "¿Qué es Segundo?",
+        "answer": "Segundo es una plataforma empresarial de IA. Trabajamos con empresas Fortune 500, construyendo automatizaciones y herramientas de IA para back-office que mejoran la toma de decisiones. Nuestros productos están construidos sobre nuestra plataforma de inteligencia e integran con los sistemas y datos de nuestros clientes. Para resumir: ayudamos a las empresas a obtener 10x ROI de la adopción de IA."
+      },
+      "platformFeatures": {
+        "question": "¿Qué características incluye la plataforma?",
+        "answer": "Nuestra plataforma tiene múltiples características, algunas de las principales son:\n1. Plataforma de datos: centraliza datos de sistemas de registro fragmentados, como SAP, AWS, Dynamics, Hubspot, Oracle, Salesforce, etc.\n2. Constructor de agentes: crea agentes para múltiples casos de uso empresariales, aprovechando proveedores de modelos de IA, como OpenAI, Anthropic, Google, etc.\n3. Constructor de flujos de trabajo: integra agentes de IA dentro de procesos complejos de múltiples pasos que requieren coordinación y acceso a herramientas externas\n4. Inteligencia empresarial: automatiza reportes para analizar los datos de tu empresa usando IA, facilitando ejecutar consultas en cualquiera de tus sistemas de registro\n5. Constructor de herramientas: usa herramientas no-code para construir herramientas internas en tus equipos (operaciones, finanzas, etc.) que se conectan con tus agentes de IA y flujos de trabajo."
+      },
+      "customProducts": {
+        "question": "¿Puede Segundo ayudarme a construir productos personalizados?",
+        "answer": "¡Sí! Nos vemos como tu socio estratégico. Identificaremos las oportunidades de mayor ROI para construir agentes de IA en tu empresa. Una vez que lo hagamos, nuestro equipo de ingeniería desplegado en el campo se encargará de las integraciones de datos complicadas y construirá los productos que quieres."
+      },
+      "dataSecurity": {
+        "question": "¿Cómo maneja Segundo la seguridad de datos?",
+        "answer": "La privacidad y seguridad son nuestra prioridad #1. Tenemos controles estrictos de procesamiento de datos para evitar el entrenamiento o retención de datos, y tenemos protocolos fuertes para rastrear amenazas y vulnerabilidades."
+      },
+      "technicalRequirements": {
+        "question": "¿Tengo que ser técnico para usar Segundo?",
+        "answer": "Para nada. Nuestra plataforma facilita el uso de elementos de arrastrar y soltar para mapear procesos empresariales y construir agentes de IA y flujos de trabajo complejos."
+      },
+      "cost": {
+        "question": "¿Cuánto cuesta?",
+        "answer": "Haremos un diagnóstico gratuito para ayudarte a mapear soluciones de IA que tendrán el mayor ROI en tu empresa. Una vez que lo hagamos, te cotizaremos un precio para llevar a cabo tus integraciones de datos y construir casos de uso para tu empresa."
+      },
+      "ownAIProviders": {
+        "question": "¿Puedo usar mis propios proveedores de modelos de IA?",
+        "answer": "Sí. Puedes proporcionar tus propias claves API de LLM directamente en nuestro constructor de agentes."
+      }
+    }
+  },
   "contact": {
     "title": "Solicita un diagnóstico gratuito de preparación para IA",
     "description": "Nuestro equipo de ingeniería de vanguardia conocerá a tu equipo e identificará las oportunidades de mayor ROI para la implementación de IA. ¡Sin costo!",

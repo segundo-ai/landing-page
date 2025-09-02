@@ -85,6 +85,39 @@
       }
     }
   },
+  "faq": {
+    "title": "FAQS",
+    "items": {
+      "whatIsSegundo": {
+        "question": "What is Segundo?",
+        "answer": "Segundo is an AI enterprise platform. We work with Fortune 500 companies, building AI backoffice automations and tools to improve decision-making. Our products are built on top of our intelligence platform and integrate with our customers' systems and data. To keep it short: we help companies get 10x ROI from AI adoption."
+      },
+      "platformFeatures": {
+        "question": "What features does the platform include?",
+        "answer": "Our platform has multiple features, some of the main ones are:\n1. Data platform: centralize data from fragmented systems of record, such as SAP, AWS, Dynamics, Hubspot, Oracle, Salesforce, etc.\n2. Agent builder: create agents for multiple business use cases, leveraging AI model providers, such as OpenAI, Anthropic, Google, etc.\n3. Workflow builder: integrate AI agents within complex, multi-step processes that require coordination and access to external tools\n4. Business intelligence: automate reports to analyze your company's data using AI, facilitating running queries on any of your systems of record\n5. Tool builder: use no-code tools to build internal tools for your teams (ops, finance, etc.) that connect with your AI agents and workflows."
+      },
+      "customProducts": {
+        "question": "Can Segundo help me build custom products?",
+        "answer": "Yes! We see ourselves as your strategic partner. We will identify the highest ROI opportunities to build AI agents in your company. Once we do so, our forward deployed engineering team will take care of messy data integrations and build the products that you want."
+      },
+      "dataSecurity": {
+        "question": "How does Segundo manage data security?",
+        "answer": "Privacy and security are our #1 priority. We have strict data processing controls to avoid data training or retention, and we have strong protocols to track threats and vulnerabilities."
+      },
+      "technicalRequirements": {
+        "question": "Do I have to be technical to use Segundo?",
+        "answer": "Not at all. Our platform makes it easy to use drag-and-drop elements to map business processes and build complex AI agents and workflows."
+      },
+      "cost": {
+        "question": "How much does it cost?",
+        "answer": "We will do a free diagnostic to help you map out AI solutions that will have the highest ROI in your company. Once we do so, we will quote you a price to carry-out your data integrations and build use cases for your company."
+      },
+      "ownAIProviders": {
+        "question": "Can I use my own AI model providers",
+        "answer": "Yes. You can provide your own LLM API keys directly in our agent builder."
+      }
+    }
+  },
   "contact": {
     "title": "Request a free AI-readiness diagnostic",
     "description": "Our forward deployed engineering team will get to know your team and identify the highest ROI opportunities for AI implementation. Free of charge!",
