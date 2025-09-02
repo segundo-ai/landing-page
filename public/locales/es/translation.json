@@ -32,6 +32,56 @@
     "title": "Automatiza flujos de trabajo complejos y toma mejores decisiones",
     "subtitle": "NOS CONECTAMOS A TUS SISTEMAS EXISTENTES PARA DARLE A LA IA EL CONTEXTO CORRECTO"
   },
+  "platform": {
+    "title": "NUESTRA PLATAFORMA • NUESTRA PLATAFORMA",
+    "tabs": {
+      "centralizeData": {
+        "title": "Centraliza Datos",
+        "description": "Nuestro equipo de ingeniería te ayudará a unificar los datos fragmentados de tu empresa (SAP, Hubspot, etc.) en nuestra plataforma"
+      },
+      "createAIAgents": {
+        "title": "Crea Agentes de IA",
+        "description": "Despliega agentes LLM y modelos ML (anomalías, clustering, series temporales, etc.) sobre los datos de tu empresa"
+      },
+      "buildWorkflows": {
+        "title": "Construye Flujos de Trabajo",
+        "description": "Automatiza flujos de trabajo críticos conectando agentes de IA con +50 herramientas"
+      },
+      "monitorResults": {
+        "title": "Monitorea Resultados",
+        "description": "Revisa los logs de los agentes para detectar problemas y ajustar tus flujos de trabajo para obtener los resultados correctos"
+      },
+      "boostAnalytics": {
+        "title": "Mejora la Analítica",
+        "description": "Analiza los datos de tu empresa, automatizando los reportes y acelerando la toma de decisiones"
+      }
+    }
+  },
+  "process": {
+    "title": "NUESTRO PROCESO",
+    "steps": {
+      "diagnostic": {
+        "title": "Diagnóstico",
+        "description": "Conocemos a tu equipo e identificamos las oportunidades de mayor ROI para la implementación de IA"
+      },
+      "proofOfValue": {
+        "title": "Prueba de Valor",
+        "description": "Desplegamos un caso de uso específico de IA en menos de 4 semanas para demostrar el valor de nuestra plataforma"
+      },
+      "dataIntegration": {
+        "title": "Integración de Datos",
+        "description": "Centralizamos tus sistemas fragmentados en nuestra plataforma para dar contexto relevante a los agentes de IA"
+      },
+      "buildDeploy": {
+        "title": "Construir y Desplegar",
+        "description": "Actuamos como tu socio estratégico, construyendo los productos de IA de mayor ROI para tu equipo"
+      },
+      "maintenance": {
+        "title": "Mantenimiento",
+        "description": "Ofrecemos soporte las 24 horas para que tu sistema siga funcionando sin problemas"
+      }
+    }
+  },
   "agents": {
     "formFilling": {
       "title": "Agente de Llenado de Formularios",

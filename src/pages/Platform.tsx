@@ -5,6 +5,7 @@ import workflows from "@assets/mockups/3. Workflow.jpg";
 import monitor from "@assets/mockups/4. Agent observability-1.jpg";
 import bi from "@assets/mockups/Business intelligence.jpg";
 import expandArrowIcon from "@assets/expand_arrow.svg";
+import { useTranslation } from "react-i18next";
 
 type Tab = {
   title: string;
@@ -12,41 +13,37 @@ type Tab = {
   tabUrl: string;
 };
 
-const tabList: Array<Tab> = [
-  {
-    title: "Centralize Data",
-    description:
-      "Our engineering team will help you unify your company’s fragmented data (SAP, Hubspot, etc.) in our platform",
-    tabUrl: datajob,
-  },
-  {
-    title: "Create AI Agents",
-    description:
-      "Deploy LLM agents and ML models (anomaly, clustering, time-series, etc.) on top of your company’s data",
-    tabUrl: agent,
-  },
-  {
-    title: "Build Workflows",
-    description:
-      "Automate mission-critical workflows by connecting AI agents with +50 tools",
-    tabUrl: workflows,
-  },
-  {
-    title: "Monitor Results",
-    description:
-      "Review agent logs to spot issues and fine-tune your workflows for the right results",
-    tabUrl: monitor,
-  },
-  {
-    title: "Boost Analytics",
-    description:
-      "Review agent logs to spot issues and fine-tune your workflows for the right results",
-    tabUrl: bi,
-  },
-];
-
 export default function Platform() {
+  const { t } = useTranslation();
   const [openTab, setOpenTab] = useState(0);
+
+  const tabList: Array<Tab> = [
+    {
+      title: t("platform.tabs.centralizeData.title"),
+      description: t("platform.tabs.centralizeData.description"),
+      tabUrl: datajob,
+    },
+    {
+      title: t("platform.tabs.createAIAgents.title"),
+      description: t("platform.tabs.createAIAgents.description"),
+      tabUrl: agent,
+    },
+    {
+      title: t("platform.tabs.buildWorkflows.title"),
+      description: t("platform.tabs.buildWorkflows.description"),
+      tabUrl: workflows,
+    },
+    {
+      title: t("platform.tabs.monitorResults.title"),
+      description: t("platform.tabs.monitorResults.description"),
+      tabUrl: monitor,
+    },
+    {
+      title: t("platform.tabs.boostAnalytics.title"),
+      description: t("platform.tabs.boostAnalytics.description"),
+      tabUrl: bi,
+    },
+  ];
 
   return (
     <section
@@ -55,8 +52,8 @@ export default function Platform() {
     >
       <div className="lg:min-h-[680px] lg:p-[50px] lg:bg-[#303040] lg:rounded-[8px] flex flex-row lg:rounded-[8px] gap-[27px] lg:gap-[50px] items-center">
         <div className="lg:basis-1/3 flex flex-col lg:justify-center gap-[14px] lg:gap-[25px]">
-          <h2 className=" md:text-[12px] text-[#FFFFFF]">
-            OUR PLATFORM • OUR PLATFORM{" "}
+          <h2 className="text-[8px] md:text-[12px] text-[#FFFFFF]">
+            {t("platform.title")}{" "}
           </h2>
           {tabList.map((tab, index) => (
             <div

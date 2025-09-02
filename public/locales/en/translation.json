@@ -32,6 +32,56 @@
     "title": "Automate complex workflows and make better decisions",
     "subtitle": "WE CONNECT TO YOUR EXISTING SYSTEMS TO GIVE AI THE RIGHT CONTEXT"
   },
+  "platform": {
+    "title": "OUR PLATFORM • OUR PLATFORM",
+    "tabs": {
+      "centralizeData": {
+        "title": "Centralize Data",
+        "description": "Our engineering team will help you unify your company's fragmented data (SAP, Hubspot, etc.) in our platform"
+      },
+      "createAIAgents": {
+        "title": "Create AI Agents",
+        "description": "Deploy LLM agents and ML models (anomaly, clustering, time-series, etc.) on top of your company's data"
+      },
+      "buildWorkflows": {
+        "title": "Build Workflows",
+        "description": "Automate mission-critical workflows by connecting AI agents with +50 tools"
+      },
+      "monitorResults": {
+        "title": "Monitor Results",
+        "description": "Review agent logs to spot issues and fine-tune your workflows for the right results"
+      },
+      "boostAnalytics": {
+        "title": "Boost Analytics",
+        "description": "Analyze your company's data, automating reporting and speeding up decision-making"
+      }
+    }
+  },
+  "process": {
+    "title": "OUR PROCESS",
+    "steps": {
+      "diagnostic": {
+        "title": "Diagnostic",
+        "description": "We get to know your team and identify the highest ROI opportunities for AI implementation"
+      },
+      "proofOfValue": {
+        "title": "Proof of Value",
+        "description": "We deploy a specific AI use case in less than 4 weeks to demonstrate our platform's value"
+      },
+      "dataIntegration": {
+        "title": "Data Integration",
+        "description": "We centralize your fragmented systems in our platform to give AI agents relevant context"
+      },
+      "buildDeploy": {
+        "title": "Build & Deploy",
+        "description": "We act as your strategic partner, building the highest ROI AI products for your team"
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "description": "We offer round-the-clock support so that your system keeps running seamlessly"
+      }
+    }
+  },
   "agents": {
     "formFilling": {
       "title": "Form Filling Agent",
