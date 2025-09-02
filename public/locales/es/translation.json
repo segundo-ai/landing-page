@@ -15,6 +15,43 @@
     "faq": "FAQ",
     "contact": "Contacto"
   },
+  "agents": {
+    "formFilling": {
+      "title": "Agente de Llenado de Formularios",
+      "description": "ingresa automáticamente datos de tu bandeja de entrada a tu ERP"
+    },
+    "reportWriting": {
+      "title": "Agente de Escritura de Reportes",
+      "description": "redacta un resumen ejecutivo de 10+ páginas analizando una solicitud de crédito"
+    },
+    "fraudFlagging": {
+      "title": "Agente de Detección de Fraude",
+      "description": "compara los IDs de tus clientes con sus datos y marca discrepancias"
+    },
+    "contractAnalyst": {
+      "title": "Agente Analista de Contratos",
+      "description": "revisa un contrato de 100+ páginas y deja el marcado de detalles importantes a la IA"
+    },
+    "dataAnalysis": {
+      "title": "Analiza datos, construye modelos predictivos y automatiza procesos de back-office"
+    },
+    "inventoryForecast": {
+      "title": "Agente de Pronóstico de Inventario",
+      "description": "analiza órdenes pasadas y tendencias externas para predecir ventas de los próximos 12 meses"
+    },
+    "salesOutbound": {
+      "title": "Agente de Ventas Externas",
+      "description": "identifica leads de alta calidad y automatiza llamadas de introducción"
+    },
+    "anomalyDetection": {
+      "title": "Agente de Detección de Anomalías",
+      "description": "monitorea datos de producción y detecta problemas de calidad o fallas de máquinas tempranamente"
+    },
+    "internetScrapper": {
+      "title": "Agente Scrapper de Internet",
+      "description": "busca menciones en redes sociales y las categoriza por urgencia"
+    }
+  },
   "contact": {
     "title": "Solicita un diagnóstico gratuito de preparación para IA",
     "description": "Nuestro equipo de ingeniería conocerá a tu equipo e identificará las oportunidades de mayor  ROI para la implementación de IA. ¡Sin costo!",

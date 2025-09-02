@@ -7,6 +7,7 @@ import internetIcon from "../assets/agent_vectors/internet.svg";
 import salesIcon from "../assets/agent_vectors/sales.svg";
 import textCursorIcon from "../assets/agent_vectors/text_cursor.svg";
 import warningIcon from "../assets/agent_vectors/warning.svg";
+import { useTranslation } from "react-i18next";
 
 type AgentType = {
   title: string;
@@ -14,61 +15,57 @@ type AgentType = {
   description: string;
 };
 
-const agents: AgentType[] = [
-  {
-    title: "Form Filling Agent",
-    icon: formIcon,
-    description: "automatically input data from your email inbox to your ERP",
-  },
-  {
-    title: "Report Writing Agent",
-    icon: textCursorIcon,
-    description:
-      "draft a 10+ page executive summary, analyzing a credit application",
-  },
-  {
-    title: "Fraud Flagging Agent",
-    icon: warningIcon,
-    description:
-      "compare your customers' IDs to their data and flag discrepancies",
-  },
-  {
-    title: "Contract Analyst Agent",
-    icon: documentIcon,
-    description: "review a 100+ page contract and leave the red-lining to AI",
-  },
-  {
-    title:
-      "Analyze data, build predictive models, and automate back-office processes",
-    icon: segundoLogoDarkBg,
-    description: "",
-  },
-  {
-    title: "Inventory Forecast Agent",
-    icon: crateIcon,
-    description:
-      "analyze past orders and external trends to predict next 12 months sales",
-  },
-  {
-    title: "Sales Outbound Agent",
-    icon: salesIcon,
-    description: "identify high-quality leads and automate introduction calls",
-  },
-  {
-    title: "Anomaly Detection Agent",
-    icon: bugIcon,
-    description:
-      "monitor production data and spot quality issues or machine failure early on",
-  },
-  {
-    title: "Internet Scrapper Agent",
-    icon: internetIcon,
-    description:
-      "search for social media mentions and categorize them by urgency",
-  },
-];
-
 export default function Agents() {
+  const { t } = useTranslation();
+
+  const agents: AgentType[] = [
+    {
+      title: t("agents.formFilling.title"),
+      icon: formIcon,
+      description: t("agents.formFilling.description"),
+    },
+    {
+      title: t("agents.reportWriting.title"),
+      icon: textCursorIcon,
+      description: t("agents.reportWriting.description"),
+    },
+    {
+      title: t("agents.fraudFlagging.title"),
+      icon: warningIcon,
+      description: t("agents.fraudFlagging.description"),
+    },
+    {
+      title: t("agents.contractAnalyst.title"),
+      icon: documentIcon,
+      description: t("agents.contractAnalyst.description"),
+    },
+    {
+      title: t("agents.dataAnalysis.title"),
+      icon: segundoLogoDarkBg,
+      description: "",
+    },
+    {
+      title: t("agents.inventoryForecast.title"),
+      icon: crateIcon,
+      description: t("agents.inventoryForecast.description"),
+    },
+    {
+      title: t("agents.salesOutbound.title"),
+      icon: salesIcon,
+      description: t("agents.salesOutbound.description"),
+    },
+    {
+      title: t("agents.anomalyDetection.title"),
+      icon: bugIcon,
+      description: t("agents.anomalyDetection.description"),
+    },
+    {
+      title: t("agents.internetScrapper.title"),
+      icon: internetIcon,
+      description: t("agents.internetScrapper.description"),
+    },
+  ];
+
   return (
     <section id="agents" className="md:min-h-[724px] p-[20px] md:p-[50px]">
       {/** On less than lg screens */}

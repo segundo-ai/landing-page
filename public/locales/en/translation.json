@@ -15,6 +15,43 @@
     "faq": "FAQ",
     "contact": "Contact"
   },
+  "agents": {
+    "formFilling": {
+      "title": "Form Filling Agent",
+      "description": "automatically input data from your email inbox to your ERP"
+    },
+    "reportWriting": {
+      "title": "Report Writing Agent",
+      "description": "draft a 10+ page executive summary, analyzing a credit application"
+    },
+    "fraudFlagging": {
+      "title": "Fraud Flagging Agent",
+      "description": "compare your customers' IDs to their data and flag discrepancies"
+    },
+    "contractAnalyst": {
+      "title": "Contract Analyst Agent",
+      "description": "review a 100+ page contract and leave the red-lining to AI"
+    },
+    "dataAnalysis": {
+      "title": "Analyze data, build predictive models, and automate back-office processes"
+    },
+    "inventoryForecast": {
+      "title": "Inventory Forecast Agent",
+      "description": "analyze past orders and external trends to predict next 12 months sales"
+    },
+    "salesOutbound": {
+      "title": "Sales Outbound Agent",
+      "description": "identify high-quality leads and automate introduction calls"
+    },
+    "anomalyDetection": {
+      "title": "Anomaly Detection Agent",
+      "description": "monitor production data and spot quality issues or machine failure early on"
+    },
+    "internetScrapper": {
+      "title": "Internet Scrapper Agent",
+      "description": "search for social media mentions and categorize them by urgency"
+    }
+  },
   "contact": {
     "title": "Request a free AI-readiness diagnostic",
     "description": "Our forward deployed engineering team will get to know your team and identify the highest ROI opportunities for AI implementation. Free of charge!",
