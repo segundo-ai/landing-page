@@ -1,14 +1,14 @@
-import AnimatedIconList from "./components/animatedIconList/AnimatedIconList";
-import Explanation from "./pages/Explanation";
-import FAQ from "./pages/FAQ";
-import Intro from "./pages/Intro";
-import Navbar from "./components/navbar/Navbar";
-import Agents from "./pages/Agents";
-import AboutUs from "./pages/AboutUs";
-import Process from "./pages/Process";
-import Footer from "./pages/Footer";
-import { alliedCompanies } from "./data/alliedCompanies";
-import Platform from "./pages/Platform";
+import AnimatedIconList from "@components/animatedIconList/AnimatedIconList";
+import Explanation from "@pages/Explanation";
+import FAQ from "@pages/FAQ";
+import Intro from "@pages/Intro";
+import Navbar from "@components/navbar/Navbar";
+import Agents from "@pages/Agents";
+import AboutUs from "@pages/AboutUs";
+import Process from "@pages/Process";
+import Footer from "@pages/Footer";
+import Platform from "@pages/Platform";
+import { alliedCompanies } from "@utils/data/general";
 
 function App() {
   return (

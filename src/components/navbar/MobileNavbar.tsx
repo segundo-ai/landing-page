@@ -1,7 +1,6 @@
-import { useState } from "react";
-import type { NavItem } from "./types";
-import menuMaterial from "../../assets/menu_material.svg";
-import { smoothScroll } from "./Navbar";
+import type { NavItem } from "@utils/types/NavItem";
+import menuMaterial from "@assets/menu_material.svg";
+import { smoothScroll } from "@utils/functions/scroll";
 
 export const MobileNavbar = ({
   navItems,

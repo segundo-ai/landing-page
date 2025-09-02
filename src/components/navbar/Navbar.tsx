@@ -1,14 +1,9 @@
 import { useState } from "react";
-import logo32 from "../../assets/logo_32_32.png";
-import { navItems } from "./items";
+import logo32 from "@assets/logo_32_32.png";
+import { navItems } from "@/utils/data/general/navbarItems";
 import { WebNavbar } from "./WebNavbar";
 import { MobileNavbar } from "./MobileNavbar";
-
-export function smoothScroll(e: React.MouseEvent, scrollTo: string) {
-  e.preventDefault();
-  const el = document.querySelector(scrollTo);
-  el?.scrollIntoView({ behavior: "smooth" });
-}
+import { smoothScroll } from "@/utils/functions/scroll";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

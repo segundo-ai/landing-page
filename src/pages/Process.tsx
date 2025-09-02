@@ -1,5 +1,5 @@
-import bgWaves from "../assets/bg-waves.png";
-import arrow from "../assets/arrow.png";
+import bgWaves from "@assets/bg-waves.png";
+import arrow from "@assets/arrow.png";
 
 interface ProcessStep {
   title: string;

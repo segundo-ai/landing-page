@@ -1,6 +1,6 @@
-import bgFadingToCenter from "../assets/bg-fading-to-center.jpg";
-import arrow from "../assets/arrow.png";
-import { platformsWeAreExperts } from "../data/platformsWeAreExperts";
+import bgFadingToCenter from "@assets/bg-fading-to-center.jpg";
+import arrow from "@assets/arrow.png";
+import { platformsWeAreExperts } from "@utils/data/general/platformsWeAreExperts";
 
 export default function Explanation() {
   return (

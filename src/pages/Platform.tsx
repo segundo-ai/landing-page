@@ -1,10 +1,10 @@
 import { useState } from "react";
-import datajob from "../assets/mockups/1. Data job - 2.jpg";
-import agent from "../assets/mockups/2. Agent AI.jpg";
-import workflows from "../assets/mockups/3. Workflow.jpg";
-import monitor from "../assets/mockups/4. Agent observability-1.jpg";
-import bi from "../assets/mockups/Business intelligence.jpg";
-import expandArrowIcon from "../assets/expand_arrow.svg";
+import datajob from "@assets/mockups/1. Data job - 2.jpg";
+import agent from "@assets/mockups/2. Agent AI.jpg";
+import workflows from "@assets/mockups/3. Workflow.jpg";
+import monitor from "@assets/mockups/4. Agent observability-1.jpg";
+import bi from "@assets/mockups/Business intelligence.jpg";
+import expandArrowIcon from "@assets/expand_arrow.svg";
 
 type Tab = {
   title: string;

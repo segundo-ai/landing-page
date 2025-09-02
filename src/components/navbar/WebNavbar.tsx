@@ -1,5 +1,5 @@
-import { smoothScroll } from "./Navbar";
-import type { NavItem } from "./types";
+import { smoothScroll } from "@utils/functions/scroll";
+import type { NavItem } from "@utils/types/NavItem";
 
 export const WebNavbar = ({ navItems }: { navItems: Array<NavItem> }) => {
   return (
