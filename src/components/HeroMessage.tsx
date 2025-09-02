@@ -1,5 +1,5 @@
 import arrow from "../assets/arrow.png";
-import { smoothScroll } from "./Navbar";
+import { smoothScroll } from "./navbar/Navbar";
 
 export default function HeroMessage() {
   return (
