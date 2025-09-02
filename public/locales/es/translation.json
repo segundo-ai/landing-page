@@ -52,13 +52,46 @@
       "description": "busca menciones en redes sociales y las categoriza por urgencia"
     }
   },
+  "aboutUs": {
+    "title": "Fundadores construyendo para Fundadores",
+    "description": "Sabemos lo difícil que es dirigir un negocio. Cada uno de nosotros construyó una empresa antes de Segundo. Estamos aquí para crear ROI y demostrarte nuestro valor, no para ser otro costo en tu P&L.",
+    "founders": {
+      "jose": {
+        "name": "José Murillo",
+        "role": "CEO, FUNDADOR",
+        "history": [
+          "Estudió Economía y Ciencias de la Computación en Harvard",
+          "Trabajó en Facebook y Goldman Sachs",
+          "CEO en Samsam (recaudó $2.5m de General Catalyst y Neo)"
+        ]
+      },
+      "santiago": {
+        "name": "Santiago Buenahora",
+        "role": "CTO, FUNDADOR",
+        "history": [
+          "Estudió Ciencias de la Computación en la Universidad de Pennsylvania",
+          "Trabajó en Robinhood y Microsoft",
+          "CEO en MarcoPolo (respaldado por Y Combinator)"
+        ]
+      },
+      "andres": {
+        "name": "Andrés Rosales",
+        "role": "CTO, FUNDADOR",
+        "history": [
+          "Estudió Matemáticas y Física en Harvard",
+          "Trabajó en McKinsey y 8VC",
+          "CEO en Keto Kare (vendido a Nestlé)"
+        ]
+      }
+    }
+  },
   "contact": {
     "title": "Solicita un diagnóstico gratuito de preparación para IA",
-    "description": "Nuestro equipo de ingeniería conocerá a tu equipo e identificará las oportunidades de mayor  ROI para la implementación de IA. ¡Sin costo!",
+    "description": "Nuestro equipo de ingeniería de vanguardia conocerá a tu equipo e identificará las oportunidades de mayor ROI para la implementación de IA. ¡Sin costo!",
     "contactUs": "CONTÁCTANOS",
     "name": "Nombre",
     "name.input": "Ingresa tu nombre",
-    "email.input": "Ingrese tu e-mail",
+    "email.input": "Ingresa tu e-mail",
     "submit": "Enviar mensaje",
     "form": {
       "loading": "Enviando tu formulario...",

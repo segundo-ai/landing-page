@@ -52,6 +52,39 @@
       "description": "search for social media mentions and categorize them by urgency"
     }
   },
+  "aboutUs": {
+    "title": "Founders building for Founders",
+    "description": "We know how hard it is to run a business. Each of us built a company before Segundo. We are here to create ROI and prove to you our value, not to be another cost in your P&L.",
+    "founders": {
+      "jose": {
+        "name": "José Murillo",
+        "role": "CEO, FOUNDER",
+        "history": [
+          "Studied Economics and Computer Science at Harvard",
+          "Worked at Facebook and Goldman Sachs",
+          "CEO at Samsam (raised $2.5m from General Catalyst and Neo)"
+        ]
+      },
+      "santiago": {
+        "name": "Santiago Buenahora",
+        "role": "CTO, FOUNDER",
+        "history": [
+          "Studied Computer Science at the University of Pennsylvania",
+          "Worked at Robinhood and Microsoft",
+          "CEO at MarcoPolo (backed by Y Combinator)"
+        ]
+      },
+      "andres": {
+        "name": "Andrés Rosales",
+        "role": "CTO, FOUNDER",
+        "history": [
+          "Studied Math and Physics at Harvard",
+          "Worked at McKinsey and 8VC",
+          "CEO at Keto Kare (sold to Nestlé)"
+        ]
+      }
+    }
+  },
   "contact": {
     "title": "Request a free AI-readiness diagnostic",
     "description": "Our forward deployed engineering team will get to know your team and identify the highest ROI opportunities for AI implementation. Free of charge!",
