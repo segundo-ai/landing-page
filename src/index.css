@@ -5,3 +5,7 @@
 :root {
   background-color: #000000;
 }
+
+@theme {
+  --breakpoint-medium-large: 910px;
+}

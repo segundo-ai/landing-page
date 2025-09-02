@@ -4,7 +4,7 @@ import type { NavItem } from "@utils/types/NavItem";
 export const WebNavbar = ({ navItems }: { navItems: Array<NavItem> }) => {
   return (
     <nav
-      className="hidden md:flex items-center "
+      className="hidden medium-large:flex items-center "
       style={{ fontFamily: "Satoshi-Regular" }}
     >
       <ul className="flex flex-row text-white gap-[32px] text-center items-center">

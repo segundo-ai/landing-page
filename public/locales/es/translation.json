@@ -1,0 +1,8 @@
+{
+    "contact": {
+        "name": "Nombre",
+        "name.input": "Ingrese su nombre",
+        "email": "E-mail",
+        "submit": "Enviar mensaje"
+    }
+}

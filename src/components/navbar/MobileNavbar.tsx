@@ -15,12 +15,12 @@ export const MobileNavbar = ({
     <>
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden h-[24px] w-[24px]"
+        className="medium-large:hidden h-[24px] w-[24px]"
       >
         <img src={menuMaterial}></img>
       </button>
       <div
-        className={`z-25  left-0 top-[60px] rounded-[20px] px-[22px] py-[5px] bg-[#000000]/90 w-full absolute md:hidden transition-all duration-300 ease-in-out ${
+        className={`z-25  left-0 top-[60px] rounded-[20px] px-[22px] py-[5px] bg-[#000000]/90 w-full absolute medium-large:hidden transition-all duration-300 ease-in-out ${
           isMenuOpen ? "" : "hidden"
         } backdrop-blur-[30px]`}
       >
@@ -47,7 +47,7 @@ export const MobileNavbar = ({
       {/** This div is the one that allows users to clic on any part of the page with the hamburger menu open to close it. */}
       <div
         onClick={() => setIsMenuOpen(false)}
-        className={`fixed -top-[20px] -left-[13px] z-19 w-[100vw] h-[100vh] md:hidden ${
+        className={`fixed -top-[20px] -left-[13px] z-19 w-[100vw] h-[100vh] medium-large:hidden ${
           isMenuOpen ? "" : "hidden"
         } `}
       ></div>

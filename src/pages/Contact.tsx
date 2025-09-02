@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { createPotentialCustomer } from "../data/firebase/createCustomer";
+import { createPotentialCustomer } from "../utils/data/firebase/createCustomer";
+import { useTranslation } from "react-i18next";
 
 type State = "loading" | "success" | "error";
 const stateTextColor: Map<State, string> = new Map([
@@ -9,6 +10,7 @@ const stateTextColor: Map<State, string> = new Map([
 ]);
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [result, setResult] = useState<State | null>(null);
@@ -89,12 +91,12 @@ export default function Contact() {
               htmlFor="contact-form-name"
               className="text-[12px] md:text-[18px]"
             >
-              Name
+              {t("contact.name")}
             </label>
             <input
               id="contact-form-name"
               type="text"
-              placeholder="Enter your name"
+              placeholder={t("contact.name.input")}
               onChange={handleNameChange}
               value={formName}
               className="h-[23px] md:h-[43px] text-[12px] md:text-[14px] border-b-1 border-[#FFFFFF]/20"
