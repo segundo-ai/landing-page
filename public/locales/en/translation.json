@@ -1,8 +1,32 @@
 {
-    "contact": {
-        "name": "Name",
-        "name.input": "Enter your name",
-        "email": "E-mail",
-        "submit": "Submit Message"
+  "general": {
+    "loading": "Loading...",
+    "success": "Success!",
+    "error": "Error",
+    "submit": "Submit",
+    "email": "E-mail",
+    "name": "Name"
+  },
+  "navbar": {
+    "agents": "Agents",
+    "platform": "Platform",
+    "process": "Process",
+    "aboutUs": "About us",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Request a free AI-readiness diagnostic",
+    "description": "Our forward deployed engineering team will get to know your team and identify the highest ROI opportunities for AI implementation. Free of charge!",
+    "contactUs": "CONTACT US",
+    "name": "Name",
+    "name.input": "Enter your name",
+    "email.input": "Enter your e-mail",
+    "submit": "Submit Message",
+    "form": {
+      "loading": "Submitting your form...",
+      "success": "Form submitted successfully!",
+      "error": "Failed to submit form."
     }
+  }
 }

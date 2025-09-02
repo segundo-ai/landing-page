@@ -14,12 +14,15 @@ export default function Contact() {
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [result, setResult] = useState<State | null>(null);
+
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormName(e.target.value);
   };
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormEmail(e.target.value);
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you would typically handle form submission, e.g., send data to an API
@@ -53,22 +56,20 @@ export default function Contact() {
             className="text-[21px] md:text-[40px] leading-[100%] text-[#FFFFFF]"
             style={{ fontFamily: "Satoshi-Bold" }}
           >
-            Request a free AI-readiness diagnostic
+            {t("contact.title")}
           </p>
           <p
             className="leading-[155%] text-[10px] md:text-[16px] text-[#FFFFFF]"
             style={{ fontFamily: "Satoshi-Regular" }}
           >
-            Our forward deployed engineering team will get to know your team and
-            identify the highest ROI opportunities for AI implementation. Free
-            of charge!
+            {t("contact.description")}
           </p>
           <div
             className="flex flex-row gap-[6px] md:gap-[12px] text-[#FFFFFF]"
             style={{ fontFamily: "Satoshi-Regular" }}
           >
             <p className="text-[10px] md:text-[14px] leading-[150%]">
-              CONTACT US
+              {t("contact.contactUs")}
             </p>
             <div className="w-0 border-1 border-white/20"></div>
             <div className="text-[11px] md:text-[16px] flex flex-col gap-[5px]">
@@ -107,12 +108,12 @@ export default function Contact() {
               htmlFor="contact-form-email"
               className="text-[12px] md:text-[18px]"
             >
-              E-mail
+              {t("general.email")}
             </label>
             <input
               id="contact-form-email"
               type="email"
-              placeholder="Enter your e-mail"
+              placeholder={t("contact.email.input")}
               onChange={handleEmailChange}
               value={formEmail}
               className="h-[23px] md:h-[43px] text-[12px] md:text-[14px] border-b-1 border-[#FFFFFF]/20"
@@ -120,7 +121,7 @@ export default function Contact() {
           </div>
         </div>
         <button className="bg-[#1D1D1F] text-[#FBFBFB] leading-[100%] text-[10px] md:text-[14px] p-[10px] md:p-[16px] w-fit md:rounded-[3px]">
-          Submit Message
+          {t("contact.submit")}
         </button>
         {result !== null && (
           <p
@@ -128,10 +129,10 @@ export default function Contact() {
            text-[10px] md:text-[14px]`}
           >
             {result === "loading"
-              ? "Submitting your form..."
+              ? t("contact.form.loading")
               : result === "success"
-              ? "Form submitted successfully!"
-              : "Failed to submit form."}
+              ? t("contact.form.success")
+              : t("contact.form.error")}
           </p>
         )}
       </form>

@@ -1,8 +1,32 @@
 {
-    "contact": {
-        "name": "Nombre",
-        "name.input": "Ingrese su nombre",
-        "email": "E-mail",
-        "submit": "Enviar mensaje"
+  "general": {
+    "loading": "Cargando...",
+    "success": "¡Éxito!",
+    "error": "Error",
+    "submit": "Enviar",
+    "email": "E-mail",
+    "name": "Nombre"
+  },
+  "navbar": {
+    "agents": "Agentes",
+    "platform": "Plataforma",
+    "process": "Proceso",
+    "aboutUs": "Nosotros",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "title": "Solicita un diagnóstico gratuito de preparación para IA",
+    "description": "Nuestro equipo de ingeniería conocerá a tu equipo e identificará las oportunidades de mayor  ROI para la implementación de IA. ¡Sin costo!",
+    "contactUs": "CONTÁCTANOS",
+    "name": "Nombre",
+    "name.input": "Ingresa tu nombre",
+    "email.input": "Ingrese tu e-mail",
+    "submit": "Enviar mensaje",
+    "form": {
+      "loading": "Enviando tu formulario...",
+      "success": "¡Formulario enviado exitosamente!",
+      "error": "Error al enviar el formulario."
     }
+  }
 }

@@ -1,13 +1,24 @@
 import { useState } from "react";
 import logo32 from "@assets/logo_32_32.png";
-import { navItems } from "@/utils/data/general/navbarItems";
 import { WebNavbar } from "./WebNavbar";
 import { MobileNavbar } from "./MobileNavbar";
 import { smoothScroll } from "@/utils/functions/scroll";
 import LanguageSelector from "@/components/navbar/LanguageSelector";
+import type { NavItem } from "@/utils/types/NavItem";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const navItems: NavItem[] = [
+    { name: t("navbar.agents"), path: "#agents" },
+    { name: t("navbar.platform"), path: "#platform" },
+    { name: t("navbar.process"), path: "#process" },
+    { name: t("navbar.aboutUs"), path: "#about-us" },
+    { name: t("navbar.faq"), path: "#faq" },
+    { name: t("navbar.contact"), path: "#contact" },
+  ];
 
   return (
     <div
