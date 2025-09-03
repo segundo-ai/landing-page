@@ -1,40 +1,38 @@
-import bgWaves from "../assets/bg-waves.png";
-import arrow from "../assets/arrow.png";
+import bgWaves from "@assets/bg-waves.png";
+import arrow from "@assets/arrow.png";
+import { useTranslation } from "react-i18next";
 
 interface ProcessStep {
   title: string;
   description: string;
 }
 
-const processSteps: ProcessStep[] = [
-  {
-    title: "Diagnostic",
-    description:
-      "We get to know your team and identify the highest ROI opportunities for AI implementation",
-  },
-  {
-    title: "Proof of Value",
-    description:
-      "We deploy a specific AI use case in less than 4 weeks to demonstrate our platform's value",
-  },
-  {
-    title: "Data Integration",
-    description:
-      "We centralize your fragmented systems in our platform to give AI agents relevant context",
-  },
-  {
-    title: "Build & Deploy",
-    description:
-      "We act as your strategic partner, building the highest ROI AI products for your team",
-  },
-  {
-    title: "Maintenance",
-    description:
-      "We offer round-the-clock support so that your system keeps running seamlessly",
-  },
-];
-
 export default function Process() {
+  const { t } = useTranslation();
+
+  const processSteps: ProcessStep[] = [
+    {
+      title: t("process.steps.diagnostic.title"),
+      description: t("process.steps.diagnostic.description"),
+    },
+    {
+      title: t("process.steps.proofOfValue.title"),
+      description: t("process.steps.proofOfValue.description"),
+    },
+    {
+      title: t("process.steps.dataIntegration.title"),
+      description: t("process.steps.dataIntegration.description"),
+    },
+    {
+      title: t("process.steps.buildDeploy.title"),
+      description: t("process.steps.buildDeploy.description"),
+    },
+    {
+      title: t("process.steps.maintenance.title"),
+      description: t("process.steps.maintenance.description"),
+    },
+  ];
+
   return (
     <section id="process">
       <div className="relative px-[17px] py-[37px] md:py-0 md:px-0">
@@ -48,7 +46,7 @@ export default function Process() {
               className="leading-[130%] text-[44px] md:text-[64px] text-[#FFFFFF] "
               style={{ fontFamily: "Satoshi-Regular" }}
             >
-              OUR PROCESS
+              {t("process.title")}
             </p>
           </div>
           <div className="md:grid md:grid-cols-5 md:h-[454px] z-10">

@@ -1,8 +1,11 @@
-import bgFadingToCenter from "../assets/bg-fading-to-center.jpg";
-import arrow from "../assets/arrow.png";
-import { platformsWeAreExperts } from "../data/platformsWeAreExperts";
+import bgFadingToCenter from "@assets/bg-fading-to-center.jpg";
+import arrow from "@assets/arrow.png";
+import { platformsWeAreExperts } from "@utils/data/general/platformsWeAreExperts";
+import { useTranslation } from "react-i18next";
 
 export default function Explanation() {
+  const { t } = useTranslation();
+
   return (
     <section className="md:min-h-[559px] gap-[40px] py-[50px] relative overflow-hidden">
       {/** This img is the bg. It was implemented like that instead of bg-image to translate without cropping*/}
@@ -25,8 +28,7 @@ export default function Explanation() {
             className="leading-[113%] text-[30px] md:text-[56px] text-center text-[#FBFBFB]"
             style={{ fontFamily: "Satoshi-Regular" }}
           >
-            Automate complex workflows and <br />
-            make better decisions
+            {t("explanation.title")}
           </p>
           {/** md and bigger sizes*/}
           <img
@@ -50,7 +52,7 @@ export default function Explanation() {
           className="w-[260px] md:w-[543px] text-white text-center text-[13px] md:text-[24px] leading-[130%]"
           style={{ fontFamily: "Satoshi-Regular" }}
         >
-          WE CONNECT TO YOUR EXISTING SYSTEMS TO GIVE AI THE RIGHT CONTEXT
+          {t("explanation.subtitle")}
         </p>
       </div>
     </section>

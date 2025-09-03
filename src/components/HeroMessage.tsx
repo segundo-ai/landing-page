@@ -1,7 +1,10 @@
-import arrow from "../assets/arrow.png";
-import { smoothScroll } from "./Navbar";
+import arrow from "@assets/arrow.png";
+import { smoothScroll } from "@/utils/functions/scroll";
+import { useTranslation } from "react-i18next";
 
 export default function HeroMessage() {
+  const { t } = useTranslation();
+
   return (
     <div className="relative z-10 md:min-h-[617px] gap-[10px] md:px-[70px] py-[100px] w-full flex items-end">
       <div className="min-h-[221px] max-w-[calc(100%-159px)]">
@@ -9,25 +12,31 @@ export default function HeroMessage() {
           className="min-h-[128px] w-full text-[48px] md:text-[64px] leading-[100%] text-[#FFFFFF]"
           style={{ fontFamily: "Nohemi-ExtraLight" }}
         >
-          THE <b style={{ fontFamily: "Nohemi-Regular" }}>AI</b>
+          {t("heroMessage.title.line1")}{" "}
+          <b style={{ fontFamily: "Nohemi-Regular" }}>
+            {t("heroMessage.title.ai")}
+          </b>
           <br />
-          <b style={{ fontFamily: "Nohemi-Regular" }}>ENTERPRISE</b> PLATFORM
+          <b style={{ fontFamily: "Nohemi-Regular" }}>
+            {t("heroMessage.title.line2")}
+          </b>{" "}
+          {t("heroMessage.title.line3")}
         </p>
         <div className="h-[48px]"></div>
-        <div className="h-[45px] md:w-[407px] gap-[20px] flex flex-col md:flex-row md:items-center">
+        <div className="h-fit md:w-[407px] gap-[20px] flex flex-col md:flex-row md:items-center">
           <p
             className="text-white w-[245px] text-[14px]"
             style={{ fontFamily: "Satoshi-Medium" }}
           >
-            DEPLOY AI AGENTS ACROSS YOUR ORGANIZATION, DRIVING 10X ROI
+            {t("heroMessage.subtitle")}
           </p>
           <a
             href="#contact"
-            className="w-[142px] text-[#0C0C10] p-[16px] bg-[#AEB9F2] rounded-[4px] h-full text-[14px] leading-[93%] text-center"
+            className="w-[142px] text-[#0C0C10] p-[16px] bg-[#AEB9F2] rounded-[4px] h-full text-[14px] leading-[130%] text-center"
             onClick={(e) => smoothScroll(e, "#contact")}
             style={{ fontFamily: "Satoshi-Medium" }}
           >
-            BOOK A DEMO
+            {t("heroMessage.cta")}
           </a>
         </div>
       </div>

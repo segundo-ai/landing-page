@@ -1,48 +1,39 @@
 import { useState } from "react";
 import bgCenterIlluminated from "../assets/bg-fading-to-center.jpg";
+import { useTranslation } from "react-i18next";
 
 export default function FAQ() {
+  const { t } = useTranslation();
   const [openItem, setOpenItem] = useState(0); // First item open by default
 
   const faqItems = [
     {
-      question: "What is Segundo?",
-      answer:
-        "Segundo is an AI enterprise platform. We work with Fortune 500 companies, building AI backoffice automations and tools to improve decision-making. Our products are built on top of our intelligence platform and integrate with our customers’ systems and data. To keep it short: we help companies get 10x ROI from AI adoption.",
+      question: t("faq.items.whatIsSegundo.question"),
+      answer: t("faq.items.whatIsSegundo.answer"),
     },
     {
-      question: "What features does the platform include?",
-      answer: `Our platform has multiple features, some of the main ones are: \n
-        1. Data platform: centralize data from fragmented systems of record, such as SAP, AWS, Dynamics, Hubspot, Oracle, Salesforce, etc.  \n
-        2. Agent builder: create agents for multiple business use cases, leveraging AI model providers, such as OpenAI, Anthropic, Google, etc. \n
-        3. Workflow builder: integrate AI agents within complex, multi-step processes that require coordination and access to external tools \n
-        4. Business intelligence: automate reports to analyze your company\’s data using AI, facilitating running queries on any of your systems of record  \n
-        5. Tool builder: use no-code tools to build internal tools for your teams (ops, finance, etc.) that connect with your AI agents and workflows.`,
+      question: t("faq.items.platformFeatures.question"),
+      answer: t("faq.items.platformFeatures.answer"),
     },
     {
-      question: "Can Segundo help me build custom products?",
-      answer:
-        "Yes! We see ourselves as your strategic partner. We will identify the highest ROI opportunities to build AI agents in your company. Once we do so, our forward deployed engineering team will take care of messy data integrations and build the products that you want. ",
+      question: t("faq.items.customProducts.question"),
+      answer: t("faq.items.customProducts.answer"),
     },
     {
-      question: "How does Segundo manage data security?",
-      answer:
-        "Privacy and security are our #1 priority. We have strict data processing controls to avoid data training or retention, and we have strong protocols to track threats and vulnerabilities.",
+      question: t("faq.items.dataSecurity.question"),
+      answer: t("faq.items.dataSecurity.answer"),
     },
     {
-      question: "Do I have to be technical to use Segundo?",
-      answer:
-        "Not at all. Our platform makes it easy to use drag-and-drop elements to map business processes and build complex AI agents and workflows. ",
+      question: t("faq.items.technicalRequirements.question"),
+      answer: t("faq.items.technicalRequirements.answer"),
     },
     {
-      question: "How much does it cost?",
-      answer:
-        "We will do a free diagnostic to help you map out AI solutions that will have the highest ROI in your company. Once we do so, we will quote you a price to carry-out your data integrations and build use cases for your company. ",
+      question: t("faq.items.cost.question"),
+      answer: t("faq.items.cost.answer"),
     },
     {
-      question: "Can I use my own AI model providers",
-      answer:
-        "Yes. You can provide your own LLM API keys directly in our agent builder. ",
+      question: t("faq.items.ownAIProviders.question"),
+      answer: t("faq.items.ownAIProviders.answer"),
     },
   ];
 
@@ -68,7 +59,7 @@ export default function FAQ() {
             className="text-white text-center text-[32px] md:text-[59px] leading-[125%]"
             style={{ fontFamily: "Satoshi-Medium" }}
           >
-            FAQS
+            {t("faq.title")}
           </h2>
           <div className="flex flex-col gap-[11px] md:gap-[20px] md:px-[100px]">
             {faqItems.map((item, index) => (

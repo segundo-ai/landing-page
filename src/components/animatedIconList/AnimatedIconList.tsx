@@ -1,10 +1,5 @@
 import styles from "./AnimatedIconList.module.css";
-
-export type IconInfo = {
-  iconUrl: string;
-  alt: string;
-  redirectionUrl?: string;
-};
+import type { IconInfo } from "@utils/types/IconInfo";
 
 export default function AnimatedIconList({
   iconList,

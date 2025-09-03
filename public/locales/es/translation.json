@@ -1,0 +1,202 @@
+{
+  "general": {
+    "loading": "Cargando...",
+    "success": "¡Éxito!",
+    "error": "Error",
+    "submit": "Enviar",
+    "email": "E-mail",
+    "name": "Nombre"
+  },
+  "navbar": {
+    "agents": "Agentes",
+    "platform": "Plataforma",
+    "process": "Proceso",
+    "aboutUs": "Nosotros",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "heroMessage": {
+    "title": {
+      "line1": "LA",
+      "ai": "PLATAFORMA",
+      "line2": "DE IA",
+      "line3": "EMPRESARIAL"
+    },
+    "subtitle": "DESPLIEGA AGENTES DE IA EN TODA TU ORGANIZACIÓN, IMPULSANDO 10X ROI",
+    "cta": "RESERVA UNA DEMO"
+  },
+  "intro": {
+    "videoFallback": "Tu navegador no soporta la etiqueta de video."
+  },
+  "explanation": {
+    "title": "Automatiza flujos de trabajo complejos y toma mejores decisiones",
+    "subtitle": "NOS CONECTAMOS A TUS SISTEMAS EXISTENTES PARA DARLE A LA IA EL CONTEXTO CORRECTO"
+  },
+  "platform": {
+    "title": "NUESTRA PLATAFORMA • NUESTRA PLATAFORMA",
+    "tabs": {
+      "centralizeData": {
+        "title": "Centraliza Datos",
+        "description": "Nuestro equipo de ingeniería te ayudará a unificar los datos fragmentados de tu empresa (SAP, Hubspot, etc.) en nuestra plataforma"
+      },
+      "createAIAgents": {
+        "title": "Crea Agentes de IA",
+        "description": "Despliega agentes LLM y modelos ML (anomalías, clustering, series temporales, etc.) sobre los datos de tu empresa"
+      },
+      "buildWorkflows": {
+        "title": "Construye Flujos de Trabajo",
+        "description": "Automatiza flujos de trabajo críticos conectando agentes de IA con +50 herramientas"
+      },
+      "monitorResults": {
+        "title": "Monitorea Resultados",
+        "description": "Revisa los logs de los agentes para detectar problemas y ajustar tus flujos de trabajo para obtener los resultados correctos"
+      },
+      "boostAnalytics": {
+        "title": "Mejora la Analítica",
+        "description": "Analiza los datos de tu empresa, automatizando los reportes y acelerando la toma de decisiones"
+      }
+    }
+  },
+  "process": {
+    "title": "NUESTRO PROCESO",
+    "steps": {
+      "diagnostic": {
+        "title": "Diagnóstico",
+        "description": "Conocemos a tu equipo e identificamos las oportunidades de mayor ROI para la implementación de IA"
+      },
+      "proofOfValue": {
+        "title": "Prueba de Valor",
+        "description": "Desplegamos un caso de uso específico de IA en menos de 4 semanas para demostrar el valor de nuestra plataforma"
+      },
+      "dataIntegration": {
+        "title": "Integración de Datos",
+        "description": "Centralizamos tus sistemas fragmentados en nuestra plataforma para dar contexto relevante a los agentes de IA"
+      },
+      "buildDeploy": {
+        "title": "Construir y Desplegar",
+        "description": "Actuamos como tu socio estratégico, construyendo los productos de IA de mayor ROI para tu equipo"
+      },
+      "maintenance": {
+        "title": "Mantenimiento",
+        "description": "Ofrecemos soporte las 24 horas para que tu sistema siga funcionando sin problemas"
+      }
+    }
+  },
+  "agents": {
+    "formFilling": {
+      "title": "Agente de Llenado de Formularios",
+      "description": "ingresa automáticamente datos de tu bandeja de entrada a tu ERP"
+    },
+    "reportWriting": {
+      "title": "Agente de Escritura de Reportes",
+      "description": "redacta un resumen ejecutivo de 10+ páginas analizando una solicitud de crédito"
+    },
+    "fraudFlagging": {
+      "title": "Agente de Detección de Fraude",
+      "description": "compara los IDs de tus clientes con sus datos y marca discrepancias"
+    },
+    "contractAnalyst": {
+      "title": "Agente Analista de Contratos",
+      "description": "revisa un contrato de 100+ páginas y deja el marcado de detalles importantes a la IA"
+    },
+    "dataAnalysis": {
+      "title": "Analiza datos, construye modelos predictivos y automatiza procesos de back-office"
+    },
+    "inventoryForecast": {
+      "title": "Agente de Pronóstico de Inventario",
+      "description": "analiza órdenes pasadas y tendencias externas para predecir ventas de los próximos 12 meses"
+    },
+    "salesOutbound": {
+      "title": "Agente de Ventas Externas",
+      "description": "identifica leads de alta calidad y automatiza llamadas de introducción"
+    },
+    "anomalyDetection": {
+      "title": "Agente de Detección de Anomalías",
+      "description": "monitorea datos de producción y detecta problemas de calidad o fallas de máquinas tempranamente"
+    },
+    "internetScrapper": {
+      "title": "Agente Scrapper de Internet",
+      "description": "busca menciones en redes sociales y las categoriza por urgencia"
+    }
+  },
+  "aboutUs": {
+    "title": "Fundadores construyendo para Fundadores",
+    "description": "Sabemos lo difícil que es dirigir un negocio. Cada uno de nosotros construyó una empresa antes de Segundo. Estamos aquí para crear ROI y demostrarte nuestro valor, no para ser otro costo en tu P&L.",
+    "founders": {
+      "jose": {
+        "name": "José Murillo",
+        "role": "CEO, FUNDADOR",
+        "history": [
+          "Estudió Economía y Ciencias de la Computación en Harvard",
+          "Trabajó en Facebook y Goldman Sachs",
+          "CEO en Samsam (recaudó $2.5m de General Catalyst y Neo)"
+        ]
+      },
+      "santiago": {
+        "name": "Santiago Buenahora",
+        "role": "CTO, FUNDADOR",
+        "history": [
+          "Estudió Ciencias de la Computación en la Universidad de Pennsylvania",
+          "Trabajó en Robinhood y Microsoft",
+          "CEO en MarcoPolo (respaldado por Y Combinator)"
+        ]
+      },
+      "andres": {
+        "name": "Andrés Rosales",
+        "role": "COO, FUNDADOR",
+        "history": [
+          "Estudió Matemáticas y Física en Harvard",
+          "Trabajó en McKinsey y 8VC",
+          "CEO en Keto Kare (vendido a Nestlé)"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "FAQs",
+    "items": {
+      "whatIsSegundo": {
+        "question": "¿Qué es Segundo?",
+        "answer": "Segundo es una plataforma empresarial de IA. Trabajamos con empresas Fortune 500, construyendo automatizaciones y herramientas de IA para back-office que mejoran la toma de decisiones. Nuestros productos están construidos sobre nuestra plataforma de inteligencia e integran con los sistemas y datos de nuestros clientes. Para resumir: ayudamos a las empresas a obtener 10x ROI de la adopción de IA."
+      },
+      "platformFeatures": {
+        "question": "¿Qué características incluye la plataforma?",
+        "answer": "Nuestra plataforma tiene múltiples características, algunas de las principales son:\n1. Plataforma de datos: centraliza datos de sistemas de registro fragmentados, como SAP, AWS, Dynamics, Hubspot, Oracle, Salesforce, etc.\n2. Constructor de agentes: crea agentes para múltiples casos de uso empresariales, aprovechando proveedores de modelos de IA, como OpenAI, Anthropic, Google, etc.\n3. Constructor de flujos de trabajo: integra agentes de IA dentro de procesos complejos de múltiples pasos que requieren coordinación y acceso a herramientas externas\n4. Inteligencia empresarial: automatiza reportes para analizar los datos de tu empresa usando IA, facilitando ejecutar consultas en cualquiera de tus sistemas de registro\n5. Constructor de herramientas: usa herramientas no-code para construir herramientas internas en tus equipos (operaciones, finanzas, etc.) que se conectan con tus agentes de IA y flujos de trabajo."
+      },
+      "customProducts": {
+        "question": "¿Puede Segundo ayudarme a construir productos personalizados?",
+        "answer": "¡Sí! Nos vemos como tu socio estratégico. Identificaremos las oportunidades de mayor ROI para construir agentes de IA en tu empresa. Una vez que lo hagamos, nuestro equipo de ingeniería desplegado en el campo se encargará de las integraciones de datos complicadas y construirá los productos que quieres."
+      },
+      "dataSecurity": {
+        "question": "¿Cómo maneja Segundo la seguridad de datos?",
+        "answer": "La privacidad y seguridad son nuestra prioridad #1. Tenemos controles estrictos de procesamiento de datos para evitar el entrenamiento o retención de datos, y tenemos protocolos fuertes para rastrear amenazas y vulnerabilidades."
+      },
+      "technicalRequirements": {
+        "question": "¿Tengo que ser técnico para usar Segundo?",
+        "answer": "Para nada. Nuestra plataforma facilita el uso de elementos de arrastrar y soltar para mapear procesos empresariales y construir agentes de IA y flujos de trabajo complejos."
+      },
+      "cost": {
+        "question": "¿Cuánto cuesta?",
+        "answer": "Haremos un diagnóstico gratuito para ayudarte a mapear soluciones de IA que tendrán el mayor ROI en tu empresa. Una vez que lo hagamos, te cotizaremos un precio para llevar a cabo tus integraciones de datos y construir casos de uso para tu empresa."
+      },
+      "ownAIProviders": {
+        "question": "¿Puedo usar mis propios proveedores de modelos de IA?",
+        "answer": "Sí. Puedes proporcionar tus propias claves API de LLM directamente en nuestro constructor de agentes."
+      }
+    }
+  },
+  "contact": {
+    "title": "Solicita un diagnóstico gratuito de preparación para IA",
+    "description": "Nuestro equipo de ingeniería de vanguardia conocerá a tu equipo e identificará las oportunidades de mayor ROI para la implementación de IA. ¡Sin costo!",
+    "contactUs": "CONTÁCTANOS",
+    "name": "Nombre",
+    "name.input": "Ingresa tu nombre",
+    "email.input": "Ingresa tu e-mail",
+    "submit": "Enviar mensaje",
+    "form": {
+      "loading": "Enviando tu formulario...",
+      "success": "¡Formulario enviado exitosamente!",
+      "error": "Error al enviar el formulario."
+    }
+  }
+}

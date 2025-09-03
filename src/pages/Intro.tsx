@@ -1,6 +1,9 @@
 import HeroMessage from "../components/HeroMessage";
+import { useTranslation } from "react-i18next";
 
 export default function Intro() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="top"
@@ -17,7 +20,7 @@ export default function Intro() {
           src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.webm"
           type="video/mp4"
         />
-        Your browser does not support the video tag.
+        {t("intro.videoFallback")}
       </video>
       <div className="absolute top-0 left-0 w-full h-full z-2 bg-gradient-to-b from-[rgba(0,0,0,0)] from-0% via-[rgba(0,0,0,0.6)] via-60% to-[rgba(0,0,0,0.6)] to-100%"></div>
       <HeroMessage></HeroMessage>

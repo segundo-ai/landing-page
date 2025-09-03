@@ -1,6 +1,7 @@
 import santiPic from "../assets/founders/Santi.jpg";
 import josePic from "../assets/founders/Jose.jpg";
 import andresPic from "../assets/founders/Andres.jpg";
+import { useTranslation } from "react-i18next";
 
 interface Founder {
   name: string;
@@ -9,41 +10,36 @@ interface Founder {
   history: string[];
 }
 
-const founders: Founder[] = [
-  {
-    name: "José Murillo",
-    role: "CEO, FOUNDER",
-    picture: josePic,
-    history: [
-      "Studied Economics and Computer Science at Harvard",
-      "Worked at Facebook and Goldman Sachs",
-      "CEO at Samsam (raised $2.5m from General Catalyst and Neo)",
-    ],
-  },
-  {
-    name: "Santiago Buenahora",
-    role: "CTO, FOUNDER",
-    picture: santiPic,
-
-    history: [
-      "Studied Computer Science at the University of Pennsylvania",
-      "Worked at Robinhood and Microsoft",
-      "CEO at MarcoPolo (backed by Y Combinator)",
-    ],
-  },
-  {
-    name: "Andrés Rosales",
-    role: "CTO, FOUNDER",
-    picture: andresPic,
-    history: [
-      "Studied Math and Physics at Harvard",
-      "Worked at McKinsey and 8VC",
-      "CEO at Keto Kare (sold to Nestlé)",
-    ],
-  },
-];
-
 export default function AboutUs() {
+  const { t } = useTranslation();
+
+  const founders: Founder[] = [
+    {
+      name: t("aboutUs.founders.jose.name"),
+      role: t("aboutUs.founders.jose.role"),
+      picture: josePic,
+      history: t("aboutUs.founders.jose.history", {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      name: t("aboutUs.founders.santiago.name"),
+      role: t("aboutUs.founders.santiago.role"),
+      picture: santiPic,
+      history: t("aboutUs.founders.santiago.history", {
+        returnObjects: true,
+      }) as string[],
+    },
+    {
+      name: t("aboutUs.founders.andres.name"),
+      role: t("aboutUs.founders.andres.role"),
+      picture: andresPic,
+      history: t("aboutUs.founders.andres.history", {
+        returnObjects: true,
+      }) as string[],
+    },
+  ];
+
   return (
     <section
       id="about-us"
@@ -55,15 +51,13 @@ export default function AboutUs() {
             className="text-[31px] md:text-[59px] leading-[125%] text-center text-[#FFFFFF]"
             style={{ fontFamily: "Satoshi-Regular" }}
           >
-            Founders building for Founders
+            {t("aboutUs.title")}
           </h2>
           <p
             className="text-[10px] md:text-[18px] leading-[160%] text-center text-[#FBFBFB]"
             style={{ fontFamily: "Satoshi-Regular" }}
           >
-            We know how hard it is to run a business. Each of us built a company
-            before Segundo. We are here to create ROI and prove to you our
-            value, not to be another cost in your P&L.
+            {t("aboutUs.description")}
           </p>
         </div>
       </div>
