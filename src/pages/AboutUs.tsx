@@ -1,6 +1,6 @@
-import santiPic from "../assets/founders/Santi.jpg";
-import josePic from "../assets/founders/Jose.jpg";
-import andresPic from "../assets/founders/Andres.jpg";
+import santiPic from "../assets/founders/Santi_preferred.jpeg";
+import josePic from "../assets/founders/Jose_preferred.jpeg";
+import andresPic from "../assets/founders/Andres_preferred.jpeg";
 import { useTranslation } from "react-i18next";
 
 interface Founder {
