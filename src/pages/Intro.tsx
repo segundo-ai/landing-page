@@ -18,6 +18,10 @@ export default function Intro() {
       >
         <source
           src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.mp4"
           type="video/mp4"
         />
         {t("intro.videoFallback")}
