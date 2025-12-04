@@ -1,6 +1,7 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
-import { Link } from "react-router-dom";
 import rehypeRaw from "rehype-raw";
 import Navbar from "@components/navbar/Navbar";
 import Footer from "@pages/Footer";
@@ -63,6 +64,10 @@ const markdownComponents: Components = {
 };
 
 export default function LegalPage({ title, content }: LegalPageProps) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [title]);
+
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
       <Navbar />
