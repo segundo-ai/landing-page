@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import completeLogo from "../../assets/logo_full.png";
 import bgCenterIlluminated from "../../assets/bg-fading-to-center.jpg";
 
@@ -8,6 +9,11 @@ export default function OrganizationInfo() {
     "|",
     "|",
     "All rights reserved",
+  ];
+
+  const legalLinks = [
+    { href: "/terms", label: "Términos y Condiciones" },
+    { href: "/privacy", label: "Aviso de Privacidad" },
   ];
 
   return (
@@ -38,6 +44,17 @@ export default function OrganizationInfo() {
           539 Avenida Ejercito Nacional, Granada, Miguel <br />
           Hidalgo, 11520 Ciudad de México, CDMX
         </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 text-[10px] md:text-[14px] text-[#AE96FF]">
+          {legalLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="transition-colors hover:text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
