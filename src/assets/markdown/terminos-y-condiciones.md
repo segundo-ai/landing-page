@@ -3,7 +3,7 @@
 Este contrato describe los términos y condiciones generales (en adelante
 únicamente "Términos y Condiciones") aplicables al uso de los contenidos,
 productos y servicios ofrecidos a través del sitio **<www.segundo.ai>** (en
-adelante, "Sitio Web"), del cual es Administrador **Segundo AI** (en adelante,
+adelante, "Sitio Web"), del cual es Administrador **Primero AI, S. De R.L. De C.V** (en adelante,
 "Administrador") quien tiene su domicilio en: La Laguna 24, Insurgentes
 Cuicuilco, Coyoacán, 04500.
 
@@ -24,7 +24,7 @@ dominio: **<www.segundo.ai>**.
 El Administrador se reserva la facultad de modificar en cualquier momento y sin
 previo aviso, la presentación, los contenidos, la funcionalidad, los productos,
 los servicios, y la configuración que pudiera estar contenida en el Sitio Web;
-en este sentido, el Usuario reconoce y acepta que **Segundo AI** en cualquier
+en este sentido, el Usuario reconoce y acepta que **Primero AI, S. De R.L. De C.V** en cualquier
 momento podrá interrumpir, desactivar o cancelar cualquiera de los elementos que
 conforman el Sitio Web o el acceso a los mismos.
 
@@ -40,16 +40,16 @@ El acceso a parte de los contenidos y servicios del Sitio Web podrá realizarse
 previa suscripción o registro previo del Usuario.
 
 El Sitio Web se encuentra dirigido exclusivamente a personas que cuenten con la
-mayoría de edad (mayores de 18 años); en este sentido, **Segundo AI** declina
+mayoría de edad (mayores de 18 años); en este sentido, **Primero AI, S. De R.L. De C.V** declina
 cualquier responsabilidad por el incumplimiento de este requisito.
 
 El Sitio Web está dirigido principalmente a Usuarios residentes en la República
-Mexicana, por lo cual, **Segundo AI** no asegura que el Sitio Web cumpla total o
+Mexicana, por lo cual, **Primero AI, S. De R.L. De C.V** no asegura que el Sitio Web cumpla total o
 parcialmente con la legislación de otros países, de forma que, si el Usuario
 reside o tiene su domicilio establecido en otro país y decide acceder o utilizar
 el Sitio Web lo hará bajo su propia responsabilidad y deberá asegurarse de que
 tal acceso y navegación cumple con la legislación local que le es aplicable, no
-asumiendo **Segundo AI** ninguna responsabilidad que se pueda derivar de dicho
+asumiendo **Primero AI, S. De R.L. De C.V** ninguna responsabilidad que se pueda derivar de dicho
 acto.
 
 Se hace del conocimiento del Usuario que el Administrador podrá administrar o
@@ -100,15 +100,15 @@ El Administrador no garantiza de ningún modo la continuidad y disponibilidad de
 los contenidos, productos o servicios ofrecidos a través del Sitio Web, no
 obstante, el Administrador llevará a cabo las acciones que de acuerdo a sus
 posibilidades le permitan mantener el buen funcionamiento del Sitio Web, sin que
-esto suponga alguna responsabilidad de parte de **Segundo AI**.
+esto suponga alguna responsabilidad de parte de **Primero AI, S. De R.L. De C.V**.
 
-De igual forma **Segundo AI** no será responsable ni garantiza que el contenido
+De igual forma **Primero AI, S. De R.L. De C.V** no será responsable ni garantiza que el contenido
 o software al que pueda accederse a través del Sitio Web, se encuentre libre de
 errores, software malicioso, o que pueda causar algún daño a nivel de software o
 hardware en el equipo a través del cual el Usuario accede al Sitio Web.
 
 El Administrador tampoco se hace responsable de los daños que pudiesen
-ocasionarse por un uso inadecuado del Sitio Web. En ningún caso **Segundo AI**
+ocasionarse por un uso inadecuado del Sitio Web. En ningún caso **Primero AI, S. De R.L. De C.V**
 será responsable por las pérdidas, daños o perjuicios de cualquier tipo que
 surjan por el sólo acceso o utilización del Sitio Web.
 
@@ -141,9 +141,9 @@ actualizados para los fines para los cuales fueron recabados.
 El tratamiento de datos personales se limitará al cumplimiento de las
 finalidades previstas en el **Aviso de Privacidad** el cual se encontrará
 disponible en la siguiente dirección electrónica:
-[www.segundo.ai/privacidad](https://www.segundo.ai/privacidad).
+[www.segundo.ai/privacy](https://www.segundo.ai/privacy).
 
-**Segundo AI** se reserva el derecho a modificar su Política de Privacidad, de
+**Primero AI, S. De R.L. De C.V** se reserva el derecho a modificar su Política de Privacidad, de
 acuerdo a sus necesidades o derivado de algún cambio en la legislación. El
 acceso o utilización del Sitio Web después de dichos cambios, implicará la
 aceptación de estos cambios.
@@ -182,7 +182,7 @@ ingresar o hacer uso del Sitio Web.
 
 ## V. Política en Materia de Propiedad Intelectual e Industrial
 
-**Segundo AI**, por sí o como parte cesionaria, es Titular de todos los derechos
+**Primero AI, S. De R.L. De C.V**, por sí o como parte cesionaria, es Titular de todos los derechos
 de propiedad intelectual e industrial del Sitio Web, entendiendo por este el
 código fuente que hace posible su funcionamiento así como las imágenes, archivos
 de audio o video, logotipos, marcas, combinaciones de colores, estructuras,
@@ -191,7 +191,7 @@ por la legislación mexicana en materia de propiedad intelectual e industrial,
 así como por los tratados internacionales aplicables. Por consiguiente, queda
 expresamente prohibida la reproducción, distribución, o difusión de los
 contenidos del Sitio Web, con fines comerciales, en cualquier soporte y por
-cualquier medio, sin la autorización de **Segundo AI**.
+cualquier medio, sin la autorización de **Primero AI, S. De R.L. De C.V**.
 
 El Usuario se compromete a respetar los derechos de propiedad intelectual e
 industrial del Administrador. No obstante, además de poder visualizar los
@@ -208,18 +208,18 @@ visualizarlos, editarlos o manipularlos.
 En caso de que el Usuario o algún tercero consideren que cualquiera de los
 contenidos del Sitio Web suponga una violación de los derechos de protección de
 la propiedad industrial o intelectual, deberá comunicarlo inmediatamente a
-**Segundo AI** a través de los siguientes medios:
+**Primero AI, S. De R.L. De C.V** a través de los siguientes medios:
 
 - Teléfono: 5620226240
 - Correo electrónico: <jose@segundo.ai>
 
 ## VI. Legislación y Jurisdicción Aplicable
 
-**Segundo AI** se reserva la facultad de presentar las acciones civiles o
+**Primero AI, S. De R.L. De C.V** se reserva la facultad de presentar las acciones civiles o
 penales que considere necesarias por la utilización indebida del Sitio Web, sus
 contenidos, productos o servicios, o por el incumplimiento de los presentes
 Términos y Condiciones.
 
-La relación entre el Usuario y **Segundo AI** se regirá por la legislación
+La relación entre el Usuario y **Primero AI, S. De R.L. De C.V** se regirá por la legislación
 vigente en México, sometiéndose específicamente a los tribunales competentes en
 la Ciudad de México.
