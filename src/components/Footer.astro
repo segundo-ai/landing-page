@@ -1,0 +1,66 @@
+---
+import { useTranslations, getLanguage } from "../utils/translations";
+import { site } from "../config/site";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="bg-card border-t border-border py-12 lg:py-16 w-full">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12 mb-8">
+      <!-- Logo and Description -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2">
+          <img
+            src="/images/logos/segundo-block2.png"
+            alt="Primero AI"
+            class="h-8 w-auto rounded-[5px]"
+          />
+          <span class="text-xl satoshi-bold text-foreground">PrimeroAI</span>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="space-y-4">
+        <h3 class="text-sm nohemi-semibold text-foreground uppercase tracking-wider" data-i18n="footer.legalHeading">
+          {t("footer.legalHeading")}
+        </h3>
+        <div class="flex flex-col space-y-2">
+          <a
+            href="/terms"
+            class="text-sm text-muted-foreground hover:text-primary transition-colors"
+            data-i18n="footer.terms"
+          >
+            {t("footer.terms")}
+          </a>
+          <a
+            href="/privacy"
+            class="text-sm text-muted-foreground hover:text-primary transition-colors"
+            data-i18n="footer.privacy"
+          >
+            {t("footer.privacy")}
+          </a>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="space-y-4">
+        <h3 class="text-sm nohemi-semibold text-foreground uppercase tracking-wider" data-i18n="footer.contactHeading">
+          {t("footer.contactHeading")}
+        </h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          {site.address}
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="pt-8 border-t border-border text-center">
+      <p class="text-sm text-muted-foreground">
+        {site.copyright}
+      </p>
+    </div>
+  </div>
+</footer>
+

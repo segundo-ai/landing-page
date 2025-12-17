@@ -1,0 +1,73 @@
+---
+import { type Agent } from "../config/content";
+import { Card, CardTitle, CardContent } from "@/components/starwind/card";
+
+interface Props {
+  agent: Agent;
+}
+
+const { agent } = Astro.props;
+
+// Icon mapping from agent IDs to SVG filenames
+const agentIconMap: Record<string, string> = {
+  "form-filling": "form.svg",
+  "report-writing": "text_cursor.svg",
+  "fraud-flagging": "warning.svg",
+  "contract-analyst": "document.svg",
+  "inventory-forecast": "crate.svg",
+  "sales-outbound": "sales.svg",
+  "anomaly-detection": "bug.svg",
+  "internet-scraper": "internet.svg",
+};
+
+const getAgentIcon = (agentId: string): string => {
+  return `/images/agent_vectors/${agentIconMap[agentId] || "form.svg"}`;
+};
+---
+
+<Card class="spotlight-container group relative hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
+  <!-- Spotlight overlay -->
+  <div class="spotlight-overlay"></div>
+  
+  <CardContent class="relative z-10 p-3 lg:p-4">
+    <div class="space-y-4">
+      <div class="flex items-start space-x-4">
+        <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <img
+            src={getAgentIcon(agent.id)}
+            alt={`${agent.name} icon`}
+            class="w-8 h-8"
+          />
+        </div>
+        <div class="flex-1 min-w-0">
+          <CardTitle class="text-3xl mt-1 mb-4 satoshi-light" data-i18n={`agents.${agent.id}.name`}>
+            {agent.name}
+          </CardTitle>
+          <p class="text-base text-muted-foreground leading-relaxed satoshi-regular" data-i18n={`agents.${agent.id}.description`}>
+            {agent.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+<script>
+  import { initSpotlightEffect } from '../utils/spotlight-effect';
+
+  // Initialize spotlight effects for all agent cards
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('#agents .spotlight-container');
+      cards.forEach((card) => {
+        initSpotlightEffect(card as HTMLElement);
+      });
+    });
+  } else {
+    const cards = document.querySelectorAll('#agents .spotlight-container');
+    cards.forEach((card) => {
+      initSpotlightEffect(card as HTMLElement);
+    });
+  }
+</script>
+

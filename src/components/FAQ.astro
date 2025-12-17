@@ -1,0 +1,48 @@
+---
+import { useTranslations, getLanguage } from "../utils/translations";
+import { faqs } from "../config/content";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/starwind/accordion";
+import type { FAQ } from "../config/content";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+
+// Map FAQs to translated versions
+const translatedFaqs: FAQ[] = faqs.map((_, index) => ({
+  question: t(`faqs.items.${index}.question`),
+  answer: t(`faqs.items.${index}.answer`),
+}));
+---
+
+<section id="faq" class="py-16 lg:py-24 bg-background">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground text-center mb-12 lg:mb-16" data-i18n="faqs.heading">
+        {t("faqs.heading")}
+      </h2>
+
+      <Accordion type="single" class="space-y-4">
+        {translatedFaqs.map((faq, index) => (
+          <AccordionItem value={`faq-${index}`} class="border border-border rounded-lg overflow-hidden">
+            <AccordionTrigger class="px-6 py-4 bg-card hover:bg-accent">
+              <span class="satoshi-medium text-foreground pr-4 text-left" data-i18n={`faqs.items.${index}.question`}>
+                {faq.question}
+              </span>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div class="px-6 pt-4 text-muted-foreground leading-relaxed satoshi-light" data-i18n={`faqs.items.${index}.answer`}>
+                {faq.answer}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  </div>
+</section>
+

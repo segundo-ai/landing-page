@@ -1,0 +1,59 @@
+---
+import { agents } from "../config/content";
+import { Card, CardContent } from "@/components/starwind/card";
+import AgentCard from "./AgentCard.astro";
+import { useTranslations, getLanguage } from "../utils/translations";
+import type { Agent } from "../config/content";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+
+// Map agents to translated versions
+const translatedAgents: Agent[] = agents.map((agent) => ({
+  ...agent,
+  name: t(`agents.${agent.id}.name`),
+  description: t(`agents.${agent.id}.description`),
+}));
+---
+
+<section id="agents" class="py-16 lg:py-24 bg-background w-full">
+  <div class="w-full px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Row 1: Agents 1-3 -->
+      {translatedAgents.slice(0, 3).map((agent) => (
+        <AgentCard agent={agent} />
+      ))}
+      
+      <!-- Row 2: Agent 4, Logo (center), Agent 5 -->
+      {translatedAgents.slice(3, 4).map((agent) => (
+        <AgentCard agent={agent} />
+      ))}
+      
+      <!-- Center Logo Card (Row 2, Col 2) -->
+      <div class="hidden lg:flex">
+        <Card class="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
+          <CardContent class="p-4 flex flex-col items-center justify-center text-center space-y-4">
+            <img
+              src="/images/logos/segundo-block.png"
+              alt="PrimeroAI Logo"
+              class="h-8 w-8 mx-auto"
+            />
+            <p class="text-xl text-muted-foreground nohemi-medium" data-i18n="agents.centerCardDescription">
+              {t("agents.centerCardDescription")}
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {translatedAgents.slice(4, 5).map((agent) => (
+        <AgentCard agent={agent} />
+      ))}
+
+      <!-- Row 3: Agents 6-8 -->
+      {translatedAgents.slice(5, 8).map((agent) => (
+        <AgentCard agent={agent} />
+      ))}
+    </div>
+  </div>
+</section>
+

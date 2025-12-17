@@ -1,0 +1,45 @@
+---
+import { useTranslations, getLanguage } from "../utils/translations";
+import { integrations } from "../config/content";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="md:min-h-[459px] gap-[19px] md:gap-[35px] px-[30px] md:px-[113px] py-[33px] md:py-[62px] flex flex-col items-center relative bg-background">
+  <!-- Top section with arrows and heading -->
+  <div class="md:min-h-[126px] w-full flex flex-col md:flex-row justify-around items-center">
+    <!-- Mobile arrow (top) -->
+    <div class="md:hidden flex justify-center">
+      <img class="rotate-270 w-[19px] h-[40px]" src="/images/arrow.png" alt="" />
+    </div>
+    
+    <!-- Desktop left arrow -->
+    <img class="rotate-180 w-[36px] h-[76px] hidden md:inline" src="/images/arrow.png" alt="" />
+    
+    <!-- Heading -->
+    <p class="leading-[113%] text-[30px] md:text-[56px] text-center text-[#FBFBFB] satoshi-regular" data-i18n="integrations.heading">
+      {t("integrations.heading")}
+    </p>
+    
+    <!-- Desktop right arrow -->
+    <img class="w-[36px] h-[76px] hidden md:inline" src="/images/arrow.png" alt="" />
+  </div>
+  
+  <!-- Integration logos -->
+  <div class="flex flex-wrap md:flex-nowrap flex-row items-center justify-center md:gap-[15px] lg:gap-[30px]">
+    {integrations.map((integration) => (
+      <img
+        alt={`${integration.name} icon`}
+        src={integration.icon}
+        class="basis-1/3 md:basis-auto w-[40px] md:w-[100px] lg:w-[125px] py-[8px] px-[5px] md:py-[15px] md:px-[10px]"
+        loading="lazy"
+      />
+    ))}
+  </div>
+  
+  <!-- Bottom description -->
+  <p class="w-[260px] md:w-[543px] text-white text-center text-[13px] md:text-[24px] leading-[130%] satoshi-regular" data-i18n="integrations.description">
+    {t("integrations.description")}
+  </p>
+</section>

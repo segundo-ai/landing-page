@@ -1,0 +1,83 @@
+---
+import { useTranslations, getLanguage } from "../utils/translations";
+import { Card } from "@/components/starwind/card";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+
+const processSteps = [
+  {
+    icon: "diagnostic",
+    number: 1,
+  },
+  {
+    icon: "proof-of-value",
+    number: 2,
+  },
+  {
+    icon: "data-integration",
+    number: 3,
+  },
+  {
+    icon: "build-deploy",
+    number: 4,
+  },
+  {
+    icon: "maintenance",
+    number: 5,
+  },
+];
+---
+
+<section id="process" class="py-16 lg:py-24 bg-background w-full">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="w-full">
+      <div class="text-center mb-12 lg:mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground" data-i18n="process.heading">
+          {t("process.heading")}
+        </h2>
+      </div>
+
+      <div class="relative w-full">
+        <!-- Horizontal connection line (desktop only) -->
+        <div class="flex flex-col md:grid md:grid-cols-5 md:h-[454px] z-10 gap-4 md:gap-6 lg:gap-8">
+          {processSteps.map((step, index) => (
+            <Card class="spotlight-container px-[11px] md:px-[20px] h-[97px] md:h-[454px] pt-[11px] md:pt-[20px] grid grid-cols-4 grid-rows-1 md:flex md:flex-col md:justify-between border-1 border-[#FBFBFB]/10 gap-[20px] md:gap-0 group relative hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
+              <!-- Spotlight overlay -->
+              <div class="spotlight-overlay"></div>
+              
+              <div class="relative z-10 col-start-2 row-start-1 col-span-3 md:min-w-auto flex md:flex-col xl:flex-row gap-[10px] md:gap-[20px]">
+                <img class="w-[13px] md:w-[25px] h-[28px] md:h-[53px] rotate-180 md:rotate-270 xl:rotate-180 md:ml-[15px] xl:ml-0" src="/images/arrow.png">
+                <div class="flex flex-col gap-[5px] md:gap-[10px] md:flex md:flex-col text-wrap">
+                  <p class="text-[16px] leading-[125%] md:text-[18px] lg:text-[24px] text-[#ABABAB] satoshi-light" data-i18n={`process.steps.${step.number}.title`}>{t(`process.steps.${step.number}.title`)}</p>
+                  <p class="text-[10px] text-[#FBFBFB]/73 leading-[150%] md:text-[12px] lg:text-[15px] satoshi-regular" data-i18n={`process.steps.${step.number}.description`}>{t(`process.steps.${step.number}.description`)}</p>
+                </div>
+              </div>
+              <div class="relative z-10 text-center row-start-1 col-start-1 w-[75px] md:w-auto md:h-[120px] lg:h-[180px] leading-[70%] md:leading-[120%] overflow-hidden text-[86px] md:text-[150px] lg:text-[250px] text-[#FFFFFF] md:flex md:flex-start satoshi-regular"><p>{step.number}</p></div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initSpotlightEffect } from '../utils/spotlight-effect';
+
+  // Initialize spotlight effects for all process cards
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('#process .spotlight-container');
+      cards.forEach((card) => {
+        initSpotlightEffect(card as HTMLElement);
+      });
+    });
+  } else {
+    const cards = document.querySelectorAll('#process .spotlight-container');
+    cards.forEach((card) => {
+      initSpotlightEffect(card as HTMLElement);
+    });
+  }
+</script>
+

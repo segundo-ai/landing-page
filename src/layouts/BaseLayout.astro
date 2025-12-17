@@ -1,0 +1,65 @@
+---
+import "../styles/starwind.css";
+import { site } from "../config/site";
+import { ui } from "../config/i18n";
+import { getLanguage } from "../utils/translations";
+import type { Language } from "../config/i18n";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: Language;
+}
+
+const { title = site.name, description = site.description, lang: langProp } = Astro.props;
+const lang = langProp || getLanguage(Astro.url);
+
+// Serialize translations for client-side use
+const translationsJSON = JSON.stringify(ui);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script set:html={`window.__TRANSLATIONS__ = ${translationsJSON};`}>
+    </script>
+    <script>
+      // Scroll animation utility
+      function initScrollAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".fade-in-on-scroll").forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+    </script>
+  </body>
+</html>
+

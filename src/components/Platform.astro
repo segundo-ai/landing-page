@@ -1,0 +1,99 @@
+---
+import { useTranslations, getLanguage } from "../utils/translations";
+import { Card, CardContent } from "@/components/starwind/card";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+
+const platformImages = {
+  1: "/images/platform/centralize-data.jpg",
+  2: "/images/platform/create-agents.jpg",
+  3: "/images/platform/build-workflows.jpg",
+  4: "/images/platform/monitor-results.jpg",
+  5: "/images/platform/boost-analytics.jpg",
+};
+---
+
+<section id="platform" class="py-16 lg:py-24 bg-muted/30 w-full">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left side - Steps -->
+      <div class="space-y-8">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground" data-i18n="platform.heading">
+          {t("platform.heading")}
+        </h2>
+
+        <div class="space-y-6">
+          {[1, 2, 3, 4, 5].map((step) => (
+            <div 
+              class="flex items-start space-x-4 platform-step group cursor-pointer transition-all duration-300 hover:scale-105"
+              data-step={step}
+              data-image={platformImages[step as keyof typeof platformImages]}
+            >
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center satoshi-bold text-lg group-hover:bg-primary-accent transition-colors">
+                {step}
+              </div>
+              <div class="flex-1 space-y-2">
+                <h3 class="text-xl nohemi-medium text-foreground group-hover:text-primary transition-colors" data-i18n={`platform.steps.${step}.title`}>
+                  {t(`platform.steps.${step}.title`)}
+                </h3>
+                <p class="text-muted-foreground leading-relaxed satoshi-light" data-i18n={`platform.steps.${step}.description`}>
+                  {t(`platform.steps.${step}.description`)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right side - Visual/Image -->
+      <div class="relative">
+        <Card class="bg-gradient-to-br from-primary/20 to-secondary/20">
+          <CardContent class="p-0 flex items-center justify-center overflow-hidden h-full rounded-[20px]">
+            <div class="flex items-center justify-center w-full h-full p-6">
+              <img
+                id="platform-image"
+                src={platformImages[1]}
+                alt="Platform visualization"
+                class="block rounded-sm transition-opacity duration-300 max-w-full max-h-full"
+                loading="lazy"
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /**
+   * Handles image switching when hovering over platform steps
+   */
+  function switchPlatformImage(imagePath: string, imageElement: HTMLImageElement) {
+    imageElement.style.opacity = "0";
+    setTimeout(() => {
+      imageElement.src = imagePath;
+      imageElement.style.opacity = "1";
+    }, 150);
+  }
+
+  function initPlatformImageSwitching() {
+    const platformImage = document.getElementById("platform-image") as HTMLImageElement | null;
+    const platformSteps = document.querySelectorAll(".platform-step");
+
+    if (!platformImage || platformSteps.length === 0) return;
+
+    platformSteps.forEach((step) => {
+      step.addEventListener("mouseenter", () => {
+        const imagePath = step.getAttribute("data-image");
+        if (imagePath) {
+          switchPlatformImage(imagePath, platformImage);
+        }
+      });
+    });
+  }
+
+  initPlatformImageSwitching();
+</script>
+

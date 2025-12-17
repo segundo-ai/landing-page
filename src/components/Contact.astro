@@ -1,0 +1,169 @@
+---
+import { useTranslations, getLanguage } from "../utils/translations";
+import { site } from "../config/site";
+import { Button } from "@/components/starwind/button";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
+import { Label } from "@/components/starwind/label";
+
+const lang = getLanguage(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="py-16 lg:py-24 bg-muted/30 w-full">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Left side - Contact info -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground mb-4" data-i18n="contact.heading">
+              {t("contact.heading")}
+            </h2>
+            <p class="text-lg text-muted-foreground leading-relaxed satoshi-light" data-i18n="contact.description">
+              {t("contact.description")}
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xl nohemi-medium text-foreground" data-i18n="contact.cta">
+              {t("contact.cta")}
+            </h3>
+            <div class="space-y-3">
+              <Button
+                href={`mailto:${site.links.email.jose}`}
+                variant="ghost"
+                class="flex items-center space-x-3 group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:scale-110 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>{site.links.email.jose}</span>
+              </Button>
+              <Button
+                href={`mailto:${site.links.email.andres}`}
+                variant="ghost"
+                class="flex items-center space-x-3 group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:scale-110 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>{site.links.email.andres}</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side - Contact form -->
+        <Card class="p-6 lg:p-8 shadow-lg">
+          <CardContent class="p-0">
+            <form id="contact-form" class="space-y-6">
+              <div class="space-y-2">
+                <Label for="name" size="sm" data-i18n="contact.form.name">
+                  {t("contact.form.name")}
+                </Label>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Enter your name"
+                  size="md"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <Label for="email" size="sm" data-i18n="contact.form.email">
+                  {t("contact.form.email")}
+                </Label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="Enter your e-mail"
+                  size="md"
+                />
+              </div>
+
+              <div class="spotlight-button-wrapper spotlight-button spotlight-container relative">
+                <!-- Spotlight overlay -->
+                <div class="spotlight-overlay"></div>
+                <Button type="submit" variant="primary" size="lg" class="relative z-10 w-full" data-i18n="contact.form.submit">
+                  {t("contact.form.submit")}
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function handleContactFormSubmit(e: Event) {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    // Here you would typically send the data to a backend
+    // For now, we'll just show an alert
+    alert("Thank you for your message! We'll get back to you soon.");
+    form.reset();
+  }
+
+  const form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", handleContactFormSubmit);
+  }
+</script>
+
+<style>
+  .spotlight-button-wrapper {
+    overflow: hidden;
+    border-radius: 0.375rem; /* Match button border radius */
+  }
+</style>
+
+<script>
+  import { initSpotlightEffect } from '../utils/spotlight-effect';
+
+  // Initialize spotlight effect for contact form button
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = document.querySelector('#contact-form .spotlight-button-wrapper') as HTMLElement;
+      if (wrapper) {
+        initSpotlightEffect(wrapper);
+      }
+    });
+  } else {
+    const wrapper = document.querySelector('#contact-form .spotlight-button-wrapper') as HTMLElement;
+    if (wrapper) {
+      initSpotlightEffect(wrapper);
+    }
+  }
+</script>
+
