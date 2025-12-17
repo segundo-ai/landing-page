@@ -25,3 +25,11 @@ pnpm-debug.log*
 
 #starwind components
 src/components/starwind/
+
+#cursor
+.cursor/
+
+#vscode
+.vscode/
+
+README.md
