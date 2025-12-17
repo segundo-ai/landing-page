@@ -24,7 +24,6 @@ pnpm-debug.log*
 .idea/
 
 #starwind components
-src/components/starwind/
 
 #cursor
 .cursor/
