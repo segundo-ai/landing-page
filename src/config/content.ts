@@ -9,6 +9,7 @@ export interface Founder {
   name: string;
   title: string;
   image: string;
+  bio: string[];
 }
 
 export interface FAQ {
@@ -38,16 +39,31 @@ export const founders: Founder[] = [
     name: "José Murillo",
     title: "CO-CEO, FOUNDER",
     image: "/images/founders/jose-murillo.jpg",
+    bio: [
+      "Studied Economics and Computer Science at Harvard",
+      "Worked at Facebook and Goldman Sachs",
+      "CEO at Samsam (raised $2.5m from General Catalyst and Neo)",
+    ],
   },
   {
     name: "Santiago Buenahora",
     title: "CTO, FOUNDER",
     image: "/images/founders/santiago-buenahora.jpg",
+    bio: [
+      "Studied Computer Science at the University of Pennsylvania",
+      "Worked at Robinhood and Microsoft",
+      "CEO at MarcoPolo (backed by Y Combinator)",
+    ],
   },
   {
     name: "Andrés Rosales",
     title: "CO-CEO, FOUNDER",
     image: "/images/founders/andres-rosales.jpg",
+    bio: [
+      "Studied Math and Physics at Harvard",
+      "Worked at McKinsey and 8VC",
+      "CEO at Keto Kare (sold to Nestlé)",
+    ],
   },
 ];
 

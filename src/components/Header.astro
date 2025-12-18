@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { useTranslations, getLanguage } from "../utils/translations";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/starwind/select";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/starwind/sheet";
 import { Button } from "@/components/starwind/button";
+import segundoBlock2Logo from "../assets/images/logos/segundo-block2.png";
 
 const lang = getLanguage(Astro.url);
 const t = useTranslations(lang);
@@ -25,23 +27,24 @@ const navLinks = [
   <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href="#top" class="flex items-center space-x-2 group">
-        <img
-          src="/images/logos/segundo-block2.png"
+      <a href="#top" id="header-logo" class="flex items-center space-x-2 group transition-all duration-300 ease-out">
+        <Image
+          src={segundoBlock2Logo}
           alt="Primero AI"
-          class="h-8 w-auto rounded-[5px]"
+          class="h-8 md:h-6 lg:h-8 w-auto rounded-[5px]"
+          loading="eager"
         />
-        <span class="text-xl satoshi-bold text-foreground group-hover:text-primary transition-colors">
+        <span class="pt-1 text-xl md:text-lg lg:text-xl nohemi-regular text-foreground group-hover:text-primary">
           Primero
         </span>
       </a>
 
       <!-- Navigation Links -->
-      <div class="hidden md:flex items-center space-x-8 relative">
+      <div class="hidden md:flex items-center relative">
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="nav-link text-sm satoshi-medium text-foreground hover:text-primary transition-colors relative z-10"
+            class="nav-link text-sm satoshi-medium text-foreground hover:text-primary transition-colors relative z-10 mx-2 lg:mx-4"
             data-i18n={link.key}
             data-nav-href={link.href}
           >
@@ -53,19 +56,19 @@ const navLinks = [
       </div>
 
       <!-- Language Selector -->
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center">
         <Select name="language" defaultValue={lang}>
           <SelectTrigger class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
             <SelectValue placeholder={lang.toUpperCase()} />
           </SelectTrigger>
           <SelectContent side="bottom" align="end">
-            <SelectItem value="en">English</SelectItem>
-            <SelectItem value="es">Español</SelectItem>
+            <SelectItem value="en">EN</SelectItem>
+            <SelectItem value="es">ES</SelectItem>
           </SelectContent>
         </Select>
 
         <!-- Mobile Menu -->
-        <Sheet>
+        <Sheet class="pl-2">
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" class="md:hidden">
               <svg
@@ -88,7 +91,7 @@ const navLinks = [
               {navLinks.map((link) => (
                 <a
                   href={link.href}
-                  class="text-sm satoshi-medium text-foreground hover:text-primary transition-colors"
+                  class="text-sm satoshi-medium text-foreground hover:text-primary transition-colors outline-none focus:outline-none active:outline-none"
                   data-i18n={link.key}
                 >
                   {t(link.key)}
@@ -258,6 +261,95 @@ const navLinks = [
         }
       });
     });
+  }
+
+  // Logo scroll animation - shrinks from 150% to 100% size as user scrolls
+  function initLogoScrollAnimation() {
+    const logoContainer = document.getElementById('header-logo');
+    
+    if (!logoContainer) return;
+
+    const SCROLL_THRESHOLD = 200; // pixels
+    // On lg+ screens, baseline is h-8/text-xl. Animation scales from 150% to 100%
+    const INITIAL_SCALE = 1.5; // 150% of baseline size (h-8/text-xl)
+    const FINAL_SCALE = 1.0; // 100% of baseline size (no scaling, keep h-8/text-xl)
+
+    // Check if screen is wide enough to avoid overlap (only apply on lg+ screens)
+    function shouldApplyAnimation(): boolean {
+      return window.innerWidth >= 1024; // lg breakpoint
+    }
+
+    let rafId: number | null = null;
+    let isInitialLoad = true; // Track if this is the initial page load
+
+    function updateLogoSize(allowTransition: boolean = false) {
+      if (!logoContainer) return;
+      
+      const scrollY = window.scrollY;
+      
+      // Only apply animation on wider screens to prevent overlap
+      if (!shouldApplyAnimation()) {
+        // On smaller/medium screens, remove any transform - responsive classes handle the size
+        logoContainer.style.transform = '';
+        logoContainer.style.transformOrigin = '';
+        logoContainer.style.transition = '';
+        return;
+      }
+      
+      let scale: number;
+      if (scrollY <= 0) {
+        scale = INITIAL_SCALE;
+      } else if (scrollY >= SCROLL_THRESHOLD) {
+        scale = FINAL_SCALE;
+      } else {
+        // Linear interpolation between INITIAL_SCALE and FINAL_SCALE
+        const progress = scrollY / SCROLL_THRESHOLD;
+        scale = INITIAL_SCALE - (INITIAL_SCALE - FINAL_SCALE) * progress;
+      }
+
+      // Apply transform scale to entire logo container (image + text together)
+      logoContainer.style.transformOrigin = 'left center';
+      
+      // On initial load, disable transition to avoid aggressive animation
+      // After initial load, remove inline transition to allow CSS class to handle it
+      if (!allowTransition) {
+        logoContainer.style.transition = 'none';
+      } else {
+        // Remove inline style to let CSS class (transition-all duration-300 ease-out) handle transitions
+        logoContainer.style.transition = '';
+      }
+      
+      logoContainer.style.transform = `scale(${scale})`;
+      
+      rafId = null;
+    }
+
+    function handleScroll() {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(() => {
+          updateLogoSize(!isInitialLoad);
+        });
+      }
+    }
+
+    // Handle window resize
+    function handleResize() {
+      updateLogoSize(!isInitialLoad);
+    }
+
+    // Initial update - set scale immediately without transition based on current scroll position
+    // This ensures no aggressive animation on page load or refresh
+    updateLogoSize(false);
+    
+    // Mark initial load as complete after a short delay to allow DOM to settle
+    // This ensures smooth transitions only happen after the initial positioning
+    setTimeout(() => {
+      isInitialLoad = false;
+    }, 150);
+    
+    // Listen to scroll events
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
   }
 
   // Interactive header underline animation
@@ -436,17 +528,68 @@ const navLinks = [
     (window as any).recalculateNavUnderline = recalculateUnderline;
   }
 
+  // Auto-close mobile menu when navigation links are clicked
+  function initMobileMenuAutoClose() {
+    // Find all navigation links inside the mobile Sheet
+    // The SheetContent has data-slot="sheet-content" attribute
+    const sheetContent = document.querySelector('[data-slot="sheet-content"]');
+    
+    if (!sheetContent) return;
+    
+    // Find all anchor links inside the sheet content
+    const mobileNavLinks = sheetContent.querySelectorAll('a[href^="#"]');
+    
+    // Add the starwind-dialog-close class to each link
+    // This leverages the existing DialogHandler's close button detection
+    mobileNavLinks.forEach((link) => {
+      link.classList.add('starwind-dialog-close');
+      
+      // Also add a direct click handler to ensure the dialog closes
+      // This handles cases where the DialogHandler might have initialized before the class was added
+      link.addEventListener('click', () => {
+        // Find the dialog element (parent of sheetContent)
+        const dialog = sheetContent.closest('dialog');
+        if (dialog && dialog.hasAttribute('open')) {
+          // Find the close button and trigger its click
+          const closeButton = dialog.querySelector('[data-slot="sheet-close"]') as HTMLButtonElement;
+          if (closeButton) {
+            closeButton.click();
+          }
+        }
+      });
+    });
+  }
+
   // Initialize when DOM is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       initLanguage();
       initSmoothScroll();
       initNavUnderline();
+      initLogoScrollAnimation();
+      initMobileMenuAutoClose();
     });
   } else {
     initLanguage();
     initSmoothScroll();
     initNavUnderline();
+    initLogoScrollAnimation();
+    initMobileMenuAutoClose();
   }
 </script>
+
+<style>
+  /* Remove outline from mobile menu links */
+  [data-slot="sheet-content"] a {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  [data-slot="sheet-content"] a:focus,
+  [data-slot="sheet-content"] a:active,
+  [data-slot="sheet-content"] a:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+</style>
 

@@ -1,33 +1,58 @@
 ---
+import { Image } from "astro:assets";
 import { alliesLogos } from "../config/content";
+import artuLogo from "../assets/images/organizations/artu.png";
+import branliLogo from "../assets/images/organizations/branli.png";
+import crujiNolaLogo from "../assets/images/organizations/cruji-nola.png";
+import elysianLogo from "../assets/images/organizations/elysian.png";
+import holacasaLogo from "../assets/images/organizations/holacasa.png";
+import ketoKareLogo from "../assets/images/organizations/keto-kare.png";
+import macloudLogo from "../assets/images/organizations/macloud.png";
+import moonsLogo from "../assets/images/organizations/moons.png";
+import polaLogo from "../assets/images/organizations/pola.png";
+import rintinLogo from "../assets/images/organizations/rintin.png";
+import tracsaLogo from "../assets/images/organizations/tracsa.png";
+import verdeValleLogo from "../assets/images/organizations/verde-valle.png";
+
+// Map organization names to imported logos
+const organizationLogoMap: Record<string, typeof artuLogo> = {
+  "Artu": artuLogo,
+  "Branli": branliLogo,
+  "Cruji Nola": crujiNolaLogo,
+  "Elysian": elysianLogo,
+  "Holacasa": holacasaLogo,
+  "Keto Kare": ketoKareLogo,
+  "Macloud": macloudLogo,
+  "Moons": moonsLogo,
+  "Pola": polaLogo,
+  "Rintin": rintinLogo,
+  "Tracsa": tracsaLogo,
+  "Verde Valle": verdeValleLogo,
+};
+
+const duplicatedLogos = [...alliesLogos, ...alliesLogos];
 ---
 
 <section id="logo-marquee" class="relative z-[3] py-4 lg:py-4 bg-[#000] overflow-hidden">
   <div class="marquee-container">
     <div class="marquee-content ">
       <!-- First set of logos -->
-      {alliesLogos.map((logo, index) => (
-        <div class="marquee-spacer"></div>
-        <div class="marquee-item">
-          <img
-            src={`/images/organizations/${logo.toLowerCase().replace(/\s+/g, "-")}.png`}
-            alt={`${logo} logo`}
-            class="h-20 w-auto marquee-logo"
-            loading="lazy"
-          />
-        </div>
-      ))}
-      <!-- Duplicate set for seamless loop -->
-      {alliesLogos.map((logo, index) => (
-        <div class="marquee-spacer"></div>
-        <div class="marquee-item">
-          <img
-            src={`/images/organizations/${logo.toLowerCase().replace(/\s+/g, "-")}.png`}
-            alt={`${logo} logo`}
-            class="h-20 w-auto marquee-logo"
-            loading="lazy"
-          />
-        </div>
+      {duplicatedLogos.map((logo, index) => (
+        <>
+          <div class="marquee-spacer"></div>
+          <div class="marquee-item">
+            <Image
+              src={organizationLogoMap[logo]}
+              alt={`${logo} logo`}
+              class="h-20 w-auto marquee-logo"
+              width={160}
+              height={80}
+              format="webp"
+              quality={85}
+              loading="eager"
+            />
+          </div>
+        </>
       ))}
     </div>
   </div>
@@ -42,7 +67,7 @@ import { alliesLogos } from "../config/content";
 
   .marquee-content {
     display: flex;
-    animation: marquee 30s linear infinite;
+    animation: marquee 60s linear infinite;
   }
 
   .marquee-item {
@@ -95,7 +120,7 @@ import { alliesLogos } from "../config/content";
     const BASELINE_VIEWPORT_HEIGHT = 836; // px - viewport height where marquee looks good
     const HERO_HEIGHT = 729; // px - height of hero section
     const MARQUEE_HEIGHT = 112; // px - approximate marquee section height (32px padding + 80px logo)
-    const MINIMAL_SPACING = 10; // px - minimal spacing from viewport bottom
+    const MINIMAL_SPACING = 0; // px - minimal spacing from viewport bottom
     const MAXIMUM_MARGIN_OFFSET = -100; // px - maximum margin offset from viewport bottom
     
     const viewportHeight = window.innerHeight;

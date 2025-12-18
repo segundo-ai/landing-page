@@ -1,6 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import { type Agent } from "../config/content";
 import { Card, CardTitle, CardContent } from "@/components/starwind/card";
+import formIcon from "../assets/images/agent_vectors/form.svg";
+import textCursorIcon from "../assets/images/agent_vectors/text_cursor.svg";
+import warningIcon from "../assets/images/agent_vectors/warning.svg";
+import documentIcon from "../assets/images/agent_vectors/document.svg";
+import crateIcon from "../assets/images/agent_vectors/crate.svg";
+import salesIcon from "../assets/images/agent_vectors/sales.svg";
+import bugIcon from "../assets/images/agent_vectors/bug.svg";
+import internetIcon from "../assets/images/agent_vectors/internet.svg";
 
 interface Props {
   agent: Agent;
@@ -8,20 +17,20 @@ interface Props {
 
 const { agent } = Astro.props;
 
-// Icon mapping from agent IDs to SVG filenames
-const agentIconMap: Record<string, string> = {
-  "form-filling": "form.svg",
-  "report-writing": "text_cursor.svg",
-  "fraud-flagging": "warning.svg",
-  "contract-analyst": "document.svg",
-  "inventory-forecast": "crate.svg",
-  "sales-outbound": "sales.svg",
-  "anomaly-detection": "bug.svg",
-  "internet-scraper": "internet.svg",
+// Icon mapping from agent IDs to imported images
+const agentIconMap: Record<string, typeof formIcon> = {
+  "form-filling": formIcon,
+  "report-writing": textCursorIcon,
+  "fraud-flagging": warningIcon,
+  "contract-analyst": documentIcon,
+  "inventory-forecast": crateIcon,
+  "sales-outbound": salesIcon,
+  "anomaly-detection": bugIcon,
+  "internet-scraper": internetIcon,
 };
 
-const getAgentIcon = (agentId: string): string => {
-  return `/images/agent_vectors/${agentIconMap[agentId] || "form.svg"}`;
+const getAgentIcon = (agentId: string) => {
+  return agentIconMap[agentId] || formIcon;
 };
 ---
 
@@ -33,7 +42,7 @@ const getAgentIcon = (agentId: string): string => {
     <div class="space-y-4">
       <div class="flex items-start space-x-4">
         <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-          <img
+          <Image
             src={getAgentIcon(agent.id)}
             alt={`${agent.name} icon`}
             class="w-8 h-8"

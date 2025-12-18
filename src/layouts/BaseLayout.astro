@@ -24,6 +24,11 @@ const translationsJSON = JSON.stringify(ui);
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Preload critical fonts for landing screen -->
+    <link rel="preload" href="/fonts/satoshi/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/satoshi/Satoshi-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/nohemi/Nohemi-Regular-BF6438cc579d934.woff" as="font" type="font/woff" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/nohemi/Nohemi-ExtraLight-BF6438cc581502c.woff" as="font" type="font/woff" crossorigin="anonymous" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

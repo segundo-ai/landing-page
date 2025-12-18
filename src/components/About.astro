@@ -1,10 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import { useTranslations, getLanguage } from "../utils/translations";
 import { founders } from "../config/content";
-import { Card, CardContent } from "@/components/starwind/card";
+import joseMurilloImage from "../assets/images/founders/jose-murillo.jpg";
+import santiagoBuenahoraImage from "../assets/images/founders/santiago-buenahora.jpg";
+import andresRosalesImage from "../assets/images/founders/andres-rosales.jpg";
 
 const lang = getLanguage(Astro.url);
 const t = useTranslations(lang);
+
+// Map founder names to imported images
+const founderImageMap: Record<string, typeof joseMurilloImage> = {
+  "José Murillo": joseMurilloImage,
+  "Santiago Buenahora": santiagoBuenahoraImage,
+  "Andrés Rosales": andresRosalesImage,
+};
 ---
 
 <section id="about-us" class="py-16 lg:py-24 bg-muted/30 w-full">
@@ -18,31 +28,55 @@ const t = useTranslations(lang);
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row gap-[15px] md:gap-[30px] md:items-start">
       {founders.map((founder) => (
-        <Card class="group text-center border-transparent bg-transparent shadow-none">
-          <CardContent class="p-0 space-y-4">
-            <div class="relative inline-block">
-              <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-              <img
-                src={founder.image}
-                alt={founder.name}
-                class="relative w-48 h-48 rounded-full object-cover mx-auto border-4 border-card shadow-lg group-hover:scale-105 transition-transform"
-                loading="lazy"
-              />
+        <div class="founder-card group duration-700 ease-in-out transition-[width,height] relative h-[279px] md:h-[402px] md:min-w-[15%] md:w-[33%] md:hover:w-[70%] md:hover:h-[626px] flex flex-col md:gap-[25px] justify-end md:self-start">
+          <Image
+            src={founderImageMap[founder.name]}
+            alt={founder.name}
+            class="absolute h-full md:absolute rounded-[8px] md:rounded-[20px] object-cover z-0 min-w-full md:h-[402px] md:group-hover:h-[626px] duration-700 ease-in-out transition-[height]"
+            loading="lazy"
+          />
+          <div class="absolute h-full top-0 left-0 w-full z-[1] bg-gradient-to-b from-[rgba(0,0,0,0)] from-5% to-[rgba(0,0,0,0.85)] to-100% md:opacity-0 md:group-hover:opacity-100 duration-700 ease-in-out transition-opacity"></div>
+          <div class="duration-700 ease-in-out transition-[padding,gap] relative z-10 flex flex-col gap-[15px] md:gap-[15px] md:group-hover:gap-[25px] p-[20px] md:pl-[25px] md:pr-0 md:pt-0 md:pb-0 md:group-hover:p-[50px] satoshi-medium">
+            <p class="text-[19px] md:text-[24px] md:group-hover:text-[48px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-75 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              {founder.name}
+            </p>
+            <p class="text-[10px] md:text-[14px] md:group-hover:text-[20px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-100 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              {founder.title}
+            </p>
+            <div class="bio-container md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:leading-[120%] text-[10px] md:text-[16px] text-[#FBFBFB] p-[10px] duration-500 ease-in-out transition-[opacity,max-height] md:group-hover:delay-150 md:delay-0">
+              <ul class="list-disc space-y-3 md:space-y-4 pl-5 md:pl-6">
+                {founder.bio.map((bioItem) => (
+                  <li class="marker:text-[#E5E5E5] marker:font-bold">
+                    <p class="text-[12px] md:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{bioItem}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <h3 class="text-xl nohemi-medium text-foreground mb-1">
-                {founder.name}
-              </h3>
-              <p class="text-sm text-muted-foreground satoshi-regular">
-                {founder.title}
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       ))}
     </div>
   </div>
 </section>
 
+<style>
+  @media (min-width: 768px) {
+    /* Prevent bio text from affecting layout during collapse */
+    .founder-card:not(:hover) .bio-container {
+      pointer-events: none;
+    }
+    
+    /* Ensure smooth transition - hide content faster on collapse */
+    .founder-card:not(:hover) .bio-container ul {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+    
+    .founder-card:hover .bio-container ul {
+      opacity: 1;
+      transition: opacity 0.3s ease-in 0.15s;
+    }
+  }
+</style>

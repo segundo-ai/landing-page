@@ -1,9 +1,25 @@
 ---
+import { Image } from "astro:assets";
 import { useTranslations, getLanguage } from "../utils/translations";
 import { integrations } from "../config/content";
+import arrowImage from "../assets/images/arrow.png";
+import sapIcon from "../assets/images/integrations/sap.svg";
+import awsIcon from "../assets/images/integrations/aws.svg";
+import microsoftDynamicsIcon from "../assets/images/integrations/microsoft-dynamics.svg";
+import netsuiteIcon from "../assets/images/integrations/netsuite.svg";
+import oracleIcon from "../assets/images/integrations/oracle.svg";
 
 const lang = getLanguage(Astro.url);
 const t = useTranslations(lang);
+
+// Map integration names to imported icons
+const integrationIconMap: Record<string, typeof sapIcon> = {
+  "SAP": sapIcon,
+  "AWS": awsIcon,
+  "Microsoft Dynamics": microsoftDynamicsIcon,
+  "NetSuite": netsuiteIcon,
+  "Oracle": oracleIcon,
+};
 ---
 
 <section class="md:min-h-[459px] gap-[19px] md:gap-[35px] px-[30px] md:px-[113px] py-[33px] md:py-[62px] flex flex-col items-center relative bg-background">
@@ -11,11 +27,11 @@ const t = useTranslations(lang);
   <div class="md:min-h-[126px] w-full flex flex-col md:flex-row justify-around items-center">
     <!-- Mobile arrow (top) -->
     <div class="md:hidden flex justify-center">
-      <img class="rotate-270 w-[19px] h-[40px]" src="/images/arrow.png" alt="" />
+      <Image src={arrowImage} alt="" class="rotate-270 w-[19px] h-[40px]" />
     </div>
     
     <!-- Desktop left arrow -->
-    <img class="rotate-180 w-[36px] h-[76px] hidden md:inline" src="/images/arrow.png" alt="" />
+    <Image src={arrowImage} alt="" class="rotate-180 w-[36px] h-[76px] hidden md:inline" />
     
     <!-- Heading -->
     <p class="leading-[113%] text-[30px] md:text-[56px] text-center text-[#FBFBFB] satoshi-regular" data-i18n="integrations.heading">
@@ -23,15 +39,15 @@ const t = useTranslations(lang);
     </p>
     
     <!-- Desktop right arrow -->
-    <img class="w-[36px] h-[76px] hidden md:inline" src="/images/arrow.png" alt="" />
+    <Image src={arrowImage} alt="" class="w-[36px] h-[76px] hidden md:inline" />
   </div>
   
   <!-- Integration logos -->
   <div class="flex flex-wrap md:flex-nowrap flex-row items-center justify-center md:gap-[15px] lg:gap-[30px]">
     {integrations.map((integration) => (
-      <img
+      <Image
+        src={integrationIconMap[integration.name]}
         alt={`${integration.name} icon`}
-        src={integration.icon}
         class="basis-1/3 md:basis-auto w-[40px] md:w-[100px] lg:w-[125px] py-[8px] px-[5px] md:py-[15px] md:px-[10px]"
         loading="lazy"
       />

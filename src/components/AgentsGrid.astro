@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import { agents } from "../config/content";
 import { Card, CardContent } from "@/components/starwind/card";
 import AgentCard from "./AgentCard.astro";
 import { useTranslations, getLanguage } from "../utils/translations";
 import type { Agent } from "../config/content";
+import segundoBlockLogo from "../assets/images/logos/segundo-block.png";
 
 const lang = getLanguage(Astro.url);
 const t = useTranslations(lang);
@@ -33,8 +35,8 @@ const translatedAgents: Agent[] = agents.map((agent) => ({
       <div class="hidden lg:flex">
         <Card class="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
           <CardContent class="p-4 flex flex-col items-center justify-center text-center space-y-4">
-            <img
-              src="/images/logos/segundo-block.png"
+            <Image
+              src={segundoBlockLogo}
               alt="PrimeroAI Logo"
               class="h-8 w-8 mx-auto"
             />

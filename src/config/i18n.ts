@@ -39,7 +39,7 @@ export const ui = {
       description: "WE CONNECT TO YOUR EXISTING SYSTEMS TO GIVE AI THE RIGHT CONTEXT",
     },
     platform: {
-      heading: "OUR PLATFORM",
+      heading: "Our Platform",
       steps: {
         "1": {
           title: "Centralize Data",
@@ -64,7 +64,7 @@ export const ui = {
       },
     },
     process: {
-      heading: "OUR PROCESS",
+      heading: "Our Process",
       steps: {
         "1": {
           title: "Diagnostic",
@@ -89,7 +89,7 @@ export const ui = {
       },
     },
     about: {
-      heading: "Founders building for Founders",
+      heading: "Founders Building for Founders",
       description: "We know how hard it is to run a business. Each of us built a company before Primero. We are here to create ROI and prove to you our value, not to be another cost in your P&L.",
     },
     contact: {
@@ -214,7 +214,7 @@ export const ui = {
       description: "NOS CONECTAMOS A TUS SISTEMAS EXISTENTES PARA DARLE A LA IA EL CONTEXTO CORRECTO",
     },
     platform: {
-      heading: "NUESTRA PLATAFORMA",
+      heading: "Nuestra Plataforma",
       steps: {
         "1": {
           title: "Centralizar Datos",
@@ -239,7 +239,7 @@ export const ui = {
       },
     },
     process: {
-      heading: "NUESTRO PROCESO",
+      heading: "Nuestro Proceso",
       steps: {
         "1": {
           title: "Diagnóstico",
@@ -264,7 +264,7 @@ export const ui = {
       },
     },
     about: {
-      heading: "Fundadores construyendo para Fundadores",
+      heading: "Fundadores Construyendo para Fundadores",
       description: "Sabemos lo difícil que es dirigir un negocio. Cada uno de nosotros construyó una empresa antes de Primero. Estamos aquí para crear ROI y demostrarte nuestro valor, no para ser otro costo en tu P&L.",
     },
     contact: {

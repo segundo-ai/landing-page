@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { useTranslations, getLanguage } from "../utils/translations";
+import arrowImage from "../assets/images/arrow.png";
 
 const lang = getLanguage(Astro.url);
 const t = useTranslations(lang);
@@ -18,7 +20,7 @@ const titleLines = t("hero.title");
   <div class="absolute top-0 left-0 w-full h-full z-[2] bg-gradient-to-b from-[rgba(0,0,0,0)] from-0% via-[rgba(0,0,0,0.6)] via-60% to-[rgba(0,0,0,0.6)] to-100%"></div>
   
   <!-- Content -->
-  <div class="relative z-10 md:min-h-[617px] gap-[10px] md:px-[70px] py-[100px] w-full flex items-end">
+  <div class="relative z-10 md:min-h-[729px] gap-[10px] md:px-[70px] py-[100px] w-full flex items-end">
     <div class="min-h-[221px] max-w-[calc(100%-159px)]">
       <p class="min-h-[128px] w-full text-[48px] md:text-[64px] leading-[100%] text-[#FFFFFF]" data-i18n="hero.title" data-i18n-format="array">
         {titleLines.map((line: { pref: string; bolded: string; suff: string }, index: number) => (
@@ -47,7 +49,16 @@ const titleLines = t("hero.title");
     </div>
     
     <!-- Arrow Image -->
-    <img class="hidden md:block h-[335px] w-[159px] absolute right-0 top-1/2 -translate-y-1/2" src="/images/arrow.png" alt="Arrow" />
+    <Image
+      src={arrowImage}
+      alt="Arrow"
+      class="hidden md:block h-[335px] w-[159px] absolute right-0"
+      width={159}
+      height={335}
+      format="webp"
+      quality={85}
+      loading="eager"
+    />
   </div>
 </section>
 
