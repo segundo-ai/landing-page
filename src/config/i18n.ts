@@ -91,6 +91,29 @@ export const ui = {
     about: {
       heading: "Founders Building for Founders",
       description: "We know how hard it is to run a business. Each of us built a company before Primero. We are here to create ROI and prove to you our value, not to be another cost in your P&L.",
+      founders: {
+        "jose-murillo": {
+          bio: [
+            "Studied Economics and Computer Science at Harvard",
+            "Worked at Facebook and Goldman Sachs",
+            "CEO at Samsam (raised $2.5m from General Catalyst and Neo)",
+          ],
+        },
+        "santiago-buenahora": {
+          bio: [
+            "Studied Computer Science at the University of Pennsylvania",
+            "Worked at Robinhood and Microsoft",
+            "CEO at MarcoPolo (backed by Y Combinator)",
+          ],
+        },
+        "andres-rosales": {
+          bio: [
+            "Studied Math and Physics at Harvard",
+            "Worked at McKinsey and 8VC",
+            "CEO at Keto Kare (sold to Nestlé)",
+          ],
+        },
+      },
     },
     contact: {
       heading: "Request a free AI-readiness diagnostic",
@@ -104,6 +127,14 @@ export const ui = {
         error: "Something went wrong. Please try again.",
         networkError: "Failed to submit form. Please check your connection and try again.",
         submitting: "Submitting...",
+        errors: {
+          nameRequired: "Name and email are required",
+          nameLength: "Name must be between 1 and 100 characters",
+          invalidEmail: "Invalid email format",
+          databaseError: "Something went wrong. Please try again later.",
+          submitFailed: "Something went wrong. Please try again.",
+          permissionError: "Something went wrong. Please try again later.",
+        },
       },
     },
     footer: {
@@ -270,6 +301,29 @@ export const ui = {
     about: {
       heading: "Fundadores Construyendo para Fundadores",
       description: "Sabemos lo difícil que es dirigir un negocio. Cada uno de nosotros construyó una empresa antes de Primero. Estamos aquí para crear ROI y demostrarte nuestro valor, no para ser otro costo en tu P&L.",
+      founders: {
+        "jose-murillo": {
+          bio: [
+            "Estudió Economía y Ciencias de la Computación en Harvard",
+            "Trabajó en Facebook y Goldman Sachs",
+            "CEO en Samsam (recaudó $2.5m de General Catalyst y Neo)",
+          ],
+        },
+        "santiago-buenahora": {
+          bio: [
+            "Estudió Ciencias de la Computación en la Universidad de Pennsylvania",
+            "Trabajó en Robinhood y Microsoft",
+            "CEO en MarcoPolo (respaldado por Y Combinator)",
+          ],
+        },
+        "andres-rosales": {
+          bio: [
+            "Estudió Matemáticas y Física en Harvard",
+            "Trabajó en McKinsey y 8VC",
+            "CEO en Keto Kare (vendido a Nestlé)",
+          ],
+        },
+      },
     },
     contact: {
       heading: "Solicita un diagnóstico gratuito de preparación para IA",
@@ -283,6 +337,14 @@ export const ui = {
         error: "Algo salió mal. Por favor, inténtalo de nuevo.",
         networkError: "Error al enviar el formulario. Por favor, verifica tu conexión e inténtalo de nuevo.",
         submitting: "Enviando...",
+        errors: {
+          nameRequired: "El nombre y el correo electrónico son obligatorios",
+          nameLength: "El nombre debe tener entre 1 y 100 caracteres",
+          invalidEmail: "Formato de correo electrónico inválido",
+          databaseError: "Algo salió mal. Por favor, inténtalo más tarde.",
+          submitFailed: "Algo salió mal. Por favor, inténtalo de nuevo.",
+          permissionError: "Algo salió mal. Por favor, inténtalo más tarde.",
+        },
       },
     },
     footer: {
@@ -368,4 +430,3 @@ export const ui = {
     },
   },
 } as const;
-

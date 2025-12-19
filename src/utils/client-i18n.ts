@@ -61,6 +61,15 @@ export function updatePageLanguage(lang: string): void {
       return;
     }
     
+    // Handle bio-item format (for founder bio items which are array elements)
+    if (format === "bio-item") {
+      // The translation should be a string from the bio array
+      if (typeof translation === "string") {
+        el.textContent = translation;
+        return;
+      }
+    }
+    
     // Handle regular strings and numbers
     if (typeof translation === "string" || typeof translation === "number") {
       el.textContent = String(translation);

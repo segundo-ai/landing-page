@@ -16,6 +16,13 @@ const founderImageMap: Record<string, typeof joseMurilloImage> = {
   "Santiago Buenahora": santiagoBuenahoraImage,
   "Andrés Rosales": andresRosalesImage,
 };
+
+// Map founder names to translation keys
+const founderTranslationKeyMap: Record<string, string> = {
+  "José Murillo": "jose-murillo",
+  "Santiago Buenahora": "santiago-buenahora",
+  "Andrés Rosales": "andres-rosales",
+};
 ---
 
 <Section id="about-us" background="muted">
@@ -48,11 +55,18 @@ const founderImageMap: Record<string, typeof joseMurilloImage> = {
             </p>
             <div class="bio-container md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:leading-[120%] text-[10px] md:text-[16px] text-[#FBFBFB] duration-500 ease-in-out transition-[opacity,max-height] md:group-hover:delay-150 md:delay-0">
               <ul class="list-disc space-y-1 md:space-y-3 pl-5 md:pl-6">
-                {founder.bio.map((bioItem) => (
-                  <li class="marker:text-[#E5E5E5] marker:font-bold">
-                    <p class="text-[12px] md:text-[14px] lg:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tight">{bioItem}</p>
-                  </li>
-                ))}
+                {founder.bio.map((bioItem, index) => {
+                  const founderKey = founderTranslationKeyMap[founder.name];
+                  return (
+                    <li class="marker:text-[#E5E5E5] marker:font-bold">
+                      <p 
+                        class="text-[12px] md:text-[14px] lg:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tight"
+                        data-i18n={`about.founders.${founderKey}.bio.${index}`}
+                        data-i18n-format="bio-item"
+                      >{bioItem}</p>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
