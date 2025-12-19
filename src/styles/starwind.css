@@ -235,7 +235,7 @@
   }
 
   .typography-process-step-title {
-    @apply text-2xl lg:text-3xl;
+    @apply text-2xl lg:text-3xl ;
     font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
     font-weight: 300 !important;
   }

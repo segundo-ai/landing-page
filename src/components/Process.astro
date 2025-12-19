@@ -42,20 +42,20 @@ const processSteps = [
 
       <div class="relative w-full">
         <!-- Horizontal connection line (desktop only) -->
-        <div class="flex flex-col md:grid md:grid-cols-5 md:h-[454px] z-10 gap-2 md:gap-4 lg:gap-8">
+        <div class="flex flex-col lg:grid lg:grid-cols-5 lg:h-[454px] z-10 gap-2 md:gap-4 lg:gap-8">
           {processSteps.map((step, index) => (
-            <Card class="spotlight-container px-[11px] md:px-[20px] h-[97px] md:h-[454px] pt-[11px] md:pt-[20px] grid grid-cols-4 grid-rows-1 md:flex md:flex-col md:justify-between border-1 border-[#FBFBFB]/10 gap-[20px] md:gap-0 group relative hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
+            <Card class="spotlight-container px-[11px] md:px-[20px] h-auto lg:h-[454px] pt-[11px] md:pt-[20px] grid grid-cols-4 grid-rows-1 md:grid md:grid-cols-4 lg:flex lg:flex-col lg:justify-between border-1 border-[#FBFBFB]/10 gap-[20px] md:gap-[20px] lg:gap-0 group relative hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
               <!-- Spotlight overlay -->
               <div class="spotlight-overlay"></div>
               
-              <div class="relative z-10 col-start-2 row-start-1 col-span-3 md:min-w-auto flex md:flex-col xl:flex-row gap-[10px] md:gap-[20px]">
-                <Image src={arrowImage} alt="" class="w-[13px] md:w-[25px] h-[28px] md:h-[53px] rotate-180 md:rotate-270 xl:rotate-180 md:ml-[15px] xl:ml-0" />
-                <div class="flex flex-col gap-[5px] md:gap-[10px] md:flex md:flex-col text-wrap">
+              <div class="relative z-10 col-start-2 row-start-1 col-span-3 lg:min-w-auto flex md:flex-row lg:flex-col xl:flex-row gap-[10px] md:gap-[20px]">
+                <Image src={arrowImage} alt="" class="w-[13px] md:w-[25px] h-[28px] md:h-[53px] rotate-180 md:rotate-180 lg:rotate-270 xl:rotate-180 md:ml-0 lg:ml-[15px] xl:ml-0" />
+                <div class="flex flex-col gap-[5px] md:gap-[10px] lg:flex lg:flex-col text-wrap">
                   <p class="typography-process-step-title" data-i18n={`process.steps.${step.number}.title`}>{t(`process.steps.${step.number}.title`)}</p>
-                  <p class="text-[#FBFBFB]/73 text-base text-muted-foreground leading-relaxed" data-i18n={`process.steps.${step.number}.description`}>{t(`process.steps.${step.number}.description`)}</p>
+                  <p class="text-base text-muted-foreground leading-relaxed pb-2" data-i18n={`process.steps.${step.number}.description`}>{t(`process.steps.${step.number}.description`)}</p>
                 </div>
               </div>
-              <div class="relative z-10 text-center row-start-1 col-start-1 w-[75px] md:w-auto md:h-[120px] lg:h-[180px] leading-[70%] md:leading-[120%] overflow-hidden text-[86px] md:text-[150px] lg:text-[250px] text-[#FFFFFF] md:flex md:flex-start satoshi-regular"><p>{step.number}</p></div>
+              <div class="relative z-10 text-center row-start-1 col-start-1 w-[75px] md:w-[75px] lg:w-auto md:h-auto lg:h-[120px] xl:h-[180px] leading-[70%] md:leading-[70%] lg:leading-[120%] overflow-hidden text-[86px] md:text-[86px] lg:text-[150px] xl:text-[250px] text-[#FFFFFF] md:flex md:flex-start satoshi-regular"><p>{step.number}</p></div>
             </Card>
           ))}
         </div>
