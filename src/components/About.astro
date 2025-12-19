@@ -23,7 +23,7 @@ const founderImageMap: Record<string, typeof joseMurilloImage> = {
       <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground mb-6" data-i18n="about.heading">
         {t("about.heading")}
       </h2>
-      <p class="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto satoshi-light" data-i18n="about.description">
+      <p class="text-xl leading-relaxed max-w-2xl mx-auto satoshi-light" data-i18n="about.description">
         {t("about.description")}
       </p>
     </div>
@@ -36,20 +36,21 @@ const founderImageMap: Record<string, typeof joseMurilloImage> = {
             alt={founder.name}
             class="absolute h-full md:absolute rounded-[8px] md:rounded-[20px] object-cover z-0 min-w-full md:h-[402px] md:group-hover:h-[626px] duration-700 ease-in-out transition-[height]"
             loading="lazy"
+            decoding="async"
           />
-          <div class="absolute h-full top-0 left-0 w-full z-[1] bg-gradient-to-b from-[rgba(0,0,0,0)] from-5% to-[rgba(0,0,0,0.85)] to-100% md:opacity-0 md:group-hover:opacity-100 duration-700 ease-in-out transition-opacity"></div>
-          <div class="duration-700 ease-in-out transition-[padding,gap] relative z-10 flex flex-col gap-[15px] md:gap-[15px] md:group-hover:gap-[25px] p-[20px] md:pl-[25px] md:pr-0 md:pt-0 md:pb-0 md:group-hover:p-[50px] satoshi-medium">
+          <div class="absolute h-full top-0 left-0 w-full z-[1] bg-gradient-to-b from-[rgba(0,0,0,0)] from-5% to-[rgba(0,0,0,0.85)] to-100% md:opacity-0 md:group-hover:opacity-100 duration-700 ease-in-out transition-opacity rounded-[7px] md:rounded-[19px]"></div>
+          <div class="duration-700 ease-in-out transition-[padding,gap] relative z-10 flex flex-col gap-[10px] md:gap-[15px] md:group-hover:gap-[25px] py-[10px] px-[20px] md:pl-[25px] md:pr-0 md:pt-0 md:pb-0 md:group-hover:p-[50px] satoshi-medium">
             <p class="text-[19px] md:text-[24px] md:group-hover:text-[48px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-75 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {founder.name}
             </p>
             <p class="text-[10px] md:text-[14px] md:group-hover:text-[20px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-100 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {founder.title}
             </p>
-            <div class="bio-container md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:leading-[120%] text-[10px] md:text-[16px] text-[#FBFBFB] p-[10px] duration-500 ease-in-out transition-[opacity,max-height] md:group-hover:delay-150 md:delay-0">
-              <ul class="list-disc space-y-3 md:space-y-4 pl-5 md:pl-6">
+            <div class="bio-container md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:leading-[120%] text-[10px] md:text-[16px] text-[#FBFBFB] duration-500 ease-in-out transition-[opacity,max-height] md:group-hover:delay-150 md:delay-0">
+              <ul class="list-disc space-y-1 md:space-y-3 pl-5 md:pl-6">
                 {founder.bio.map((bioItem) => (
                   <li class="marker:text-[#E5E5E5] marker:font-bold">
-                    <p class="text-[12px] md:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{bioItem}</p>
+                    <p class="text-[12px] md:text-[14px] lg:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tight">{bioItem}</p>
                   </li>
                 ))}
               </ul>

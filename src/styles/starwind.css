@@ -220,6 +220,25 @@
   .font-display {
     font-family: var(--font-family-display) !important;
   }
+
+  /* Typography semantic classes */
+  .typography-card-title {
+    @apply text-2xl lg:text-3xl tracking-tight;
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 300 !important;
+  }
+
+  .typography-step-title {
+    @apply text-2xl lg:text-3xl text-foreground;
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 500 !important;
+  }
+
+  .typography-process-step-title {
+    @apply text-2xl lg:text-3xl;
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 300 !important;
+  }
 }
 
 /* Scroll animations */

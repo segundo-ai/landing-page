@@ -258,7 +258,7 @@ export const ui = {
           description: "Actuamos como tu socio estratégico, construyendo los productos de IA de mayor ROI para tu equipo",
         },
         "5": {
-          title: "Mantenimiento",
+          title: "Soporte",
           description: "Ofrecemos soporte las 24 horas para que tu sistema siga funcionando sin problemas",
         },
       },
