@@ -28,7 +28,7 @@ const translatedFaqs: FAQ[] = faqs.map((_, index) => ({
 
     <Accordion type="single" class="space-y-4">
       {translatedFaqs.map((faq, index) => (
-        <AccordionItem value={`faq-${index}`} class="border border-border rounded-lg overflow-hidden">
+        <AccordionItem value={`faq-${index}`} class={`border border-border rounded-lg ${index === translatedFaqs.length - 1 ? '!border-b overflow-visible' : 'overflow-hidden'}`}>
           <AccordionTrigger class="spotlight-container relative overflow-hidden px-6 py-4 bg-card">
             <!-- Spotlight overlay -->
             <div class="spotlight-overlay"></div>
