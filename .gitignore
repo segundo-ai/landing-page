@@ -32,3 +32,8 @@ pnpm-debug.log*
 .vscode/
 
 README.md
+# Local Netlify folder
+.netlify
+deno.lock
+
+playground/

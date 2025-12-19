@@ -10,9 +10,9 @@ const titleLines = t("hero.title");
 
 <section id="top" class="relative h-[729px] pt-[20px] pb-[10px] px-[50px] gap-[10px] flex items-end">
   <!-- Video Background -->
-  <video autoplay muted loop playsinline class="absolute top-0 left-0 min-w-full h-full object-cover z-0">
-    <source src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.webm" type="video/webm" />
-    <source src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.mp4" type="video/mp4" />
+  {/* @ts-expect-error - fetchpriority is a valid HTML attribute but not in TypeScript types yet */}
+  <video autoplay muted loop playsinline preload="auto" fetchpriority="high" class="absolute top-0 left-0 min-w-full h-full object-cover z-0">
+    <source src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.webm" type="video/webm"/>
     {t("hero.videoFallback")}
   </video>
   
