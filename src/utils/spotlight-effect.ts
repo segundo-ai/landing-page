@@ -44,8 +44,8 @@ export function initSpotlightEffect(element: HTMLElement, overlaySelector: strin
  * Initializes spotlight effects for all elements with the spotlight-container class.
  * Call this after DOM is ready.
  */
-export function initAllSpotlightEffects(): void {
-  const containers = document.querySelectorAll('.spotlight-container');
+export function initAllSpotlightEffects(selector: string = '.spotlight-container'): void {
+  const containers = document.querySelectorAll(selector);
   containers.forEach((container) => {
     initSpotlightEffect(container as HTMLElement);
   });

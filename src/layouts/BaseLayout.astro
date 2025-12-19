@@ -2,7 +2,7 @@
 import "../styles/starwind.css";
 import { site } from "../config/site";
 import { ui } from "../config/i18n";
-import { getLanguage } from "../utils/translations";
+import { defaultLang } from "../config/i18n";
 import type { Language } from "../config/i18n";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { title = site.name, description = site.description, lang: langProp } = Astro.props;
-const lang = langProp || getLanguage(Astro.url);
+const lang = langProp || defaultLang;
 
 // Serialize translations for client-side use
 const translationsJSON = JSON.stringify(ui);

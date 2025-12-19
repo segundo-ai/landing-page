@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations, getLanguage } from "../utils/translations";
+import { useTranslations } from "../utils/translations";
 import { integrations } from "../config/content";
 import arrowImage from "../assets/images/arrow.png";
 import sapIcon from "../assets/images/integrations/sap.svg";
@@ -9,8 +9,7 @@ import microsoftDynamicsIcon from "../assets/images/integrations/microsoft-dynam
 import netsuiteIcon from "../assets/images/integrations/netsuite.svg";
 import oracleIcon from "../assets/images/integrations/oracle.svg";
 
-const lang = getLanguage(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations();
 
 // Map integration names to imported icons
 const integrationIconMap: Record<string, typeof sapIcon> = {

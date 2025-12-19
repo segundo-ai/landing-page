@@ -5,10 +5,6 @@
 
 /**
  * Gets translation value from nested object structure
- * @param translations - Translation object (from window.__TRANSLATIONS__)
- * @param lang - Language code
- * @param key - Translation key (dot-separated path)
- * @returns Translated string or key if not found
  */
 function getTranslation(
   translations: Record<string, any>,
@@ -28,8 +24,6 @@ function getTranslation(
 
 /**
  * Renders hero title with special formatting for array-based titles
- * @param element - HTMLElement to render into
- * @param titleArray - Array of title parts with pref, bolded, suff properties
  */
 function renderHeroTitle(
   element: HTMLElement,
@@ -48,7 +42,6 @@ function renderHeroTitle(
 
 /**
  * Updates all elements with data-i18n attribute with translations for the given language
- * @param lang - Language code to use for translations
  */
 export function updatePageLanguage(lang: string): void {
   const translations = (window as any).__TRANSLATIONS__ || {};
@@ -81,7 +74,6 @@ export function updatePageLanguage(lang: string): void {
 
 /**
  * Initializes the language switcher for Select component
- * Uses event delegation on document to listen for Select change events
  */
 export function initLanguageSwitcher(): void {
   const defaultLang = "en";
@@ -90,11 +82,21 @@ export function initLanguageSwitcher(): void {
   // Apply saved language immediately if different from default
   if (savedLang && savedLang !== defaultLang) {
     updatePageLanguage(savedLang);
+    
+    // Programmatically set the Select value to match saved language
+    document.dispatchEvent(
+      new CustomEvent("starwind-select:select", {
+        detail: {
+          selectName: "language",
+          value: savedLang,
+        },
+      })
+    );
   }
   
-  // Use event delegation on document to listen for starwind-select:change events
+  // Language selector - handle language selection from Select component
   document.addEventListener("starwind-select:change", ((event: Event) => {
-    const customEvent = event as CustomEvent<{ value: string; selectId?: string; label?: string }>;
+    const customEvent = event as CustomEvent<{ value: string }>;
     const target = event.target as HTMLSelectElement;
     
     // Only handle events for the language select
@@ -104,14 +106,13 @@ export function initLanguageSwitcher(): void {
     if (selectedLang) {
       // Store language preference
       localStorage.setItem("preferred-lang", selectedLang);
-      
       // Update all translatable content on the page
       updatePageLanguage(selectedLang);
-      
-      // Recalculate underline position after language change if function exists
+      // Recalculate underline position after language change
       if ((window as any).recalculateNavUnderline) {
         (window as any).recalculateNavUnderline();
       }
     }
   }) as EventListener);
 }
+

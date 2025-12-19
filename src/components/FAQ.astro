@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getLanguage } from "../utils/translations";
+import { useTranslations } from "../utils/translations";
 import { faqs } from "../config/content";
 import {
   Accordion,
@@ -8,9 +8,10 @@ import {
   AccordionTrigger,
 } from "@/components/starwind/accordion";
 import type { FAQ } from "../config/content";
+import Section from "./Section.astro";
+import Heading from "./Heading.astro";
 
-const lang = getLanguage(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations();
 
 // Map FAQs to translated versions
 const translatedFaqs: FAQ[] = faqs.map((_, index) => ({
@@ -19,11 +20,11 @@ const translatedFaqs: FAQ[] = faqs.map((_, index) => ({
 }));
 ---
 
-<section id="faq" class="py-16 lg:py-24 bg-background">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground text-center mb-12 lg:mb-16" data-i18n="faqs.heading">
+<Section id="faq">
+  <div class="max-w-3xl mx-auto">
+    <Heading level={2} class="text-center mb-12 lg:mb-16" data-i18n="faqs.heading">
       {t("faqs.heading")}
-    </h2>
+    </Heading>
 
     <Accordion type="single" class="space-y-4">
       {translatedFaqs.map((faq, index) => (
@@ -43,24 +44,17 @@ const translatedFaqs: FAQ[] = faqs.map((_, index) => ({
         </AccordionItem>
       ))}
     </Accordion>
-  </div>
-</section>
+</Section>
 
 <script>
   import { initSpotlightEffect } from '../utils/spotlight-effect';
+  import { onDOMReady } from '../utils/dom-ready';
 
   // Initialize spotlight effects for all FAQ accordion triggers (questions only)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const triggers = document.querySelectorAll('#faq .spotlight-container');
-      triggers.forEach((trigger) => {
-        initSpotlightEffect(trigger as HTMLElement);
-      });
-    });
-  } else {
+  onDOMReady(() => {
     const triggers = document.querySelectorAll('#faq .spotlight-container');
     triggers.forEach((trigger) => {
       initSpotlightEffect(trigger as HTMLElement);
     });
-  }
+  });
 </script>

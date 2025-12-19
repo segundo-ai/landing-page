@@ -63,20 +63,14 @@ const getAgentIcon = (agentId: string) => {
 
 <script>
   import { initSpotlightEffect } from '../utils/spotlight-effect';
+  import { onDOMReady } from '../utils/dom-ready';
 
   // Initialize spotlight effects for all agent cards
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('#agents .spotlight-container');
-      cards.forEach((card) => {
-        initSpotlightEffect(card as HTMLElement);
-      });
-    });
-  } else {
+  onDOMReady(() => {
     const cards = document.querySelectorAll('#agents .spotlight-container');
     cards.forEach((card) => {
       initSpotlightEffect(card as HTMLElement);
     });
-  }
+  });
 </script>
 

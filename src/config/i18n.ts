@@ -100,6 +100,10 @@ export const ui = {
         name: "Name",
         email: "E-mail",
         submit: "Submit Message",
+        success: "Thank you for your message! We'll get back to you soon.",
+        error: "Something went wrong. Please try again.",
+        networkError: "Failed to submit form. Please check your connection and try again.",
+        submitting: "Submitting...",
       },
     },
     footer: {
@@ -275,6 +279,10 @@ export const ui = {
         name: "Nombre",
         email: "Correo electrónico",
         submit: "Enviar Mensaje",
+        success: "¡Gracias por tu mensaje! Te responderemos pronto.",
+        error: "Algo salió mal. Por favor, inténtalo de nuevo.",
+        networkError: "Error al enviar el formulario. Por favor, verifica tu conexión e inténtalo de nuevo.",
+        submitting: "Enviando...",
       },
     },
     footer: {

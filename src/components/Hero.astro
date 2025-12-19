@@ -1,10 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations, getLanguage } from "../utils/translations";
+import { useTranslations } from "../utils/translations";
 import arrowImage from "../assets/images/arrow.png";
 
-const lang = getLanguage(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations();
 const titleLines = t("hero.title");
 ---
 
@@ -71,19 +70,13 @@ const titleLines = t("hero.title");
 
 <script>
   import { initSpotlightEffect } from '../utils/spotlight-effect';
+  import { onDOMReady } from '../utils/dom-ready';
 
   // Initialize spotlight effect for hero button
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const button = document.querySelector('#top .spotlight-button') as HTMLElement;
-      if (button) {
-        initSpotlightEffect(button);
-      }
-    });
-  } else {
+  onDOMReady(() => {
     const button = document.querySelector('#top .spotlight-button') as HTMLElement;
     if (button) {
       initSpotlightEffect(button);
     }
-  }
+  });
 </script>

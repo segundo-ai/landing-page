@@ -1,11 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations, getLanguage } from "../utils/translations";
+import { useTranslations } from "../utils/translations";
 import { site } from "../config/site";
 import segundoBlock2Logo from "../assets/images/logos/segundo-block2.png";
 
-const lang = getLanguage(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations();
 ---
 
 <footer class="bg-card border-t border-border py-6 lg:py-8 w-full">

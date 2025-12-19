@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations, getLanguage } from "../utils/translations";
+import { useTranslations } from "../utils/translations";
 import { founders } from "../config/content";
 import joseMurilloImage from "../assets/images/founders/jose-murillo.jpg";
 import santiagoBuenahoraImage from "../assets/images/founders/santiago-buenahora.jpg";
 import andresRosalesImage from "../assets/images/founders/andres-rosales.jpg";
+import Section from "./Section.astro";
+import Heading from "./Heading.astro";
 
-const lang = getLanguage(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations();
 
 // Map founder names to imported images
 const founderImageMap: Record<string, typeof joseMurilloImage> = {
@@ -17,12 +18,11 @@ const founderImageMap: Record<string, typeof joseMurilloImage> = {
 };
 ---
 
-<section id="about-us" class="py-16 lg:py-24 bg-muted/30 w-full">
-  <div class="w-full px-4 sm:px-6 lg:px-8">
+<Section id="about-us" background="muted">
     <div class="w-full text-center mb-12 lg:mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground mb-6" data-i18n="about.heading">
+      <Heading level={2} class="mb-6" data-i18n="about.heading">
         {t("about.heading")}
-      </h2>
+      </Heading>
       <p class="text-xl leading-relaxed max-w-2xl mx-auto satoshi-light" data-i18n="about.description">
         {t("about.description")}
       </p>
@@ -59,8 +59,7 @@ const founderImageMap: Record<string, typeof joseMurilloImage> = {
         </div>
       ))}
     </div>
-  </div>
-</section>
+</Section>
 
 <style>
   @media (min-width: 768px) {
