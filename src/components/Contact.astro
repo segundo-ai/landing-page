@@ -29,7 +29,7 @@ const t = useTranslations();
             <h3 class="text-xl nohemi-medium text-foreground" data-i18n="contact.cta">
               {t("contact.cta")}
             </h3>
-            <div class="space-y-3">
+            <div class="space-y-3 flex flex-col items-center lg:items-start">
               <Button
                 href={`mailto:${site.links.email.jose}`}
                 variant="ghost"
@@ -178,19 +178,38 @@ const t = useTranslations();
 
       if (response.ok) {
         // Success
-        messageDiv.textContent = getTranslation(lang, "contact.form.success");
+        const successMsg = getTranslation(lang, "contact.form.success");
+        messageDiv.textContent = successMsg;
+        messageDiv.setAttribute("data-message-type", "success");
         messageDiv.classList.remove("hidden");
         messageDiv.classList.add("text-green-600", "p-3", "rounded-md", "bg-green-50", "border", "border-green-200");
         form.reset();
       } else {
-        // Error
-        messageDiv.textContent = result.error || getTranslation(lang, "contact.form.error");
+        // Error - use errorId from API to get translated error, fall back to generic error
+        let errorMsg: string;
+        if (result.errorId) {
+          // Use errorId to construct translation key
+          const errorKey = `contact.form.errors.${result.errorId}`;
+          errorMsg = getTranslation(lang, errorKey);
+        } else {
+          errorMsg = getTranslation(lang, "contact.form.error");
+        }
+        messageDiv.textContent = errorMsg;
+        messageDiv.setAttribute("data-message-type", "error");
+        // Store the errorId so we can re-translate it on language change
+        if (result.errorId) {
+          messageDiv.setAttribute("data-error-id", result.errorId);
+        } else {
+          messageDiv.removeAttribute("data-error-id");
+        }
         messageDiv.classList.remove("hidden");
         messageDiv.classList.add("text-red-600", "p-3", "rounded-md", "bg-red-50", "border", "border-red-200");
       }
     } catch (error) {
       // Network or other error
-      messageDiv.textContent = getTranslation(lang, "contact.form.networkError");
+      const networkErrorMsg = getTranslation(lang, "contact.form.networkError");
+      messageDiv.textContent = networkErrorMsg;
+      messageDiv.setAttribute("data-message-type", "networkError");
       messageDiv.classList.remove("hidden");
       messageDiv.classList.add("text-red-600", "p-3", "rounded-md", "bg-red-50", "border", "border-red-200");
       console.error("Form submission error:", error);
@@ -205,6 +224,55 @@ const t = useTranslations();
   if (form) {
     form.addEventListener("submit", handleContactFormSubmit);
   }
+
+  // Listen for language changes to update form message
+  document.addEventListener("starwind-select:change", ((event: Event) => {
+    const customEvent = event as CustomEvent<{ value: string; selectId?: string }>;
+    const target = event.target as HTMLElement;
+    
+    // Check if this is the language select - find the select element by traversing up or searching
+    let selectElement: HTMLSelectElement | null = null;
+    if (target?.tagName === 'SELECT' && (target as HTMLSelectElement).name === 'language') {
+      selectElement = target as HTMLSelectElement;
+    } else {
+      // Try to find the select element in the document
+      selectElement = document.querySelector('select[name="language"]') as HTMLSelectElement;
+    }
+    
+    // Only proceed if we found the language select
+    if (!selectElement || selectElement.name !== 'language') return;
+    
+    const selectedLang = customEvent.detail?.value;
+    if (selectedLang) {
+      const messageDiv = document.getElementById("form-message") as HTMLDivElement;
+      
+      if (messageDiv && !messageDiv.classList.contains("hidden")) {
+        const messageType = messageDiv.getAttribute("data-message-type");
+        if (messageType) {
+          let translatedMessage: string;
+          
+          // For error messages, check if we have a stored errorId to re-translate
+          if (messageType === "error") {
+            const errorId = messageDiv.getAttribute("data-error-id");
+            if (errorId) {
+              // Use errorId to construct translation key
+              const errorKey = `contact.form.errors.${errorId}`;
+              translatedMessage = getTranslation(selectedLang, errorKey);
+            } else {
+              // Generic error
+              translatedMessage = getTranslation(selectedLang, "contact.form.error");
+            }
+          } else {
+            // For success and networkError, use the standard translation key
+            const translationKey = `contact.form.${messageType}`;
+            translatedMessage = getTranslation(selectedLang, translationKey);
+          }
+          
+          messageDiv.textContent = translatedMessage;
+        }
+      }
+    }
+  }) as EventListener);
 </script>
 
 <style>
