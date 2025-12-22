@@ -25,6 +25,22 @@ function getTranslation(
 }
 
 /**
+ * Gets a translation from the global translations object
+ * Uses window.__TRANSLATIONS__ set by BaseLayout
+ */
+export function getClientTranslation(lang: string, key: string): string {
+  const translations = (window as any).__TRANSLATIONS__ || {};
+  return getTranslation(translations, lang, key);
+}
+
+/**
+ * Gets the current language from localStorage
+ */
+export function getCurrentLang(): string {
+  return localStorage.getItem(STORAGE_KEYS.PREFERRED_LANG) || "en";
+}
+
+/**
  * Renders hero title with special formatting for array-based titles
  */
 function renderHeroTitle(

@@ -7,13 +7,3 @@ export const NAV_LINKS = [
   { href: "#contact", key: "nav.contact" },
 ] as const;
 
-export const SECTION_IDS = {
-  TOP: "top",
-  AGENTS: "agents",
-  PLATFORM: "platform",
-  PROCESS: "process",
-  ABOUT_US: "about-us",
-  FAQ: "faq",
-  CONTACT: "contact",
-} as const;
-

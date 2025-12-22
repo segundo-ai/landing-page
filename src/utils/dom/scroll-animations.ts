@@ -21,12 +21,3 @@ export function initScrollAnimations() {
   });
 }
 
-// Initialize on DOM load
-if (typeof window !== "undefined") {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initScrollAnimations);
-  } else {
-    initScrollAnimations();
-  }
-}
-
