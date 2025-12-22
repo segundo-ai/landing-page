@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { type TranslatedAgent } from "@/utils/general/agents";
+import type { TranslatedAgent } from "@/types/agents";
 import { Card, CardTitle, CardContent } from "@/components/starwind/card";
 
 interface Props {
@@ -38,8 +38,8 @@ const { translated_agent: agent } = Astro.props;
 </Card>
 
 <script>
-  import { initSpotlightEffect } from '@/utils/spotlight-effect';
-  import { onDOMReady } from '@/utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
 
   // Initialize spotlight effects for all agent cards
   onDOMReady(() => {

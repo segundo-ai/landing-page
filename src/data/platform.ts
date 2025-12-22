@@ -13,11 +13,6 @@ export const platformSteps = [
   "boost-analytics",
 ] as const;
 
-export interface PlatformStepImage {
-  id: string;
-  imageSrc: typeof centralizeDataImage;
-}
-
 export const platformStepImages: Record<string, typeof centralizeDataImage> = {
   "centralize-data": centralizeDataImage,
   "create-agents": createAgentsImage,

@@ -1,6 +1,7 @@
 ---
-import { useTranslations } from "@/utils/translations";
-import { faqs, type FAQ } from "@/utils/general/faq";
+import { useTranslations } from "@/utils/i18n/translations";
+import { faqs } from "@/data/faq";
+import type { FAQ } from "@/types/content";
 import {
   Accordion,
   AccordionContent,
@@ -46,8 +47,8 @@ const translatedFaqs: FAQ[] = faqs.map((index) => ({
 </Section>
 
 <script>
-  import { initSpotlightEffect } from '@/utils/spotlight-effect';
-  import { onDOMReady } from '@/utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
 
   // Initialize spotlight effects for all FAQ accordion triggers (questions only)
   onDOMReady(() => {

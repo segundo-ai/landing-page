@@ -1,3 +1,5 @@
+import { STORAGE_KEYS } from "@/constants/storage";
+
 /**
  * Client-side i18n utilities
  * Functions for handling language switching and translations in the browser
@@ -86,7 +88,7 @@ export function updatePageLanguage(lang: string): void {
  */
 export function initLanguageSwitcher(): void {
   const defaultLang = "en";
-  const savedLang = localStorage.getItem("preferred-lang") || defaultLang;
+  const savedLang = localStorage.getItem(STORAGE_KEYS.PREFERRED_LANG) || defaultLang;
   
   // Apply saved language immediately if different from default
   if (savedLang && savedLang !== defaultLang) {
@@ -114,7 +116,7 @@ export function initLanguageSwitcher(): void {
     const selectedLang = customEvent.detail?.value;
     if (selectedLang) {
       // Store language preference
-      localStorage.setItem("preferred-lang", selectedLang);
+      localStorage.setItem(STORAGE_KEYS.PREFERRED_LANG, selectedLang);
       // Update all translatable content on the page
       updatePageLanguage(selectedLang);
       // Recalculate underline position after language change

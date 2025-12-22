@@ -1,24 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations } from "@/utils/translations";
+import { useTranslations } from "@/utils/i18n/translations";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/starwind/select";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/starwind/sheet";
 import { Button } from "@/components/starwind/button";
 import segundoBlock2Logo from "@/assets/logo_32_32.png";
 import { defaultLang } from "@/config/i18n";
+import { NAV_LINKS } from "@/constants/navigation";
 
 const t = useTranslations();
 const lang = defaultLang; // For Select defaultValue
-
-// Navigation links array for reusability
-const navLinks = [
-  { href: "#agents", key: "nav.agents" },
-  { href: "#platform", key: "nav.platform" },
-  { href: "#process", key: "nav.process" },
-  { href: "#about-us", key: "nav.about" },
-  { href: "#faq", key: "nav.faq" },
-  { href: "#contact", key: "nav.contact" },
-];
 ---
 
 <header
@@ -42,7 +33,7 @@ const navLinks = [
 
       <!-- Navigation Links -->
       <div class="hidden md:flex items-center relative">
-        {navLinks.map((link) => (
+        {NAV_LINKS.map((link) => (
           <a
             href={link.href}
             class="nav-link text-sm satoshi-medium text-foreground hover:text-primary transition-colors relative z-10 mx-2 lg:mx-4"
@@ -89,7 +80,7 @@ const navLinks = [
           </SheetTrigger>
           <SheetContent side="right" class="w-[280px] sm:w-80">
             <div class="flex flex-col space-y-4 pt-8 px-6">
-              {navLinks.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <a
                   href={link.href}
                   class="text-sm satoshi-medium text-foreground hover:text-primary transition-colors outline-none focus:outline-none active:outline-none"
@@ -107,12 +98,12 @@ const navLinks = [
 </header>
 
 <script>
-  import { initLanguageSwitcher } from '@/utils/client-i18n';
-  import { initSmoothScroll } from '@/utils/smooth-scroll';
-  import { initNavUnderline } from '@/utils/nav-underline';
-  import { initLogoScrollAnimation } from '@/utils/logo-animation';
-  import { initMobileMenuAutoClose } from '@/utils/mobile-menu';
-  import { onDOMReady } from '@/utils/dom-ready';
+  import { initLanguageSwitcher } from '@/utils/i18n/client-i18n';
+  import { initSmoothScroll } from '@/utils/navigation/smooth-scroll';
+  import { initNavUnderline } from '@/utils/animations/nav-underline';
+  import { initLogoScrollAnimation } from '@/utils/animations/logo-animation';
+  import { initMobileMenuAutoClose } from '@/utils/navigation/mobile-menu';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
 
   // Initialize all header functionality when DOM is ready
   onDOMReady(() => {

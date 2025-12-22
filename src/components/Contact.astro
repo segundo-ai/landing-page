@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from "@/utils/translations";
+import { useTranslations } from "@/utils/i18n/translations";
 import { site } from "@/config/site";
 import { Button } from "@/components/starwind/button";
 import { Card, CardContent } from "@/components/starwind/card";
@@ -139,6 +139,7 @@ const t = useTranslations();
   }
 
   function getCurrentLang(): string {
+    // Using the storage key constant value directly for client-side code
     return localStorage.getItem("preferred-lang") || "en";
   }
 
@@ -283,8 +284,8 @@ const t = useTranslations();
 </style>
 
 <script>
-  import { initSpotlightEffect } from '@/utils/spotlight-effect';
-  import { onDOMReady } from '@/utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
 
   // Initialize spotlight effect for contact form button
   onDOMReady(() => {

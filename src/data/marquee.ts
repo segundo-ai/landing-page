@@ -1,3 +1,4 @@
+import type { AlliedOrganization } from "@/types/content";
 import artuLogo from "@/assets/allied_organizations/artu.png";
 import branliLogo from "@/assets/allied_organizations/branli.png";
 import crujiNolaLogo from "@/assets/allied_organizations/cruji-nola.png";
@@ -10,11 +11,6 @@ import polaLogo from "@/assets/allied_organizations/pola.png";
 import rintinLogo from "@/assets/allied_organizations/rintin.png";
 import tracsaLogo from "@/assets/allied_organizations/tracsa.png";
 import verdeValleLogo from "@/assets/allied_organizations/verde-valle.png";
-
-export interface AlliedOrganization {
-  id: string;
-  logoSrc: ImageMetadata;
-}
 
 export const alliedOrganizations: AlliedOrganization[] = [
   { id: "Artu", logoSrc: artuLogo },
