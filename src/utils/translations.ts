@@ -1,5 +1,5 @@
-import type { Language } from "../config/i18n";
-import { ui, defaultLang } from "../config/i18n";
+import type { Language } from "@/config/i18n";
+import { ui, defaultLang } from "@/config/i18n";
 
 /**
  * Get translations function for server-side rendering.
