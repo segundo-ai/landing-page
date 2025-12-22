@@ -128,15 +128,58 @@ const duplicatedLogos = [...alliedOrganizations, ...alliedOrganizations];
     marqueeContent.style.setProperty('--marquee-set-width', `${setWidth}px`);
   }
   
+  // Wait for all images to load before setting up animation
+  function waitForImagesAndSetup() {
+    const marqueeContent = document.querySelector('.marquee-content') as HTMLElement;
+    if (!marqueeContent) return;
+
+    const images = marqueeContent.querySelectorAll('img');
+    const totalImages = images.length;
+
+    // Check if all images are already loaded
+    const loadedImages = Array.from(images).filter(img => img.complete && img.naturalWidth > 0);
+
+    if (loadedImages.length === totalImages) {
+      // All images already loaded - setup immediately
+      setupMarqueeAnimation();
+      return;
+    }
+
+    // Wait for remaining images to load
+    let loadedCount = loadedImages.length;
+    const loadPromises: Promise<void>[] = [];
+
+    images.forEach((img) => {
+      if (!img.complete || (img as HTMLImageElement).naturalWidth === 0) {
+        const loadPromise = new Promise<void>((resolve) => {
+          img.addEventListener('load', () => {
+            loadedCount++;
+            resolve();
+          }, { once: true });
+          img.addEventListener('error', () => {
+            loadedCount++;
+            resolve(); // Resolve even on error to not block setup
+          }, { once: true });
+        });
+        loadPromises.push(loadPromise);
+      }
+    });
+
+    // Wait for all images to load, then setup
+    Promise.all(loadPromises).then(() => {
+      setupMarqueeAnimation();
+    });
+  }
+
   // Run on page load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       adjustMarqueePosition();
-      setupMarqueeAnimation();
+      waitForImagesAndSetup();
     });
   } else {
     adjustMarqueePosition();
-    setupMarqueeAnimation();
+    waitForImagesAndSetup();
   }
 </script>
 
