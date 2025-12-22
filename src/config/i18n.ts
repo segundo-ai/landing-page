@@ -93,6 +93,8 @@ export const ui = {
       description: "We know how hard it is to run a business. Each of us built a company before Primero. We are here to create ROI and prove to you our value, not to be another cost in your P&L.",
       founders: {
         "jose-murillo": {
+          name: "José Murillo",
+          title: "CO-CEO, FOUNDER",
           bio: [
             "Studied Economics and Computer Science at Harvard",
             "Worked at Facebook and Goldman Sachs",
@@ -100,6 +102,8 @@ export const ui = {
           ],
         },
         "santiago-buenahora": {
+          name: "Santiago Buenahora",
+          title: "CTO, FOUNDER",
           bio: [
             "Studied Computer Science at the University of Pennsylvania",
             "Worked at Robinhood and Microsoft",
@@ -107,6 +111,8 @@ export const ui = {
           ],
         },
         "andres-rosales": {
+          name: "Andrés Rosales",
+          title: "CO-CEO, FOUNDER",
           bio: [
             "Studied Math and Physics at Harvard",
             "Worked at McKinsey and 8VC",
@@ -303,6 +309,8 @@ export const ui = {
       description: "Sabemos lo difícil que es dirigir un negocio. Cada uno de nosotros construyó una empresa antes de Primero. Estamos aquí para crear ROI y demostrarte nuestro valor, no para ser otro costo en tu P&L.",
       founders: {
         "jose-murillo": {
+          name: "José Murillo",
+          title: "CO-CEO, FOUNDER",
           bio: [
             "Estudió Economía y Ciencias de la Computación en Harvard",
             "Trabajó en Facebook y Goldman Sachs",
@@ -310,6 +318,8 @@ export const ui = {
           ],
         },
         "santiago-buenahora": {
+          name: "Santiago Buenahora",
+          title: "CTO, FOUNDER",
           bio: [
             "Estudió Ciencias de la Computación en la Universidad de Pennsylvania",
             "Trabajó en Robinhood y Microsoft",
@@ -317,6 +327,8 @@ export const ui = {
           ],
         },
         "andres-rosales": {
+          name: "Andrés Rosales",
+          title: "CO-CEO, FOUNDER",
           bio: [
             "Estudió Matemáticas y Física en Harvard",
             "Trabajó en McKinsey y 8VC",

@@ -4,12 +4,6 @@ export interface Agent {
   description: string;
 }
 
-export interface Founder {
-  name: string;
-  title: string;
-  bio: string[];
-}
-
 export interface FAQ {
   question: string;
   answer: string;
@@ -25,24 +19,6 @@ export const agents: Agent[] = [
   { id: "sales-outbound", name: "", description: "" },
   { id: "anomaly-detection", name: "", description: "" },
   { id: "internet-scraper", name: "", description: "" },
-];
-
-export const founders: Founder[] = [
-  {
-    name: "José Murillo",
-    title: "CO-CEO, FOUNDER",
-    bio: [ "", "", "", ],
-  },
-  {
-    name: "Santiago Buenahora",
-    title: "CTO, FOUNDER",
-    bio: [ "", "", "", ],
-  },
-  {
-    name: "Andrés Rosales",
-    title: "CO-CEO, FOUNDER",
-    bio: [ "", "", "", ],
-  },
 ];
 
 // FAQ structure - used for array length/index only. Translations are in src/config/i18n.ts

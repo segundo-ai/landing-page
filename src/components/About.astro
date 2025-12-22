@@ -1,28 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import { useTranslations } from "@/utils/translations";
-import { founders } from "@/config/content";
-import joseMurilloImage from "@/assets/founders/jose-murillo.jpg";
-import santiagoBuenahoraImage from "@/assets/founders/santiago-buenahora.jpg";
-import andresRosalesImage from "@/assets/founders/andres-rosales.jpg";
+import { founders } from "@/utils/general/founders";
 import Section from "@/components/Section.astro";
 import Heading from "@/components/Heading.astro";
 
 const t = useTranslations();
-
-// Map founder names to imported images
-const founderImageMap: Record<string, typeof joseMurilloImage> = {
-  "José Murillo": joseMurilloImage,
-  "Santiago Buenahora": santiagoBuenahoraImage,
-  "Andrés Rosales": andresRosalesImage,
-};
-
-// Map founder names to translation keys
-const founderTranslationKeyMap: Record<string, string> = {
-  "José Murillo": "jose-murillo",
-  "Santiago Buenahora": "santiago-buenahora",
-  "Andrés Rosales": "andres-rosales",
-};
 ---
 
 <Section id="about-us" background="muted">
@@ -39,29 +22,31 @@ const founderTranslationKeyMap: Record<string, string> = {
       {founders.map((founder) => (
         <div class="founder-card group duration-700 ease-in-out transition-[width,height] relative h-[279px] md:h-[402px] md:min-w-[15%] md:w-[33%] md:hover:w-[70%] md:hover:h-[626px] flex flex-col md:gap-[25px] justify-end md:self-start">
           <Image
-            src={founderImageMap[founder.name]}
-            alt={founder.name}
-            class="absolute h-full md:absolute rounded-[8px] md:rounded-[20px] object-cover z-0 min-w-full md:h-[402px] md:group-hover:h-[626px] duration-700 ease-in-out transition-[height]"
+            src={founder.imageSrc}
+            alt={t(`about.founders.${founder.id}.name`)}
+            class="absolute h-full rounded-[8px] md:rounded-[20px] object-cover z-0 min-w-full md:h-[402px] md:group-hover:h-[626px] duration-700 ease-in-out transition-[height]"
             loading="lazy"
             decoding="async"
           />
           <div class="absolute h-full top-0 left-0 w-full z-[1] bg-gradient-to-b from-[rgba(0,0,0,0)] from-5% to-[rgba(0,0,0,0.85)] to-100% md:opacity-0 md:group-hover:opacity-100 duration-700 ease-in-out transition-opacity rounded-[7px] md:rounded-[19px]"></div>
           <div class="duration-700 ease-in-out transition-[padding,gap] relative z-10 flex flex-col gap-[10px] md:gap-[15px] md:group-hover:gap-[25px] py-[10px] px-[20px] md:pl-[25px] md:pr-0 md:pt-0 md:pb-0 md:group-hover:p-[50px] satoshi-medium">
-            <p class="text-[19px] md:text-[24px] md:group-hover:text-[48px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-75 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              {founder.name}
+            <p class="text-[19px] md:text-[24px] md:group-hover:text-[48px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-75 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              data-i18n={`about.founders.${founder.id}.name`}
+            >
+              {t(`about.founders.${founder.id}.name`)}
             </p>
-            <p class="text-[10px] md:text-[14px] md:group-hover:text-[20px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-100 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              {founder.title}
+            <p class="text-[10px] md:text-[14px] md:group-hover:text-[20px] text-[#E5E5E5] leading-[114%] duration-700 ease-in-out transition-[font-size] delay-100 will-change-[font-size] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              data-i18n={`about.founders.${founder.id}.title`}
+            >
+              {t(`about.founders.${founder.id}.title`)}
             </p>
             <div class="bio-container md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:leading-[120%] text-[10px] md:text-[16px] text-[#FBFBFB] duration-500 ease-in-out transition-[opacity,max-height] md:group-hover:delay-150 md:delay-0">
               <ul class="list-disc space-y-1 md:space-y-3 pl-5 md:pl-6">
-                {founder.bio.map((bioItem, index) => {
-                  const founderKey = founderTranslationKeyMap[founder.name];
+                {t(`about.founders.${founder.id}.bio`).map((bioItem: string, index: number) => {
                   return (
                     <li class="marker:text-[#E5E5E5] marker:font-bold">
-                      <p 
-                        class="text-[12px] md:text-[14px] lg:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tight"
-                        data-i18n={`about.founders.${founderKey}.bio.${index}`}
+                      <p class="text-[12px] md:text-[14px] lg:text-[18px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tight"
+                        data-i18n={`about.founders.${founder.id}.bio.${index}`}
                         data-i18n-format="bio-item"
                       >{bioItem}</p>
                     </li>
