@@ -1,6 +1,5 @@
 import type { APIRoute } from "astro";
-import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { savePotentialCustomer } from "@/utils/data/firebase";
 
 // Mark this endpoint as server-rendered (not static)
 export const prerender = false;
@@ -47,28 +46,13 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Check if db is initialized
-    if (!db) {
-      return new Response(
-        JSON.stringify({ error: "Database not initialized", errorId: "databaseError" }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    }
-
-    // Save to Firestore
-    const docRef = await addDoc(collection(db, "potential-customers"), {
-      name: sanitizedName,
-      email: sanitizedEmail,
-      createdAt: serverTimestamp(),
-    });
+    // Save to database
+    const result = await savePotentialCustomer(sanitizedName, sanitizedEmail);
 
     return new Response(
       JSON.stringify({
         success: true,
-        id: docRef.id,
+        id: result.id,
         message: "Contact form submitted successfully",
       }),
       {
@@ -79,12 +63,9 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error: any) {
     console.error("Error saving contact form:", error);
     
-    // Provide more specific error message for permission errors
-    const isPermissionError = error?.code === 'permission-denied' || error?.message?.includes('PERMISSION_DENIED');
-    const errorMessage = isPermissionError
-      ? "Firestore permission error. Please update your Firestore security rules to allow writes to the 'potential-customers' collection."
-      : "Failed to submit contact form. Please try again later.";
-    const errorId = isPermissionError ? "permissionError" : "submitFailed";
+    // Handle errors from the data layer
+    const errorMessage = error?.message || "Failed to submit contact form. Please try again later.";
+    const errorId = error?.errorId || "submitFailed";
     
     return new Response(
       JSON.stringify({

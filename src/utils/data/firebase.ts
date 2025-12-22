@@ -1,0 +1,70 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: import.meta.env.FIREBASE_API_KEY,
+  authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.FIREBASE_APP_ID,
+  measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID,
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+
+/**
+ * Saves a potential customer to Firestore
+ * @param name - Sanitized customer name
+ * @param email - Sanitized customer email
+ * @returns Object with success status and document ID
+ * @throws Error with Firebase-specific error information
+ */
+export async function savePotentialCustomer(
+  name: string,
+  email: string
+): Promise<{ success: true; id: string }> {
+  // Check if db is initialized
+  if (!db) {
+    throw new Error("Database not initialized");
+  }
+
+  try {
+    // Save to Firestore
+    const docRef = await addDoc(collection(db, "potential-customers"), {
+      name,
+      email,
+      createdAt: serverTimestamp(),
+    });
+
+    return {
+      success: true,
+      id: docRef.id,
+    };
+  } catch (error: any) {
+    console.error("Error saving potential customer:", error);
+    
+    // Provide more specific error message for permission errors
+    const isPermissionError = error?.code === 'permission-denied' || error?.message?.includes('PERMISSION_DENIED');
+    
+    if (isPermissionError) {
+      const permissionError = new Error(
+        "Firestore permission error. Please update your Firestore security rules to allow writes to the 'potential-customers' collection."
+      ) as Error & { errorId?: string };
+      permissionError.errorId = "permissionError";
+      throw permissionError;
+    }
+    
+    const genericError = new Error("Failed to save potential customer") as Error & { errorId?: string };
+    genericError.errorId = "submitFailed";
+    throw genericError;
+  }
+}
+

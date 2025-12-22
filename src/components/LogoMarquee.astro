@@ -1,36 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { alliesLogos } from "@/config/content";
-import artuLogo from "@/assets/allied_organizations/artu.png";
-import branliLogo from "@/assets/allied_organizations/branli.png";
-import crujiNolaLogo from "@/assets/allied_organizations/cruji-nola.png";
-import elysianLogo from "@/assets/allied_organizations/elysian.png";
-import holacasaLogo from "@/assets/allied_organizations/holacasa.png";
-import ketoKareLogo from "@/assets/allied_organizations/keto-kare.png";
-import macloudLogo from "@/assets/allied_organizations/macloud.png";
-import moonsLogo from "@/assets/allied_organizations/moons.png";
-import polaLogo from "@/assets/allied_organizations/pola.png";
-import rintinLogo from "@/assets/allied_organizations/rintin.png";
-import tracsaLogo from "@/assets/allied_organizations/tracsa.png";
-import verdeValleLogo from "@/assets/allied_organizations/verde-valle.png";
+import { alliedOrganizations } from "@/utils/general/marquee";
 
-// Map organization names to imported logos
-const organizationLogoMap: Record<string, typeof artuLogo> = {
-  "Artu": artuLogo,
-  "Branli": branliLogo,
-  "Cruji Nola": crujiNolaLogo,
-  "Elysian": elysianLogo,
-  "Holacasa": holacasaLogo,
-  "Keto Kare": ketoKareLogo,
-  "Macloud": macloudLogo,
-  "Moons": moonsLogo,
-  "Pola": polaLogo,
-  "Rintin": rintinLogo,
-  "Tracsa": tracsaLogo,
-  "Verde Valle": verdeValleLogo,
-};
-
-const duplicatedLogos = [...alliesLogos, ...alliesLogos];
+const duplicatedLogos = [...alliedOrganizations, ...alliedOrganizations];
 ---
 
 <section id="logo-marquee" class="relative z-[3] py-4 lg:py-4 bg-[#000] overflow-hidden">
@@ -42,8 +14,8 @@ const duplicatedLogos = [...alliesLogos, ...alliesLogos];
           <div class="marquee-spacer"></div>
           <div class="marquee-item">
             <Image
-              src={organizationLogoMap[logo]}
-              alt={`${logo} logo`}
+              src={logo.logoSrc}
+              alt={`${logo.id} logo`}
               class="h-20 w-auto marquee-logo"
               width={160}
               height={80}

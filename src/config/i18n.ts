@@ -66,23 +66,28 @@ export const ui = {
     process: {
       heading: "Our Process",
       steps: {
-        "1": {
+        "diagnostic": {
+          number: "1",
           title: "Diagnostic",
           description: "We get to know your team and identify the highest ROI opportunities for AI implementation",
         },
-        "2": {
+        "proof-of-value": {
+          number: "2",
           title: "Proof of Value",
           description: "We deploy a specific AI use case in less than 4 weeks to demonstrate our platform's value",
         },
-        "3": {
+        "data-integration": {
+          number: "3",
           title: "Data Integration",
           description: "We centralize your fragmented systems in our platform to give AI agents relevant context",
         },
-        "4": {
+        "build-deploy": {
+          number: "4",
           title: "Build & Deploy",
           description: "We act as your strategic partner, building the highest ROI AI products for your team",
         },
-        "5": {
+        "maintenance": {
+          number: "5",
           title: "Maintenance",
           description: "We offer round-the-clock support so that your system keeps running seamlessly",
         },
@@ -189,38 +194,31 @@ export const ui = {
       items: [
         {
           question: "What is Primero?",
-          answer:
-            "Primero is an AI enterprise platform. We work with Fortune 500 companies, building AI backoffice automations and tools to improve decision-making. Our products are built on top of our intelligence platform and integrate with our customers' systems and data. To keep it short: we help companies get 10x ROI from AI adoption.",
+          answer: "Primero is an AI enterprise platform. We work with Fortune 500 companies, building AI backoffice automations and tools to improve decision-making. Our products are built on top of our intelligence platform and integrate with our customers' systems and data. To keep it short: we help companies get 10x ROI from AI adoption.",
         },
         {
           question: "What features does the platform include?",
-          answer:
-            "Our platform includes data centralization, AI agent creation, workflow automation, monitoring tools, and advanced analytics. We integrate with over 50 tools and connect to your existing systems like SAP, AWS, Microsoft Dynamics, NetSuite, and Oracle.",
+          answer: "Our platform includes data centralization, AI agent creation, workflow automation, monitoring tools, and advanced analytics. We integrate with over 50 tools and connect to your existing systems like SAP, AWS, Microsoft Dynamics, NetSuite, and Oracle.",
         },
         {
           question: "Can Primero help me build custom products?",
-          answer:
-            "Yes, absolutely. We act as your strategic partner, building custom AI products tailored to your specific business needs and highest ROI opportunities.",
+          answer: "Yes, absolutely. We act as your strategic partner, building custom AI products tailored to your specific business needs and highest ROI opportunities.",
         },
         {
           question: "How does Primero manage data security?",
-          answer:
-            "We take data security seriously. Our platform follows enterprise-grade security standards and we work closely with your team to ensure all data is handled according to your security requirements and compliance standards.",
+          answer: "We take data security seriously. Our platform follows enterprise-grade security standards and we work closely with your team to ensure all data is handled according to your security requirements and compliance standards.",
         },
         {
           question: "Do I have to be technical to use Primero?",
-          answer:
-            "No, you don't need to be technical. Our forward deployed engineering team handles the implementation, integration, and maintenance. We work with your team to identify opportunities and deploy solutions.",
+          answer: "No, you don't need to be technical. Our forward deployed engineering team handles the implementation, integration, and maintenance. We work with your team to identify opportunities and deploy solutions.",
         },
         {
           question: "How much does it cost?",
-          answer:
-            "Pricing is customized based on your specific needs and use cases. We start with a free AI-readiness diagnostic to identify opportunities. Contact us to discuss your requirements and get a tailored quote.",
+          answer: "Pricing is customized based on your specific needs and use cases. We start with a free AI-readiness diagnostic to identify opportunities. Contact us to discuss your requirements and get a tailored quote.",
         },
         {
           question: "Can I use my own AI model providers?",
-          answer:
-            "Yes, our platform is flexible and can integrate with various AI model providers. We work with you to determine the best approach for your specific use cases.",
+          answer: "Yes, our platform is flexible and can integrate with various AI model providers. We work with you to determine the best approach for your specific use cases.",
         },
       ],
     },
@@ -282,23 +280,28 @@ export const ui = {
     process: {
       heading: "Nuestro Proceso",
       steps: {
-        "1": {
+        "diagnostic": {
+          number: "1",
           title: "Diagnóstico",
           description: "Conocemos a tu equipo e identificamos las oportunidades de mayor ROI para la implementación de IA",
         },
-        "2": {
+        "proof-of-value": {
+          number: "2",
           title: "Prueba de Valor",
           description: "Implementamos un caso de uso específico de IA en menos de 4 semanas para demostrar el valor de nuestra plataforma",
         },
-        "3": {
+        "data-integration": {
+          number: "3",
           title: "Integración de Datos",
           description: "Centralizamos tus sistemas fragmentados en nuestra plataforma para dar a los agentes de IA el contexto relevante",
         },
-        "4": {
+        "build-deploy": {
+          number: "4",
           title: "Construir e Implementar",
           description: "Actuamos como tu socio estratégico, construyendo los productos de IA de mayor ROI para tu equipo",
         },
-        "5": {
+        "maintenance": {
+          number: "5",
           title: "Soporte",
           description: "Ofrecemos soporte las 24 horas para que tu sistema siga funcionando sin problemas",
         },
@@ -405,38 +408,31 @@ export const ui = {
       items: [
         {
           question: "¿Qué es Primero?",
-          answer:
-            "Primero es una plataforma empresarial de IA. Trabajamos con empresas Fortune 500, construyendo automatizaciones y herramientas de back-office con IA para mejorar la toma de decisiones. Nuestros productos están construidos sobre nuestra plataforma de inteligencia e integran con los sistemas y datos de nuestros clientes. Para resumir: ayudamos a las empresas a obtener 10x ROI de la adopción de IA.",
+          answer: "Primero es una plataforma empresarial de IA. Trabajamos con empresas Fortune 500, construyendo automatizaciones y herramientas de back-office con IA para mejorar la toma de decisiones. Nuestros productos están construidos sobre nuestra plataforma de inteligencia e integran con los sistemas y datos de nuestros clientes. Para resumir: ayudamos a las empresas a obtener 10x ROI de la adopción de IA.",
         },
         {
           question: "¿Qué características incluye la plataforma?",
-          answer:
-            "Nuestra plataforma incluye centralización de datos, creación de agentes de IA, automatización de flujos de trabajo, herramientas de monitoreo y analíticas avanzadas. Nos integramos con más de 50 herramientas y nos conectamos a tus sistemas existentes como SAP, AWS, Microsoft Dynamics, NetSuite y Oracle.",
+          answer: "Nuestra plataforma incluye centralización de datos, creación de agentes de IA, automatización de flujos de trabajo, herramientas de monitoreo y analíticas avanzadas. Nos integramos con más de 50 herramientas y nos conectamos a tus sistemas existentes como SAP, AWS, Microsoft Dynamics, NetSuite y Oracle.",
         },
         {
           question: "¿Puede Primero ayudarme a construir productos personalizados?",
-          answer:
-            "Sí, absolutamente. Actuamos como tu socio estratégico, construyendo productos de IA personalizados adaptados a tus necesidades específicas de negocio y las oportunidades de mayor ROI.",
+          answer: "Sí, absolutamente. Actuamos como tu socio estratégico, construyendo productos de IA personalizados adaptados a tus necesidades específicas de negocio y las oportunidades de mayor ROI.",
         },
         {
           question: "¿Cómo maneja Primero la seguridad de datos?",
-          answer:
-            "Tomamos la seguridad de datos muy en serio. Nuestra plataforma sigue estándares de seguridad de nivel empresarial y trabajamos estrechamente con tu equipo para asegurar que todos los datos se manejen de acuerdo con tus requisitos de seguridad y estándares de cumplimiento.",
+          answer: "Tomamos la seguridad de datos muy en serio. Nuestra plataforma sigue estándares de seguridad de nivel empresarial y trabajamos estrechamente con tu equipo para asegurar que todos los datos se manejen de acuerdo con tus requisitos de seguridad y estándares de cumplimiento.",
         },
         {
           question: "¿Tengo que ser técnico para usar Primero?",
-          answer:
-            "No, no necesitas ser técnico. Nuestro equipo de ingeniería desplegado maneja la implementación, integración y mantenimiento. Trabajamos con tu equipo para identificar oportunidades e implementar soluciones.",
+          answer: "No, no necesitas ser técnico. Nuestro equipo de ingeniería desplegado maneja la implementación, integración y mantenimiento. Trabajamos con tu equipo para identificar oportunidades e implementar soluciones.",
         },
         {
           question: "¿Cuánto cuesta?",
-          answer:
-            "El precio se personaliza según tus necesidades específicas y casos de uso. Comenzamos con un diagnóstico gratuito de preparación para IA para identificar oportunidades. Contáctanos para discutir tus requisitos y obtener una cotización personalizada.",
+          answer: "El precio se personaliza según tus necesidades específicas y casos de uso. Comenzamos con un diagnóstico gratuito de preparación para IA para identificar oportunidades. Contáctanos para discutir tus requisitos y obtener una cotización personalizada.",
         },
         {
           question: "¿Puedo usar mis propios proveedores de modelos de IA?",
-          answer:
-            "Sí, nuestra plataforma es flexible y puede integrarse con varios proveedores de modelos de IA. Trabajamos contigo para determinar el mejor enfoque para tus casos de uso específicos.",
+          answer: "Sí, nuestra plataforma es flexible y puede integrarse con varios proveedores de modelos de IA. Trabajamos contigo para determinar el mejor enfoque para tus casos de uso específicos.",
         },
       ],
     },

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { agents, type Agent } from "@/config/content";
+import { agents, type TranslatedAgent } from "@/utils/general/agents";
 import { Card, CardContent } from "@/components/starwind/card";
 import AgentCard from "@/components/AgentCard.astro";
 import { useTranslations } from "@/utils/translations";
@@ -10,8 +10,9 @@ import Section from "@/components/Section.astro";
 const t = useTranslations();
 
 // Map agents to translated versions
-const translatedAgents: Agent[] = agents.map((agent) => ({
-  ...agent,
+const translatedAgents: TranslatedAgent[] = agents.map((agent) => ({
+  id: agent.id,
+  iconSrc: agent.iconSrc,
   name: t(`agents.${agent.id}.name`),
   description: t(`agents.${agent.id}.description`),
 }));
@@ -21,12 +22,12 @@ const translatedAgents: Agent[] = agents.map((agent) => ({
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Row 1: Agents 1-3 -->
       {translatedAgents.slice(0, 3).map((agent) => (
-        <AgentCard agent={agent} />
+        <AgentCard translated_agent={agent} />
       ))}
       
       <!-- Row 2: Agent 4, Logo (center), Agent 5 -->
       {translatedAgents.slice(3, 4).map((agent) => (
-        <AgentCard agent={agent} />
+        <AgentCard translated_agent={agent} />
       ))}
       
       <!-- Center Logo Card (Row 2, Col 2) -->
@@ -46,12 +47,12 @@ const translatedAgents: Agent[] = agents.map((agent) => ({
       </div>
 
       {translatedAgents.slice(4, 5).map((agent) => (
-        <AgentCard agent={agent} />
+        <AgentCard translated_agent={agent} />
       ))}
 
       <!-- Row 3: Agents 6-8 -->
       {translatedAgents.slice(5, 8).map((agent) => (
-        <AgentCard agent={agent} />
+        <AgentCard translated_agent={agent} />
       ))}
   </div>
 </Section>

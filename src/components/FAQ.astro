@@ -1,20 +1,19 @@
 ---
 import { useTranslations } from "@/utils/translations";
-import { faqs } from "@/config/content";
+import { faqs, type FAQ } from "@/utils/general/faq";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/starwind/accordion";
-import type { FAQ } from "@/config/content";
 import Section from "@/components/Section.astro";
 import Heading from "@/components/Heading.astro";
 
 const t = useTranslations();
 
 // Map FAQs to translated versions
-const translatedFaqs: FAQ[] = faqs.map((_, index) => ({
+const translatedFaqs: FAQ[] = faqs.map((index) => ({
   question: t(`faqs.items.${index}.question`),
   answer: t(`faqs.items.${index}.answer`),
 }));

@@ -1,37 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import { type Agent } from "@/config/content";
+import { type TranslatedAgent } from "@/utils/general/agents";
 import { Card, CardTitle, CardContent } from "@/components/starwind/card";
-import formIcon from "@/assets/agent_vectors/form.svg";
-import textCursorIcon from "@/assets/agent_vectors/text_cursor.svg";
-import warningIcon from "@/assets/agent_vectors/warning.svg";
-import documentIcon from "@/assets/agent_vectors/document.svg";
-import crateIcon from "@/assets/agent_vectors/crate.svg";
-import salesIcon from "@/assets/agent_vectors/sales.svg";
-import bugIcon from "@/assets/agent_vectors/bug.svg";
-import internetIcon from "@/assets/agent_vectors/internet.svg";
 
 interface Props {
-  agent: Agent;
+  translated_agent: TranslatedAgent;
 }
 
-const { agent } = Astro.props;
-
-// Icon mapping from agent IDs to imported images
-const agentIconMap: Record<string, typeof formIcon> = {
-  "form-filling": formIcon,
-  "report-writing": textCursorIcon,
-  "fraud-flagging": warningIcon,
-  "contract-analyst": documentIcon,
-  "inventory-forecast": crateIcon,
-  "sales-outbound": salesIcon,
-  "anomaly-detection": bugIcon,
-  "internet-scraper": internetIcon,
-};
-
-const getAgentIcon = (agentId: string) => {
-  return agentIconMap[agentId] || formIcon;
-};
+const { translated_agent: agent } = Astro.props;
 ---
 
 <Card class="spotlight-container group relative hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
@@ -43,7 +19,7 @@ const getAgentIcon = (agentId: string) => {
       <div class="flex items-start space-x-4">
         <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
           <Image
-            src={getAgentIcon(agent.id)}
+            src={agent.iconSrc}
             alt={`${agent.name} icon`}
             class="h-8 max-w-8"
           />
