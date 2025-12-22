@@ -1,12 +1,12 @@
 ---
-import { useTranslations } from "../utils/translations";
-import { site } from "../config/site";
+import { useTranslations } from "@/utils/translations";
+import { site } from "@/config/site";
 import { Button } from "@/components/starwind/button";
 import { Card, CardContent } from "@/components/starwind/card";
 import { Input } from "@/components/starwind/input";
 import { Label } from "@/components/starwind/label";
-import Section from "./Section.astro";
-import Heading from "./Heading.astro";
+import Section from "@/components/Section.astro";
+import Heading from "@/components/Heading.astro";
 
 const t = useTranslations();
 ---
@@ -283,8 +283,8 @@ const t = useTranslations();
 </style>
 
 <script>
-  import { initSpotlightEffect } from '../utils/spotlight-effect';
-  import { onDOMReady } from '../utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom-ready';
 
   // Initialize spotlight effect for contact form button
   onDOMReady(() => {

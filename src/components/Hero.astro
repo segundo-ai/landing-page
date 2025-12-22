@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations } from "../utils/translations";
-import arrowImage from "../assets/arrow.png";
+import { useTranslations } from "@/utils/translations";
+import arrowImage from "@/assets/arrow.png";
 
 const t = useTranslations();
 const titleLines = t("hero.title");
@@ -69,8 +69,8 @@ const titleLines = t("hero.title");
 </style>
 
 <script>
-  import { initSpotlightEffect } from '../utils/spotlight-effect';
-  import { onDOMReady } from '../utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom-ready';
 
   // Initialize spotlight effect for hero button
   onDOMReady(() => {

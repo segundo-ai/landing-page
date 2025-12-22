@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations } from "../utils/translations";
+import { useTranslations } from "@/utils/translations";
 import { Card } from "@/components/starwind/card";
-import arrowImage from "../assets/arrow.png";
-import Section from "./Section.astro";
-import Heading from "./Heading.astro";
+import arrowImage from "@/assets/arrow.png";
+import Section from "@/components/Section.astro";
+import Heading from "@/components/Heading.astro";
 
 const t = useTranslations();
 
@@ -64,8 +64,8 @@ const processSteps = [
 </Section>
 
 <script>
-  import { initSpotlightEffect } from '../utils/spotlight-effect';
-  import { onDOMReady } from '../utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom-ready';
 
   // Initialize spotlight effects for all process cards
   onDOMReady(() => {

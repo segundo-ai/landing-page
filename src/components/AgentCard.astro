@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { type Agent } from "../config/content";
+import { type Agent } from "@/config/content";
 import { Card, CardTitle, CardContent } from "@/components/starwind/card";
-import formIcon from "../assets/agent_vectors/form.svg";
-import textCursorIcon from "../assets/agent_vectors/text_cursor.svg";
-import warningIcon from "../assets/agent_vectors/warning.svg";
-import documentIcon from "../assets/agent_vectors/document.svg";
-import crateIcon from "../assets/agent_vectors/crate.svg";
-import salesIcon from "../assets/agent_vectors/sales.svg";
-import bugIcon from "../assets/agent_vectors/bug.svg";
-import internetIcon from "../assets/agent_vectors/internet.svg";
+import formIcon from "@/assets/agent_vectors/form.svg";
+import textCursorIcon from "@/assets/agent_vectors/text_cursor.svg";
+import warningIcon from "@/assets/agent_vectors/warning.svg";
+import documentIcon from "@/assets/agent_vectors/document.svg";
+import crateIcon from "@/assets/agent_vectors/crate.svg";
+import salesIcon from "@/assets/agent_vectors/sales.svg";
+import bugIcon from "@/assets/agent_vectors/bug.svg";
+import internetIcon from "@/assets/agent_vectors/internet.svg";
 
 interface Props {
   agent: Agent;
@@ -62,8 +62,8 @@ const getAgentIcon = (agentId: string) => {
 </Card>
 
 <script>
-  import { initSpotlightEffect } from '../utils/spotlight-effect';
-  import { onDOMReady } from '../utils/dom-ready';
+  import { initSpotlightEffect } from '@/utils/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom-ready';
 
   // Initialize spotlight effects for all agent cards
   onDOMReady(() => {

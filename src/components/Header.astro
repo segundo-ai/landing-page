@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import { useTranslations } from "../utils/translations";
+import { useTranslations } from "@/utils/translations";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/starwind/select";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/starwind/sheet";
 import { Button } from "@/components/starwind/button";
-import segundoBlock2Logo from "../assets/logo_32_32.png";
-import { defaultLang } from "../config/i18n";
+import segundoBlock2Logo from "@/assets/logo_32_32.png";
+import { defaultLang } from "@/config/i18n";
 
 const t = useTranslations();
 const lang = defaultLang; // For Select defaultValue
@@ -107,12 +107,12 @@ const navLinks = [
 </header>
 
 <script>
-  import { initLanguageSwitcher } from '../utils/client-i18n';
-  import { initSmoothScroll } from '../utils/smooth-scroll';
-  import { initNavUnderline } from '../utils/nav-underline';
-  import { initLogoScrollAnimation } from '../utils/logo-animation';
-  import { initMobileMenuAutoClose } from '../utils/mobile-menu';
-  import { onDOMReady } from '../utils/dom-ready';
+  import { initLanguageSwitcher } from '@/utils/client-i18n';
+  import { initSmoothScroll } from '@/utils/smooth-scroll';
+  import { initNavUnderline } from '@/utils/nav-underline';
+  import { initLogoScrollAnimation } from '@/utils/logo-animation';
+  import { initMobileMenuAutoClose } from '@/utils/mobile-menu';
+  import { onDOMReady } from '@/utils/dom-ready';
 
   // Initialize all header functionality when DOM is ready
   onDOMReady(() => {

@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { db } from "../../lib/firebase";
+import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 // Mark this endpoint as server-rendered (not static)
