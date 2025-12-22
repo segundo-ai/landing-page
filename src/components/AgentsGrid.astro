@@ -1,11 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { agents } from "../config/content";
+import { agents, type Agent } from "../config/content";
 import { Card, CardContent } from "@/components/starwind/card";
 import AgentCard from "./AgentCard.astro";
 import { useTranslations } from "../utils/translations";
-import type { Agent } from "../config/content";
-import segundoBlockLogo from "../assets/images/logos/segundo-block.png";
+import segundoBlockLogo from "../assets/logo_32_32_darkbg.png";
 import Section from "./Section.astro";
 
 const t = useTranslations();
