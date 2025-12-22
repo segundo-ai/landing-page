@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { savePotentialCustomer } from "@/utils/data/firebase";
+import { savePotentialCustomer } from "@/utils/data/createCustomer";
 
 // Mark this endpoint as server-rendered (not static)
 export const prerender = false;
