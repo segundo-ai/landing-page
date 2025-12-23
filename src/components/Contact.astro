@@ -77,7 +77,13 @@ const t = useTranslations();
         <!-- Right side - Contact form -->
         <Card class="p-6 lg:p-8 shadow-lg">
           <CardContent class="p-0">
-            <form id="contact-form" class="space-y-6">
+            <form id="contact-form"
+              class="space-y-6"
+              method="POST"
+              action="https://submit-form.com/5vKtU0LEv"
+              data-botpoison-public-key="pk_7f60bb6f-5698-4b73-b417-40172234512d"
+              target="_blank"
+            >
               <div class="space-y-2">
                 <Label for="name" size="sm" data-i18n="contact.form.name">
                   {t("contact.form.name")}
@@ -129,6 +135,7 @@ const t = useTranslations();
 
   // Initialize contact form functionality
   // Pass the form element reference for better type safety and reusability
+  /*
   onDOMReady(() => {
     const form = document.getElementById("contact-form");
     if (form) {
@@ -140,6 +147,7 @@ const t = useTranslations();
       console.warn("Contact form: Form element with id 'contact-form' not found");
     }
   });
+  */
 </script>
 
 <style>
