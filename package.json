@@ -6,6 +6,12 @@
   "engines": {
     "pnpm": "10.20.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "esbuild"
+    ]
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
