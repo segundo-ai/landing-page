@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import { useTranslations } from "@/utils/i18n/translations";
+import arrowImage from "@/assets/arrow.png";
+
+const t = useTranslations();
+const titleLines = t("hero.title");
+---
+
+<section id="top" class="relative h-[729px] pt-[20px] pb-[10px] px-[50px] gap-[10px] flex items-end">
+  <!-- Video Background -->
+  {/* @ts-expect-error - fetchpriority is a valid HTML attribute but not in TypeScript types yet */}
+  <video autoplay muted loop playsinline preload="auto" fetchpriority="high" class="absolute top-0 left-0 min-w-full h-full object-cover z-0">
+    <source src="https://cdn.jsdelivr.net/gh/JuanFernandoCastaneda/video-cdn@master/Banner-Segundo-9mb.webm" type="video/webm"/>
+    {t("hero.videoFallback")}
+  </video>
+  
+  <!-- Gradient Overlay -->
+  <div class="absolute top-0 left-0 w-full h-full z-[2] bg-gradient-to-b from-[rgba(0,0,0,0)] from-0% via-[rgba(0,0,0,0.6)] via-60% to-[rgba(0,0,0,0.6)] to-100%"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 md:min-h-[729px] gap-[10px] md:px-[70px] py-[100px] w-full flex items-end">
+    <div class="min-h-[221px] max-w-[calc(100%-159px)]">
+      <p class="min-h-[128px] w-full text-[48px] md:text-[64px] leading-[100%] text-[#FFFFFF]" data-i18n="hero.title" data-i18n-format="array">
+        {titleLines.map((line: { pref: string; bolded: string; suff: string }, index: number) => (
+          <>
+            {line.pref && <span class="nohemi-extralight">{line.pref}</span>}
+            {line.bolded && <b class="nohemi-regular">{line.bolded}</b>}
+            {line.suff && <span class="nohemi-extralight">{line.suff}</span>}
+            {index < titleLines.length - 1 && <br />}
+          </>
+        ))}
+      </p>
+      
+      <div class="h-[48px]"></div>
+      
+      <div class="h-fit md:w-[407px] gap-[20px] flex flex-col md:flex-row md:items-center">
+        <p class="text-white w-[245px] text-[14px] satoshi-medium" data-i18n="hero.subtitle">
+          {t("hero.subtitle")}
+        </p>
+        
+        <a href="#contact" class="spotlight-button spotlight-container relative w-[142px] text-[#0C0C10] p-[16px] bg-[#AEB9F2] rounded-[4px] h-full text-[14px] leading-[130%] text-center satoshi-medium shadow-lg overflow-hidden" data-i18n="hero.cta">
+          <!-- Spotlight overlay -->
+          <span class="spotlight-overlay"></span>
+          <span class="relative z-10">{t("hero.cta")}</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Arrow Image -->
+    <Image
+      src={arrowImage}
+      alt="Arrow"
+      class="hidden md:block h-[335px] w-[159px] absolute right-0"
+      width={159}
+      height={335}
+      format="webp"
+      quality={85}
+      loading="eager"
+    />
+  </div>
+</section>
+
+<style>
+  .spotlight-button:focus-visible {
+    outline: 2px solid rgba(174, 185, 242, 0.5);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
+
+  // Initialize spotlight effect for hero button
+  onDOMReady(() => {
+    const button = document.querySelector('#top .spotlight-button') as HTMLElement;
+    if (button) {
+      initSpotlightEffect(button);
+    }
+  });
+</script>

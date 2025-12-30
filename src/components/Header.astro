@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+import { useTranslations } from "@/utils/i18n/translations";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/starwind/select";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/starwind/sheet";
+import { Button } from "@/components/starwind/button";
+import segundoBlock2Logo from "@/assets/logo_32_32.png";
+import { defaultLang } from "@/config/i18n";
+import { NAV_LINKS } from "@/constants/navigation";
+
+const t = useTranslations();
+const lang = defaultLang; // For Select defaultValue
+---
+
+<header
+  id="top"
+  class="fixed top-4 left-4 right-4 z-50 bg-background/90 backdrop-blur-md border border-border rounded-2xl shadow-xl"
+>
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="#top" id="header-logo" class="flex items-center space-x-2 group transition-all duration-300 ease-out">
+        <Image
+          src={segundoBlock2Logo}
+          alt="Primero AI"
+          class="h-8 md:h-6 lg:h-8 w-auto rounded-[5px]"
+          loading="eager"
+        />
+        <span class="pt-1 text-xl md:text-lg lg:text-xl nohemi-regular text-foreground group-hover:text-primary">
+          Primero
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center relative">
+        {NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link text-sm satoshi-medium text-foreground hover:text-primary transition-colors relative z-10 mx-2 lg:mx-4"
+            data-i18n={link.key}
+            data-nav-href={link.href}
+          >
+            {t(link.key)}
+          </a>
+        ))}
+        <!-- Animated underline marker -->
+        <div id="nav-underline" class="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-out rounded-full" style="opacity: 0; width: 0;"></div>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="flex items-center">
+        <Select name="language" defaultValue={lang}>
+          <SelectTrigger class="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <SelectValue placeholder={lang.toUpperCase()} />
+          </SelectTrigger>
+          <SelectContent side="bottom" align="end">
+            <SelectItem value="en">EN</SelectItem>
+            <SelectItem value="es">ES</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <!-- Mobile Menu -->
+        <Sheet class="pl-2">
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" class="md:hidden">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" class="w-[280px] sm:w-80">
+            <div class="flex flex-col space-y-4 pt-8 px-6">
+              {NAV_LINKS.map((link) => (
+                <a
+                  href={link.href}
+                  class="text-sm satoshi-medium text-foreground hover:text-primary transition-colors outline-none focus:outline-none active:outline-none"
+                  data-i18n={link.key}
+                >
+                  {t(link.key)}
+                </a>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  import { initLanguageSwitcher } from '@/utils/i18n/client-i18n';
+  import { initSmoothScroll } from '@/utils/navigation/smooth-scroll';
+  import { initNavUnderline } from '@/utils/animations/nav-underline';
+  import { initLogoScrollAnimation } from '@/utils/animations/logo-animation';
+  import { initMobileMenuAutoClose } from '@/utils/navigation/mobile-menu';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
+
+  // Initialize all header functionality when DOM is ready
+  onDOMReady(() => {
+    initLanguageSwitcher();
+    initSmoothScroll();
+    initNavUnderline();
+    initLogoScrollAnimation();
+    initMobileMenuAutoClose();
+  });
+</script>
+
+<style>
+  /* Remove outline from mobile menu links */
+  [data-slot="sheet-content"] a {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  [data-slot="sheet-content"] a:focus,
+  [data-slot="sheet-content"] a:active,
+  [data-slot="sheet-content"] a:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+</style>
+

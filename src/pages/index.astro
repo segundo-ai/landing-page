@@ -1,0 +1,34 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
+import LogoMarquee from "@/components/LogoMarquee.astro";
+import Integrations from "@/components/Integrations.astro";
+import AgentsGrid from "@/components/AgentsGrid.astro";
+import Platform from "@/components/Platform.astro";
+import Process from "@/components/Process.astro";
+import About from "@/components/About.astro";
+import FAQ from "@/components/FAQ.astro";
+import Contact from "@/components/Contact.astro";
+import Footer from "@/components/Footer.astro";
+import { site } from "@/config/site";
+import { defaultLang } from "@/config/i18n";
+
+const lang = defaultLang;
+---
+
+<BaseLayout title={site.name} description={site.description} lang={lang}>
+  <Header />
+  <main>
+    <Hero />
+    <LogoMarquee />
+    <Integrations />
+    <AgentsGrid />
+    <Platform />
+    <Process />
+    <About />
+    <FAQ />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

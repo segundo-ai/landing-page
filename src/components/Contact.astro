@@ -1,0 +1,170 @@
+---
+import { useTranslations } from "@/utils/i18n/translations";
+import { site } from "@/config/site";
+import { Button } from "@/components/starwind/button";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
+import { Label } from "@/components/starwind/label";
+import Section from "@/components/Section.astro";
+import Heading from "@/components/Heading.astro";
+
+const t = useTranslations();
+---
+
+<Section id="contact" background="muted">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Left side - Contact info -->
+        <div class="space-y-8">
+          <div>
+            <Heading level={2} class="mb-4" data-i18n="contact.heading">
+              {t("contact.heading")}
+            </Heading>
+            <p class="text-lg text-muted-foreground leading-relaxed satoshi-light" data-i18n="contact.description">
+              {t("contact.description")}
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xl nohemi-medium text-foreground" data-i18n="contact.cta">
+              {t("contact.cta")}
+            </h3>
+            <div class="space-y-3 flex flex-col items-center lg:items-start">
+              <Button
+                href={`mailto:${site.links.email.jose}`}
+                variant="ghost"
+                class="flex items-center space-x-3 group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:scale-110 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>{site.links.email.jose}</span>
+              </Button>
+              <Button
+                href={`mailto:${site.links.email.andres}`}
+                variant="ghost"
+                class="flex items-center space-x-3 group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:scale-110 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>{site.links.email.andres}</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side - Contact form -->
+        <Card class="p-6 lg:p-8 shadow-lg">
+          <CardContent class="p-0">
+            <form id="contact-form"
+              class="space-y-6"
+              method="POST"
+              action="javascript:void(0);"
+              data-formspark-endpoint="https://submit-form.com/5vKtU0LEv"
+              data-botpoison-public-key="pk_7f60bb6f-5698-4b73-b417-40172234512d"
+            >
+              <div class="space-y-2">
+                <Label for="name" size="sm" data-i18n="contact.form.name">
+                  {t("contact.form.name")}
+                </Label>
+                <Input
+                  type="text"
+                  id="name"
+                  name="Name"
+                  required
+                  placeholder="Enter your name"
+                  size="md"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <Label for="email" size="sm" data-i18n="contact.form.email">
+                  {t("contact.form.email")}
+                </Label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="Email"
+                  required
+                  placeholder="Enter your e-mail"
+                  size="md"
+                />
+              </div>
+
+              <!-- Success/Error message -->
+              <div id="form-message" class="hidden"></div>
+
+              <div class="spotlight-button-wrapper spotlight-button spotlight-container relative">
+                <!-- Spotlight overlay -->
+                <div class="spotlight-overlay"></div>
+                <Button type="submit" variant="primary" size="lg" class="relative z-10 w-full" id="submit-button" data-i18n="contact.form.submit">
+                  {t("contact.form.submit")}
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+</Section>
+
+
+<script>
+  import { initContactForm } from '@/utils/contact-form';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
+
+  // Initialize contact form functionality with full AJAX handler
+  onDOMReady(() => {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    if (form) {
+      const instance = initContactForm(form);
+      if (!instance) {
+        console.error("Contact form: Failed to initialize. Check console for details.");
+      }
+    } else {
+      console.warn("Contact form: Form element with id 'contact-form' not found");
+    }
+  });
+</script>
+
+<style>
+  .spotlight-button-wrapper {
+    overflow: hidden;
+    border-radius: 0.375rem; /* Match button border radius */
+  }
+</style>
+
+<script>
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
+
+  // Initialize spotlight effect for contact form button
+  onDOMReady(() => {
+    const wrapper = document.querySelector('#contact-form .spotlight-button-wrapper') as HTMLElement;
+    if (wrapper) {
+      initSpotlightEffect(wrapper);
+    }
+  });
+</script>
+

@@ -1,0 +1,18 @@
+---
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  class?: string;
+  "data-i18n"?: string;
+}
+
+const { level = 2, class: className = "", "data-i18n": dataI18n } = Astro.props;
+const Tag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+---
+
+<Tag 
+  class={`text-3xl sm:text-4xl lg:text-5xl nohemi-medium text-foreground ${className}`}
+  data-i18n={dataI18n}
+>
+  <slot />
+</Tag>
+

@@ -1,4 +1,13 @@
-# Logs
+# build output
+dist/
+dist-ssr
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
 logs
 *.log
 npm-debug.log*
@@ -7,20 +16,36 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# environment variables
+.env
+.env.production
 *.local
 
-# Editor directories and files
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# cursor
+.cursor/
+
+# vscode
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+
+# Windows-specific files
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-*.env
+# starwind components
+
+README.md
+# Local Netlify folder
+.netlify
+deno.lock
+
+playground/

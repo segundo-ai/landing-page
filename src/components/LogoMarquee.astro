@@ -1,0 +1,185 @@
+---
+import { Image } from "astro:assets";
+import { alliedOrganizations } from "@/data/marquee";
+
+const duplicatedLogos = [...alliedOrganizations, ...alliedOrganizations];
+---
+
+<section id="logo-marquee" class="relative z-[3] py-4 lg:py-4 bg-[#000] overflow-hidden">
+  <div class="marquee-container">
+    <div class="marquee-content ">
+      <!-- First set of logos -->
+      {duplicatedLogos.map((logo, index) => (
+        <>
+          <div class="marquee-spacer"></div>
+          <div class="marquee-item">
+            <Image
+              src={logo.logoSrc}
+              alt={`${logo.id} logo`}
+              class="h-20 w-auto marquee-logo"
+              width={160}
+              height={80}
+              format="webp"
+              quality={85}
+              loading="eager"
+            />
+          </div>
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee-content {
+    display: flex;
+    animation: marquee 60s linear infinite;
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
+  .marquee-spacer {
+    flex-shrink: 0;
+    width: 2rem;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-1 * var(--marquee-set-width)));
+    }
+  }
+
+  .marquee-logo {
+    opacity: 1;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+
+  .marquee-logo:hover {
+    transform: scale(1.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+      animation: none;
+    }
+    .marquee-logo {
+      transition: none;
+    }
+    .marquee-logo:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  function adjustMarqueePosition() {
+    const BASELINE_VIEWPORT_HEIGHT = 836; // px - viewport height where marquee looks good
+    const HERO_HEIGHT = 729; // px - height of hero section
+    const MARQUEE_HEIGHT = 112; // px - approximate marquee section height (32px padding + 80px logo)
+    const MINIMAL_SPACING = 0; // px - minimal spacing from viewport bottom
+    const MAXIMUM_MARGIN_OFFSET = -100; // px - maximum margin offset from viewport bottom
+    
+    const viewportHeight = window.innerHeight;
+    const marqueeSection = document.getElementById('logo-marquee');
+    
+    if (!marqueeSection) return;
+    
+    // Only adjust if viewport is shorter than baseline
+    if (viewportHeight < BASELINE_VIEWPORT_HEIGHT) {
+      // Calculate desired marquee bottom position: viewportHeight - minimal spacing
+      // Then calculate where marquee top should be: desired bottom - marquee height
+      // Adjustment is the difference from natural position (after hero)
+      const desiredMarqueeTop = viewportHeight - MARQUEE_HEIGHT - MINIMAL_SPACING;
+      const adjustment = Math.max(desiredMarqueeTop - HERO_HEIGHT, MAXIMUM_MARGIN_OFFSET);
+      
+      // Only apply if adjustment is negative (need to raise the marquee)
+      if (adjustment < 0) {
+        marqueeSection.style.marginTop = `${adjustment}px`;
+      }
+    }
+  }
+
+  function setupMarqueeAnimation() {
+    const marqueeContent = document.querySelector('.marquee-content') as HTMLElement;
+    if (!marqueeContent) return;
+
+    // Measure the actual width of the marquee content
+    const totalWidth = marqueeContent.scrollWidth;
+    // Calculate half (one set of logos)
+    const setWidth = totalWidth / 2;
+    
+    // Set CSS custom property for the animation
+    marqueeContent.style.setProperty('--marquee-set-width', `${setWidth}px`);
+  }
+  
+  // Wait for all images to load before setting up animation
+  function waitForImagesAndSetup() {
+    const marqueeContent = document.querySelector('.marquee-content') as HTMLElement;
+    if (!marqueeContent) return;
+
+    const images = marqueeContent.querySelectorAll('img');
+    const totalImages = images.length;
+
+    // Check if all images are already loaded
+    const loadedImages = Array.from(images).filter(img => img.complete && img.naturalWidth > 0);
+
+    if (loadedImages.length === totalImages) {
+      // All images already loaded - setup immediately
+      setupMarqueeAnimation();
+      return;
+    }
+
+    // Wait for remaining images to load
+    let loadedCount = loadedImages.length;
+    const loadPromises: Promise<void>[] = [];
+
+    images.forEach((img) => {
+      if (!img.complete || (img as HTMLImageElement).naturalWidth === 0) {
+        const loadPromise = new Promise<void>((resolve) => {
+          img.addEventListener('load', () => {
+            loadedCount++;
+            resolve();
+          }, { once: true });
+          img.addEventListener('error', () => {
+            loadedCount++;
+            resolve(); // Resolve even on error to not block setup
+          }, { once: true });
+        });
+        loadPromises.push(loadPromise);
+      }
+    });
+
+    // Wait for all images to load, then setup
+    Promise.all(loadPromises).then(() => {
+      setupMarqueeAnimation();
+    });
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      adjustMarqueePosition();
+      waitForImagesAndSetup();
+    });
+  } else {
+    adjustMarqueePosition();
+    waitForImagesAndSetup();
+  }
+</script>
+

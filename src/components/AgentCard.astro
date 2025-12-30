@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import type { TranslatedAgent } from "@/types/agents";
+import { Card, CardTitle, CardContent } from "@/components/starwind/card";
+
+interface Props {
+  translated_agent: TranslatedAgent;
+}
+
+const { translated_agent: agent } = Astro.props;
+---
+
+<Card class="spotlight-container group relative hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden">
+  <!-- Spotlight overlay -->
+  <div class="spotlight-overlay"></div>
+  
+  <CardContent class="relative z-10 p-3 lg:p-4">
+    <div class="space-y-4">
+      <div class="flex items-start space-x-4">
+        <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <Image
+            src={agent.iconSrc}
+            alt={`${agent.name} icon`}
+            class="h-8 max-w-8"
+          />
+        </div>
+        <div class="flex-1 min-w-0">
+          <CardTitle class="typography-card-title mt-1 mb-4" data-i18n={`agents.${agent.id}.name`}>
+            {agent.name}
+          </CardTitle>
+          <p class="text-base text-muted-foreground leading-relaxed satoshi-regular" data-i18n={`agents.${agent.id}.description`}>
+            {agent.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+<script>
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
+
+  // Initialize spotlight effects for all agent cards
+  onDOMReady(() => {
+    const cards = document.querySelectorAll('#agents .spotlight-container');
+    cards.forEach((card) => {
+      initSpotlightEffect(card as HTMLElement);
+    });
+  });
+</script>
+

@@ -1,0 +1,359 @@
+/* Font face declarations - must be at the top */
+@import url("/fonts/satoshi/satoshi.css");
+@import url("/fonts/nohemi/nohemi.css");
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/forms";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  --font-family-sans: "Satoshi", system-ui, sans-serif;
+  --font-family-display: "Nohemi", serif;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--starwind-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--starwind-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-accent: var(--primary-accent);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-outline: var(--outline);
+
+  --radius-xs: calc(var(--radius) - 0.375rem);
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+  --radius-3xl: calc(var(--radius) + 1rem);
+}
+
+:root {
+  --background: #121212;
+  --foreground: var(--color-slate-50);
+  --card: #181818;
+  --card-foreground: var(--color-slate-50);
+  --popover: #181818;
+  --popover-foreground: var(--color-slate-50);
+  --primary: #aeb9f2;
+  --primary-foreground: var(--color-slate-950);
+  --primary-accent: #c1caf5; /* A slightly lighter shade for accent */
+  --secondary: var(--color-fuchsia-500);
+  --secondary-foreground: var(--color-slate-50);
+  --secondary-accent: var(--color-fuchsia-400);
+  --muted: #242424;
+  --muted-foreground: var(--color-slate-400);
+  --accent: #2c2c2c;
+  --accent-foreground: var(--color-slate-100);
+  --info: var(--color-sky-300);
+  --info-foreground: var(--color-sky-950);
+  --success: var(--color-green-300);
+  --success-foreground: var(--color-green-950);
+  --warning: var(--color-amber-300);
+  --warning-foreground: var(--color-amber-950);
+  --error: var(--color-red-500);
+  --error-foreground: var(--color-slate-50);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --outline: var(--color-slate-500);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: var(--color-slate-50);
+  --card: #181818;
+  --card-foreground: var(--color-slate-50);
+  --popover: #181818;
+  --popover-foreground: var(--color-slate-50);
+  --primary: #aeb9f2;
+  --primary-foreground: var(--color-slate-950);
+  --primary-accent: #c1caf5;
+  --secondary: var(--color-fuchsia-700);
+  --secondary-foreground: var(--color-slate-50);
+  --secondary-accent: var(--color-fuchsia-400);
+  --muted: #242424;
+  --muted-foreground: var(--color-slate-400);
+  --accent: #2c2c2c;
+  --accent-foreground: var(--color-slate-100);
+  --info: var(--color-sky-300);
+  --info-foreground: var(--color-sky-950);
+  --success: var(--color-green-300);
+  --success-foreground: var(--color-green-950);
+  --warning: var(--color-amber-300);
+  --warning-foreground: var(--color-amber-950);
+  --error: var(--color-red-800);
+  --error-foreground: var(--color-slate-50);
+  --border: --alpha(var(--color-slate-50) / 10%);
+  --input: --alpha(var(--color-slate-50) / 15%);
+  --outline: var(--color-slate-500);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-outline/50;
+  }
+  body {
+    @apply bg-background text-foreground scheme-dark;
+    font-family: 'Satoshi-Regular', 'Satoshi-Variable', var(--font-family-sans);
+    font-weight: 400;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nohemi-Medium', 'Nohemi-Variable', var(--font-family-display);
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  /* Satoshi font classes */
+  .satoshi-light {
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 300 !important;
+  }
+  .satoshi-regular {
+    font-family: 'Satoshi-Regular', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 400 !important;
+  }
+  .satoshi-medium {
+    font-family: 'Satoshi-Medium', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 500 !important;
+  }
+  .satoshi-bold {
+    font-family: 'Satoshi-Bold', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 700 !important;
+  }
+  .satoshi-black {
+    font-family: 'Satoshi-Black', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 900 !important;
+  }
+
+  /* Nohemi font classes */
+  .nohemi-thin {
+    font-family: 'Nohemi-Thin', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 100 !important;
+  }
+  .nohemi-extralight {
+    font-family: 'Nohemi-ExtraLight', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 200 !important;
+  }
+  .nohemi-light {
+    font-family: 'Nohemi-Light', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 300 !important;
+  }
+  .nohemi-regular {
+    font-family: 'Nohemi-Regular', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 400 !important;
+  }
+  .nohemi-medium {
+    font-family: 'Nohemi-Medium', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 500 !important;
+  }
+  .nohemi-semibold {
+    font-family: 'Nohemi-SemiBold', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 600 !important;
+  }
+  .nohemi-bold {
+    font-family: 'Nohemi-Bold', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 700 !important;
+  }
+  .nohemi-extrabold {
+    font-family: 'Nohemi-ExtraBold', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 800 !important;
+  }
+  .nohemi-black {
+    font-family: 'Nohemi-Black', 'Nohemi-Variable', var(--font-family-display) !important;
+    font-weight: 900 !important;
+  }
+
+  /* Legacy font-display class for backwards compatibility */
+  .font-display {
+    font-family: var(--font-family-display) !important;
+  }
+
+  /* Typography semantic classes */
+  .typography-card-title {
+    @apply text-2xl lg:text-3xl tracking-tight;
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 300 !important;
+  }
+
+  .typography-step-title {
+    @apply text-2xl lg:text-3xl text-foreground;
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 500 !important;
+  }
+
+  .typography-process-step-title {
+    @apply text-2xl lg:text-3xl ;
+    font-family: 'Satoshi-Light', 'Satoshi-Variable', var(--font-family-sans) !important;
+    font-weight: 300 !important;
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Intersection Observer classes for scroll animations */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Spotlight Effect */
+.spotlight-container {
+  position: relative;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    var(--spotlight-size, 600px) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spotlight-color, rgba(174, 185, 242, 0.15)),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .spotlight-container:hover .spotlight-overlay {
+    opacity: 1;
+  }
+}
+
+/* Spotlight button variant (for buttons with white overlay) */
+.spotlight-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-button .spotlight-overlay {
+  --spotlight-size: 200px;
+  --spotlight-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Custom Scrollbar Styling */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 18, 18, 0.8);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(174, 185, 242, 0.6);
+  border-radius: 10px;
+  border: 2px solid rgba(18, 18, 18, 0.8);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(174, 185, 242, 0.8);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(174, 185, 242, 1);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(18, 18, 18, 0.8);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thick;
+  scrollbar-color: rgba(174, 185, 242, 0.6) rgba(18, 18, 18, 0.8);
+}

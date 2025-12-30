@@ -1,0 +1,159 @@
+---
+import { Image } from "astro:assets";
+import { useTranslations } from "@/utils/i18n/translations";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/starwind/accordion";
+import { platformSteps, platformStepImages, getPlatformImageUrls } from "@/data/platform";
+import Section from "@/components/Section.astro";
+import Heading from "@/components/Heading.astro";
+
+const t = useTranslations();
+
+// Get optimized image URLs for JavaScript switching
+const platformImageUrls = await getPlatformImageUrls();
+---
+
+<Section id="platform" background="muted">
+    <Heading level={2} class="mb-8 lg:mb-12 text-center" data-i18n="platform.heading">
+      {t("platform.heading")}
+    </Heading>
+    
+    <!-- Mobile/Tablet Accordion Layout (sm/md) -->
+    <div class="lg:hidden">
+      <Accordion type="single" class="space-y-4">
+        {platformSteps.map((stepId, index) => {
+          const step = index + 1;
+          return (
+            <AccordionItem value={`platform-step-${step}`} class="border border-border rounded-lg overflow-hidden">
+              <AccordionTrigger class="px-4 py-4 hover:bg-accent">
+                <div class="flex items-start space-x-4 w-full">
+                  <div class="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center satoshi-bold text-lg">
+                    {step}
+                  </div>
+                  <div class="flex-1 space-y-2 text-left">
+                    <h3 class="typography-step-title" data-i18n={`platform.steps.${step}.title`}>
+                      {t(`platform.steps.${step}.title`)}
+                    </h3>
+                    <p class="satoshi-regular text-muted-foreground leading-relaxed" data-i18n={`platform.steps.${step}.description`}>
+                      {t(`platform.steps.${step}.description`)}
+                    </p>
+                  </div>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent class="pb-0">
+                <div class="p-2">
+                  <Card class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg">
+                    <CardContent class="p-0 flex items-center justify-center overflow-hidden">
+                      <div class="flex items-center justify-center w-full h-full p-2">
+                        <Image
+                          src={platformStepImages[stepId]}
+                          alt={`Platform visualization step ${step}`}
+                          class="block rounded-sm max-w-full max-h-full"
+                          loading="eager"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          );
+        })}
+      </Accordion>
+    </div>
+
+    <!-- Desktop Grid Layout (lg+) -->
+    <div class="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left side - Steps -->
+      <div class="space-y-6">
+        {platformSteps.map((stepId, index) => {
+          const step = index + 1;
+          return (
+            <div 
+              class="flex items-start space-x-4 platform-step group cursor-pointer transition-all duration-300 hover:scale-105"
+              data-step={step}
+              data-image={platformImageUrls[stepId]}
+            >
+              <div class="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center satoshi-bold text-lg group-hover:bg-primary-accent transition-colors">
+                {step}
+              </div>
+              <div class="flex-1 space-y-2">
+                <h3 class="typography-step-title group-hover:text-primary transition-colors" data-i18n={`platform.steps.${step}.title`}>
+                  {t(`platform.steps.${step}.title`)}
+                </h3>
+                <p class="satoshi-regular text-muted-foreground leading-relaxed" data-i18n={`platform.steps.${step}.description`}>
+                  {t(`platform.steps.${step}.description`)}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Right side - Visual/Image -->
+      <div class="relative">
+        <Card class="bg-gradient-to-br from-primary/20 to-secondary/20">
+          <CardContent class="p-0 flex items-center justify-center overflow-hidden h-full rounded-[20px]">
+            <div class="flex items-center justify-center w-full h-full p-4">
+              <Image
+                id="platform-image"
+                src={platformStepImages[platformSteps[0]]}
+                alt="Platform visualization"
+                class="block rounded-sm transition-opacity duration-300 max-w-full max-h-full"
+                loading="eager"
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+</Section>
+
+<script>
+  /**
+   * Handles image switching when hovering over platform steps
+   * Only works on desktop (lg+) breakpoint
+   */
+  function switchPlatformImage(imagePath: string, imageElement: HTMLImageElement) {
+    imageElement.style.opacity = "0";
+    setTimeout(() => {
+      imageElement.src = imagePath;
+      imageElement.style.opacity = "1";
+    }, 150);
+  }
+
+  function initPlatformImageSwitching() {
+    // Only initialize on desktop (lg+ breakpoint)
+    if (window.innerWidth < 1024) return;
+
+    const platformImage = document.getElementById("platform-image") as HTMLImageElement | null;
+    const platformSteps = document.querySelectorAll(".platform-step");
+
+    if (!platformImage || platformSteps.length === 0) return;
+
+    platformSteps.forEach((step) => {
+      step.addEventListener("mouseenter", () => {
+        const imagePath = step.getAttribute("data-image");
+        if (imagePath) {
+          switchPlatformImage(imagePath, platformImage);
+        }
+      });
+    });
+  }
+
+  // Initialize on load
+  initPlatformImageSwitching();
+
+  // Re-initialize on resize if crossing the lg breakpoint
+  let isDesktop = window.innerWidth >= 1024;
+  window.addEventListener("resize", () => {
+    const wasDesktop = isDesktop;
+    isDesktop = window.innerWidth >= 1024;
+    
+    // Only re-initialize if we crossed the breakpoint
+    if (wasDesktop !== isDesktop && isDesktop) {
+      initPlatformImageSwitching();
+    }
+  });
+</script>
+

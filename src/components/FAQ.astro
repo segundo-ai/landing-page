@@ -1,0 +1,60 @@
+---
+import { useTranslations } from "@/utils/i18n/translations";
+import { faqs } from "@/data/faq";
+import type { FAQ } from "@/types/content";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/starwind/accordion";
+import Section from "@/components/Section.astro";
+import Heading from "@/components/Heading.astro";
+
+const t = useTranslations();
+
+// Map FAQs to translated versions
+const translatedFaqs: FAQ[] = faqs.map((index) => ({
+  question: t(`faqs.items.${index}.question`),
+  answer: t(`faqs.items.${index}.answer`),
+}));
+---
+
+<Section id="faq">
+  <div class="max-w-3xl mx-auto">
+    <Heading level={2} class="text-center mb-12 lg:mb-16" data-i18n="faqs.heading">
+      {t("faqs.heading")}
+    </Heading>
+
+    <Accordion type="single" class="space-y-4">
+      {translatedFaqs.map((faq, index) => (
+        <AccordionItem value={`faq-${index}`} class={`border border-border rounded-lg ${index === translatedFaqs.length - 1 ? '!border-b overflow-visible' : 'overflow-hidden'}`}>
+          <AccordionTrigger class="spotlight-container relative overflow-hidden px-6 py-4 bg-card">
+            <!-- Spotlight overlay -->
+            <div class="spotlight-overlay"></div>
+            <span class="relative z-10 satoshi-medium text-xl text-foreground pr-4 text-left" data-i18n={`faqs.items.${index}.question`}>
+              {faq.question}
+            </span>
+          </AccordionTrigger>
+          <AccordionContent>
+            <div class="px-6 py-2 text-muted-foreground leading-relaxed satoshi-regular" data-i18n={`faqs.items.${index}.answer`}>
+              {faq.answer}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+</Section>
+
+<script>
+  import { initSpotlightEffect } from '@/utils/animations/spotlight-effect';
+  import { onDOMReady } from '@/utils/dom/dom-ready';
+
+  // Initialize spotlight effects for all FAQ accordion triggers (questions only)
+  onDOMReady(() => {
+    const triggers = document.querySelectorAll('#faq .spotlight-container');
+    triggers.forEach((trigger) => {
+      initSpotlightEffect(trigger as HTMLElement);
+    });
+  });
+</script>
