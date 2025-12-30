@@ -2,6 +2,10 @@
   "name": "landing",
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.20.0",
+  "engines": {
+    "pnpm": "10.20.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
