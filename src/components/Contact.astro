@@ -7,6 +7,9 @@ import { Input } from "@/components/starwind/input";
 import { Label } from "@/components/starwind/label";
 import Section from "@/components/Section.astro";
 import Heading from "@/components/Heading.astro";
+import { CONTACT_FORM_SECRETS } from "@/utils/secrets";
+
+const { FORMSPARK_ENDPOINT, BOTPOISON_PUBLIC_KEY } = CONTACT_FORM_SECRETS;
 
 const t = useTranslations();
 ---
@@ -81,8 +84,8 @@ const t = useTranslations();
               class="space-y-6"
               method="POST"
               action="javascript:void(0);"
-              data-formspark-endpoint="https://submit-form.com/5vKtU0LEv"
-              data-botpoison-public-key="pk_7f60bb6f-5698-4b73-b417-40172234512d"
+              data-formspark-endpoint={FORMSPARK_ENDPOINT}
+              data-botpoison-public-key={BOTPOISON_PUBLIC_KEY}
             >
               <div class="space-y-2">
                 <Label for="name" size="sm" data-i18n="contact.form.name">
