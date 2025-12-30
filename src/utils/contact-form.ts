@@ -18,6 +18,19 @@ interface ContactFormInstance {
   updateMessageTranslation: (lang: string) => void;
 }
 
+// Botpoison type declaration
+interface BotpoisonInstance {
+  challenge: () => Promise<{ solution: string }>;
+}
+
+interface BotpoisonConstructor {
+  new (options: { publicKey: string }): BotpoisonInstance;
+}
+
+interface WindowWithBotpoison extends Window {
+  Botpoison?: BotpoisonConstructor;
+}
+
 // Track active instances to prevent duplicate initialization
 const activeInstances = new WeakMap<HTMLFormElement, ContactFormInstance>();
 
@@ -192,6 +205,8 @@ function showNetworkErrorMessage(messageDiv: HTMLDivElement, lang: string): void
 function createFormSubmitHandler(elements: FormElements) {
   return async function handleContactFormSubmit(e: Event): Promise<void> {
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     
     const { form, submitButton, messageDiv } = elements;
     const lang = getCurrentLang();
@@ -202,12 +217,21 @@ function createFormSubmitHandler(elements: FormElements) {
       return;
     }
 
-    // Get form data
+    // Get Formspark endpoint from data attribute (safer than action attribute)
+    const formsparkEndpoint = form.getAttribute("data-formspark-endpoint") || form.getAttribute("action");
+    if (!formsparkEndpoint || formsparkEndpoint === "javascript:void(0);") {
+      console.error("Contact form: Formspark endpoint not found");
+      showErrorMessage(messageDiv, lang);
+      return;
+    }
+
+    // Get Botpoison public key if available
+    const botpoisonPublicKey = form.getAttribute("data-botpoison-public-key");
+
+    // Get form data - use the actual field names from the form (Name, Email)
     const formData = new FormData(form);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-    };
+    const nameValue = formData.get("Name") || formData.get("name");
+    const emailValue = formData.get("Email") || formData.get("email");
 
     // Reset message
     resetMessage(messageDiv);
@@ -223,8 +247,8 @@ function createFormSubmitHandler(elements: FormElements) {
 
     try {
       // Validate form data before sending
-      const nameStr = String(data.name || "").trim();
-      const emailStr = String(data.email || "").trim();
+      const nameStr = String(nameValue || "").trim();
+      const emailStr = String(emailValue || "").trim();
       
       if (!nameStr || !emailStr) {
         showErrorMessage(messageDiv, lang);
@@ -238,53 +262,80 @@ function createFormSubmitHandler(elements: FormElements) {
         return;
       }
 
-      const response = await fetch("/api/contact", {
+      // Prepare form data for Formspark (using field names as they appear in the form)
+      const formsparkData: Record<string, any> = {
+        Name: nameStr,
+        Email: emailStr,
+      };
+
+      // Handle Botpoison challenge if configured
+      if (botpoisonPublicKey) {
+        try {
+          // Check if Botpoison is available
+          const Botpoison = (window as WindowWithBotpoison).Botpoison;
+          if (!Botpoison) {
+            console.warn("Contact form: Botpoison library not loaded");
+            showErrorMessage(messageDiv, lang);
+            return;
+          }
+
+          const botpoison = new Botpoison({
+            publicKey: botpoisonPublicKey,
+          });
+
+          const { solution } = await botpoison.challenge();
+          formsparkData._botpoison = solution;
+        } catch (botpoisonError) {
+          console.error("Contact form: Botpoison challenge failed:", botpoisonError);
+          showErrorMessage(messageDiv, lang);
+          return;
+        }
+      }
+
+      // Submit to Formspark via AJAX
+      const response = await fetch(formsparkEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json",
         },
-        body: JSON.stringify({
-          name: nameStr,
-          email: emailStr,
-        }),
+        body: JSON.stringify(formsparkData),
       });
 
-      // Handle non-JSON responses gracefully
-      let result: any;
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        try {
-          result = await response.json();
-        } catch (parseError) {
-          console.error("Failed to parse JSON response:", parseError);
-          showNetworkErrorMessage(messageDiv, lang);
-          return;
-        }
-      } else {
-        // Non-JSON response - treat as error
-        const text = await response.text();
-        console.error("Unexpected response format:", text);
-        showNetworkErrorMessage(messageDiv, lang);
-        return;
-      }
-
+      // Handle response
       if (response.ok) {
-        // Success
+        // Success - Formspark returns 200 on success
         showSuccessMessage(messageDiv, lang);
         form.reset();
       } else {
-        // Error from API
-        const errorId = result?.errorId || result?.error?.errorId;
-        showErrorMessage(messageDiv, lang, errorId);
+        // Error from Formspark
+        let errorMessage = "An error occurred. Please try again.";
+        try {
+          const contentType = response.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const result = await response.json();
+            errorMessage = result?.message || result?.error || errorMessage;
+          } else {
+            const text = await response.text();
+            if (text) {
+              errorMessage = text;
+            }
+          }
+        } catch (parseError) {
+          console.error("Failed to parse error response:", parseError);
+        }
+        
+        console.error("Formspark submission error:", errorMessage);
+        showErrorMessage(messageDiv, lang);
       }
     } catch (error) {
       // Network, timeout, or other error
+      console.error("Form submission error:", error);
       if (error instanceof TypeError && error.message.includes("fetch")) {
         // Network error (offline, CORS, etc.)
         showNetworkErrorMessage(messageDiv, lang);
       } else {
         // Other unexpected errors
-        console.error("Form submission error:", error);
         showNetworkErrorMessage(messageDiv, lang);
       }
     } finally {
@@ -422,8 +473,8 @@ export function initContactForm(
     const submitHandler = createFormSubmitHandler(elements);
     const updateMessageHandler = createUpdateMessageTranslationHandler(messageDiv);
 
-    // Set up form submission handler
-    form.addEventListener("submit", submitHandler);
+    // Set up form submission handler - use capture phase to ensure we catch it first
+    form.addEventListener("submit", submitHandler, { capture: true, passive: false });
 
     // Set up language change listener
     // Use AbortController for proper cleanup

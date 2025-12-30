@@ -80,9 +80,9 @@ const t = useTranslations();
             <form id="contact-form"
               class="space-y-6"
               method="POST"
-              action="https://submit-form.com/5vKtU0LEv"
+              action="javascript:void(0);"
+              data-formspark-endpoint="https://submit-form.com/5vKtU0LEv"
               data-botpoison-public-key="pk_7f60bb6f-5698-4b73-b417-40172234512d"
-              target="_blank"
             >
               <div class="space-y-2">
                 <Label for="name" size="sm" data-i18n="contact.form.name">
@@ -129,15 +129,14 @@ const t = useTranslations();
     </div>
 </Section>
 
+
 <script>
   import { initContactForm } from '@/utils/contact-form';
   import { onDOMReady } from '@/utils/dom/dom-ready';
 
-  // Initialize contact form functionality
-  // Pass the form element reference for better type safety and reusability
-  /*
+  // Initialize contact form functionality with full AJAX handler
   onDOMReady(() => {
-    const form = document.getElementById("contact-form");
+    const form = document.getElementById("contact-form") as HTMLFormElement;
     if (form) {
       const instance = initContactForm(form);
       if (!instance) {
@@ -147,7 +146,6 @@ const t = useTranslations();
       console.warn("Contact form: Form element with id 'contact-form' not found");
     }
   });
-  */
 </script>
 
 <style>
