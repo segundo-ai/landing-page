@@ -8,7 +8,8 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://segundo.ai',
+    site: 'https://segundo-ai.github.io/',
+    base: '/landing-page',
     vite: {
         plugins: [tailwindcss()],
         resolve: {
