@@ -1,5 +1,4 @@
 import { InfisicalSDK } from '@infisical/sdk'
-import { validate as uuidValidate } from 'uuid'
 
 const client = new InfisicalSDK({
 //   siteUrl: "your-infisical-instance.com" // Optional, defaults to https://app.infisical.com
@@ -29,7 +28,7 @@ const FORMSPARK_ENDPOINT = await client.secrets().getSecret({
   secretName: "FORMSPARK_ENDPOINT",
 }).then(secret => secret.secretValue);
 
-if (!/^https:\/\/submit-form\.com\/[a-zA-Z0-9+/_\-]{9}$/.test(FORMSPARK_ENDPOINT)) {
+if (!/^https:\/\/submit-form\.com\//.test(FORMSPARK_ENDPOINT)) {
   throw new Error(`FORMSPARK_ENDPOINT is not a valid formspark endpoint: ${FORMSPARK_ENDPOINT} (expected format: https://submit-form.com/<9-character-id>)`);
 }
 
@@ -41,8 +40,7 @@ const BOTPOISON_PUBLIC_KEY = await client.secrets().getSecret({
   secretName: "BOTPOISON_PUBLIC_KEY",
 }).then(secret => secret.secretValue);
 
-if (!/^pk_/.test(BOTPOISON_PUBLIC_KEY)
- || !uuidValidate(BOTPOISON_PUBLIC_KEY.slice(3))) {
+if (!/^pk_/.test(BOTPOISON_PUBLIC_KEY)) {
   throw new Error(`BOTPOISON_PUBLIC_KEY is not a valid botpoison public key: ${BOTPOISON_PUBLIC_KEY} (expected format: pk_<uuid>`);
 }
 
