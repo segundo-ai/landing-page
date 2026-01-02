@@ -1,14 +1,14 @@
 ---
 layout: ../layouts/MarkdownPageLayout.astro
 title: "Términos y Condiciones de Uso | Primero AI"
-description: "Términos y condiciones generales aplicables al uso de los contenidos, productos y servicios ofrecidos a través del sitio segundo.ai"
+description: "Términos y condiciones generales aplicables al uso de los contenidos, productos y servicios ofrecidos a través del sitio primero.ai"
 ---
 
 # Términos y Condiciones de Uso
 
 Este contrato describe los términos y condiciones generales (en adelante
 únicamente "Términos y Condiciones") aplicables al uso de los contenidos,
-productos y servicios ofrecidos a través del sitio **<www.segundo.ai>** (en
+productos y servicios ofrecidos a través del sitio **<www.primero.ai>** (en
 adelante, "Sitio Web"), del cual es Administrador **Primero AI, S. De R.L. De C.V** (en adelante,
 "Administrador") quien tiene su domicilio en: La Laguna 24, Insurgentes
 Cuicuilco, Coyoacán, 04500.
@@ -25,7 +25,7 @@ servicios que en su caso sean ofrecidos.
 El objeto de los presentes Términos y Condiciones es regular el acceso y el uso
 del Sitio Web, entendiendo por este cualquier tipo de contenido, producto o
 servicio que se encuentre a disposición del público en general dentro del
-dominio: **<www.segundo.ai>**.
+dominio: **<www.primero.ai>**.
 
 El Administrador se reserva la facultad de modificar en cualquier momento y sin
 previo aviso, la presentación, los contenidos, la funcionalidad, los productos,
@@ -36,7 +36,7 @@ conforman el Sitio Web o el acceso a los mismos.
 
 Además del costo de la conexión a internet en virtud de los servicios que el
 Usuario tenga contratados con algún proveedor de telecomunicaciones, parte de
-los contenidos o servicios ofrecidos en el sitio: **<www.segundo.ai>** o, en su
+los contenidos o servicios ofrecidos en el sitio: **<www.primero.ai>** o, en su
 caso, por terceros a través del Sitio Web pueden estar sujetos a la contratación
 previa del contenido, producto o servicio, en cuyo caso se especificará de forma
 clara y se pondrá a disposición del Usuario las condiciones generales o
@@ -147,7 +147,7 @@ actualizados para los fines para los cuales fueron recabados.
 El tratamiento de datos personales se limitará al cumplimiento de las
 finalidades previstas en el **Aviso de Privacidad** el cual se encontrará
 disponible en la siguiente dirección electrónica:
-[www.segundo.ai/privacy](https://www.segundo.ai/privacy).
+[www.primero.ai/privacy](https://www.primero.ai/privacy).
 
 **Primero AI, S. De R.L. De C.V** se reserva el derecho a modificar su Política de Privacidad, de
 acuerdo a sus necesidades o derivado de algún cambio en la legislación. El

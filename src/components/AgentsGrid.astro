@@ -5,7 +5,7 @@ import type { TranslatedAgent } from "@/types/agents";
 import { Card, CardContent } from "@/components/starwind/card";
 import AgentCard from "@/components/AgentCard.astro";
 import { useTranslations } from "@/utils/i18n/translations";
-import segundoBlockLogo from "@/assets/logo_32_32_darkbg.png";
+import blockLogo from "@/assets/logo_32_32_darkbg.png";
 import Section from "@/components/Section.astro";
 
 const t = useTranslations();
@@ -36,7 +36,7 @@ const translatedAgents: TranslatedAgent[] = agents.map((agent) => ({
         <Card class="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
           <CardContent class="p-4 h-full flex flex-col items-center justify-center text-center space-y-4">
             <Image
-              src={segundoBlockLogo}
+              src={blockLogo}
               alt="PrimeroAI Logo"
               class="h-8 w-8 mx-auto"
             />

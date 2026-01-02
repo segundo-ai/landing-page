@@ -1,8 +1,6 @@
 export const site = {
   name: "Primero AI",
   description: "The AI Enterprise Platform - Deploy AI agents across your organization, driving 10x ROI",
-  url: "https://segundo.ai",
-  ogImage: "/og-image.jpg",
   links: {
     email: {
       jose: "jose@segundo.ai",
