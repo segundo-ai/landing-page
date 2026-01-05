@@ -3,8 +3,8 @@ export const site = {
   description: "The AI Enterprise Platform - Deploy AI agents across your organization, driving 10x ROI",
   links: {
     email: {
-      jose: "jose@segundo.ai",
-      andres: "andres@segundo.ai",
+      jose: "jose@primero.ai",
+      andres: "andres@primero.ai",
     },
   },
   address: "539 Avenida Ejercito Nacional, Granada, Miguel Hidalgo, 11520 Ciudad de México, CDMX",

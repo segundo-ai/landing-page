@@ -217,7 +217,7 @@ la propiedad industrial o intelectual, deberá comunicarlo inmediatamente a
 **Primero AI, S. De R.L. De C.V** a través de los siguientes medios:
 
 - Teléfono: 5620226240
-- Correo electrónico: <jose@segundo.ai>
+- Correo electrónico: <jose@primero.ai>
 
 ## VI. Legislación y Jurisdicción Aplicable
 
