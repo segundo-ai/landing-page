@@ -6,8 +6,13 @@ export function initMobileMenuAutoClose(): void {
   // Find all navigation links inside the mobile Sheet
   // The SheetContent has data-slot="sheet-content" attribute
   const sheetContent = document.querySelector('[data-slot="sheet-content"]');
+  const backdrop = document.querySelector('[data-slot="dialog-backdrop"]');
   
-  if (!sheetContent) return;
+  if (!sheetContent || !backdrop) return;
+
+  if (backdrop.parentElement !== document.body) {
+    document.body.appendChild(backdrop);
+  }
   
   // Find all anchor links inside the sheet content
   const mobileNavLinks = sheetContent.querySelectorAll('a[href^="#"]');
