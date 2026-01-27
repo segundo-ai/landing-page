@@ -152,6 +152,7 @@ export const ui = {
       legalHeading: "Legal",
       contactHeading: "Contact",
       terms: "Terms and Conditions",
+      security: "Security",
       privacy: "Privacy Notice",
     },
     agents: {
@@ -366,6 +367,7 @@ export const ui = {
       legalHeading: "Legal",
       contactHeading: "Contacto",
       terms: "Términos y Condiciones",
+      security: "Seguridad",
       privacy: "Aviso de Privacidad",
     },
     agents: {
