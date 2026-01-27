@@ -128,8 +128,8 @@ function resetMessage(messageDiv: HTMLDivElement): void {
 /**
  * Shows a success message
  */
-function showSuccessMessage(messageDiv: HTMLDivElement, lang: string): void {
-  const successMsg = getSafeTranslation(lang, "contact.form.success", "Message sent successfully!");
+function showSuccessMessage(messageDiv: HTMLDivElement, lang: string, override?: string): void {
+  const successMsg = override || getSafeTranslation(lang, "contact.form.success", "Message sent successfully!");
   messageDiv.textContent = successMsg;
   messageDiv.setAttribute("data-message-type", "success");
   messageDiv.classList.remove("hidden");
@@ -149,10 +149,13 @@ function showSuccessMessage(messageDiv: HTMLDivElement, lang: string): void {
 function showErrorMessage(
   messageDiv: HTMLDivElement,
   lang: string,
-  errorId?: string
+  errorId?: string,
+  override?: string
 ): void {
   let errorMsg: string;
-  if (errorId) {
+  if (override) {
+    errorMsg = override;
+  } else if (errorId) {
     const errorKey = `contact.form.errors.${errorId}`;
     errorMsg = getSafeTranslation(lang, errorKey, "An error occurred. Please try again.");
   } else {
@@ -180,8 +183,8 @@ function showErrorMessage(
 /**
  * Shows a network error message
  */
-function showNetworkErrorMessage(messageDiv: HTMLDivElement, lang: string): void {
-  const networkErrorMsg = getSafeTranslation(
+function showNetworkErrorMessage(messageDiv: HTMLDivElement, lang: string, override?: string): void {
+  const networkErrorMsg = override || getSafeTranslation(
     lang,
     "contact.form.networkError",
     "Network error. Please check your connection and try again."
@@ -211,6 +214,11 @@ function createFormSubmitHandler(elements: FormElements) {
     const { form, submitButton, messageDiv } = elements;
     const lang = getCurrentLang();
 
+    const successMessageOverride = form.getAttribute("data-success-message") || undefined;
+    const errorMessageOverride = form.getAttribute("data-error-message") || undefined;
+    const networkErrorMessageOverride = form.getAttribute("data-network-error-message") || undefined;
+    const requireContact = form.getAttribute("data-require-contact") !== "false";
+
     // Validate form is still in DOM before proceeding
     if (!form.isConnected) {
       console.error("Contact form: Form element is no longer in the DOM");
@@ -221,12 +229,13 @@ function createFormSubmitHandler(elements: FormElements) {
     const formsparkEndpoint = form.getAttribute("data-formspark-endpoint") || form.getAttribute("action");
     if (!formsparkEndpoint || formsparkEndpoint === "javascript:void(0);") {
       console.error("Contact form: Formspark endpoint not found");
-      showErrorMessage(messageDiv, lang);
+      showErrorMessage(messageDiv, lang, undefined, errorMessageOverride);
       return;
     }
 
     // Get Botpoison public key if available
     const botpoisonPublicKey = form.getAttribute("data-botpoison-public-key");
+    const emailRecipient = form.getAttribute("data-email-to");
 
     // Get form data - use the actual field names from the form (Name, Email)
     const formData = new FormData(form);
@@ -235,6 +244,12 @@ function createFormSubmitHandler(elements: FormElements) {
 
     // Reset message
     resetMessage(messageDiv);
+
+    // Validate required fields via native HTML validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     // Disable submit button and show loading state
     const originalButtonText = submitButton.textContent;
@@ -249,24 +264,34 @@ function createFormSubmitHandler(elements: FormElements) {
       // Validate form data before sending
       const nameStr = String(nameValue || "").trim();
       const emailStr = String(emailValue || "").trim();
-      
-      if (!nameStr || !emailStr) {
-        showErrorMessage(messageDiv, lang);
-        return;
+
+      if (requireContact) {
+        if (!nameStr || !emailStr) {
+          showErrorMessage(messageDiv, lang, undefined, errorMessageOverride);
+          return;
+        }
       }
 
-      // Basic email validation
+      // Basic email validation (only if provided)
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailStr)) {
-        showErrorMessage(messageDiv, lang, "invalidEmail");
+      if (emailStr && !emailRegex.test(emailStr)) {
+        showErrorMessage(messageDiv, lang, "invalidEmail", errorMessageOverride);
         return;
       }
 
-      // Prepare form data for Formspark (using field names as they appear in the form)
-      const formsparkData: Record<string, any> = {
-        Name: nameStr,
-        Email: emailStr,
-      };
+      // Prepare form data for Formspark (include all fields)
+      const formsparkData: Record<string, any> = {};
+      for (const [key, value] of formData.entries()) {
+        if (typeof value === "string") {
+          formsparkData[key] = value;
+        } else if (value instanceof File && value.size > 0) {
+          formsparkData[key] = value.name;
+        }
+      }
+
+      if (emailRecipient) {
+        formsparkData.Recipient = emailRecipient;
+      }
 
       // Handle Botpoison challenge if configured
       if (botpoisonPublicKey) {
@@ -275,7 +300,7 @@ function createFormSubmitHandler(elements: FormElements) {
           const Botpoison = (window as WindowWithBotpoison).Botpoison;
           if (!Botpoison) {
             console.warn("Contact form: Botpoison library not loaded");
-            showErrorMessage(messageDiv, lang);
+            showErrorMessage(messageDiv, lang, undefined, errorMessageOverride);
             return;
           }
 
@@ -287,7 +312,7 @@ function createFormSubmitHandler(elements: FormElements) {
           formsparkData._botpoison = solution;
         } catch (botpoisonError) {
           console.error("Contact form: Botpoison challenge failed:", botpoisonError);
-          showErrorMessage(messageDiv, lang);
+          showErrorMessage(messageDiv, lang, undefined, errorMessageOverride);
           return;
         }
       }
@@ -305,7 +330,7 @@ function createFormSubmitHandler(elements: FormElements) {
       // Handle response
       if (response.ok) {
         // Success - Formspark returns 200 on success
-        showSuccessMessage(messageDiv, lang);
+        showSuccessMessage(messageDiv, lang, successMessageOverride);
         form.reset();
       } else {
         // Error from Formspark
@@ -326,17 +351,17 @@ function createFormSubmitHandler(elements: FormElements) {
         }
         
         console.error("Formspark submission error:", errorMessage);
-        showErrorMessage(messageDiv, lang);
+        showErrorMessage(messageDiv, lang, undefined, errorMessageOverride);
       }
     } catch (error) {
       // Network, timeout, or other error
       console.error("Form submission error:", error);
       if (error instanceof TypeError && error.message.includes("fetch")) {
         // Network error (offline, CORS, etc.)
-        showNetworkErrorMessage(messageDiv, lang);
+        showNetworkErrorMessage(messageDiv, lang, networkErrorMessageOverride);
       } else {
         // Other unexpected errors
-        showNetworkErrorMessage(messageDiv, lang);
+        showNetworkErrorMessage(messageDiv, lang, networkErrorMessageOverride);
       }
     } finally {
       // Re-enable submit button
